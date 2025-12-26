@@ -15,6 +15,10 @@ execute if data storage scdev:_ t.lead.entrypoints[0] run function scdev:_/main/
 
 tellraw @a[tag=scdev.watch] {text:" Loads:", color:white}
 data modify storage scdev:_ t.load.loads set from storage slimecore:data build.order.load
+# DEBUG:
+tellraw @a ["", {'storage':'scdev:_', 'nbt':'t.load.loads'}]
 execute if data storage scdev:_ t.lead.loads[0] run function scdev:_/main/meta_info/load/start/loads/each
 
 tellraw @a[tag=scdev.watch] {text:"------------------------", bold:true, color:gold}
+
+data remove storage scdev:_ t.load
