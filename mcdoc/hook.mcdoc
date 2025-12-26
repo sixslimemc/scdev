@@ -1,0 +1,4 @@
+
+dispatch minecraft:storage[scdev:hook] to struct Hook {
+
+}

@@ -1,0 +1,4 @@
+
+dispatch minecraft:storage[scdev:config] to struct Config {
+
+}

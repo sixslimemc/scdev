@@ -1,0 +1,4 @@
+
+dispatch minecraft:storage[scdev:data] to struct Data {
+
+}

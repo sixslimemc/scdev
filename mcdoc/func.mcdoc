@@ -1,0 +1,16 @@
+
+dispatch minecraft:storage[scdev:in] to struct In {
+
+}
+
+dispatch minecraft:storage[scdev:out] to struct Out {
+
+}
+
+dispatch minecraft:storage[scdev:abstract/in] to struct AbstractIn {
+
+}
+
+dispatch minecraft:storage[scdev:abstract/out] to struct AbstractOut {
+
+}

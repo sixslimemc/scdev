@@ -1,0 +1,20 @@
+
+struct VariableRegister {
+    [string]: any
+}
+dispatch minecraft:storage[scdev:_] to struct {
+    /// top level
+    t: VariableRegister,
+    /// impl
+    v: VariableRegister,
+    /// util
+    u: VariableRegister,
+    /// in-scope temp
+    x: VariableRegister,
+}
+dispatch minecraft:storage[scdev:_/in] to struct {
+    [any]: any
+}
+dispatch minecraft:storage[scdev:_/out] to struct {
+    [any]: any
+}
