@@ -12,7 +12,7 @@ tellraw @a[tag=scdev.watch] \
     {text:" - ", color: gray}, \
     {storage: "scdev:_", nbt:"t.load.this_preload.pack_ref", color: dark_aqua}, \
     {text:" : ", color: gray}, \
-    {storage: "scdev:_", nbt:"t.load.this_preload.id", color: light_purple, italic:true}, \
+    {storage: "scdev:_", nbt:"t.load.this_preload.id", color: light_purple}, \
 ]
 
 data remove storage scdev:_ t.load.preloads[0]
