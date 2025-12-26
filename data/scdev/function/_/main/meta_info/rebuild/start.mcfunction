@@ -1,4 +1,4 @@
-# scdev:_/main/meta_info/rebuild
+#> scdev:_/main/meta_info/rebuild/start
 #--------------------
 # HOOK: slimecore::meta_info/rebuild/start
 #--------------------
