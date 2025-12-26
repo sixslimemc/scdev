@@ -2,3 +2,5 @@
 #--------------------
 # HOOK: slimecore::meta_info/load/end
 #--------------------
+
+tellraw @a[tag=scdev.watch] {text:"> Load End.", color:dark_gray}
