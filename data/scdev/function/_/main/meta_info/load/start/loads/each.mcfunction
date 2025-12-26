@@ -9,7 +9,7 @@ tellraw @a[tag=scdev.watch] \
 [ \
     {text:"  "}, \
     {storage: "scdev:_", nbt:"t.load.this_load.index", color: gray}, \
-    {text:". ", color: gray}, \
+    {text:" - ", color: gray}, \
     {storage: "scdev:_", nbt:"t.load.this_load.pack_ref", color: aqua}, \
 ]
 

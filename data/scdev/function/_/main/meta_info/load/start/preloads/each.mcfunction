@@ -9,9 +9,9 @@ tellraw @a[tag=scdev.watch] \
 [ \
     {text:"  "}, \
     {storage: "scdev:_", nbt:"t.load.this_preload.index", color: gray}, \
-    {text:". ", color: gray}, \
+    {text:" - ", color: gray}, \
     {storage: "scdev:_", nbt:"t.load.this_preload.id", color: light_purple, italic:true}, \
-    {text:" ~", color: gray}, \
+    {text:" ", color: gray}, \
     {storage: "scdev:_", nbt:"t.load.this_preload.pack_ref", color: dark_aqua}, \
 ]
 
