@@ -3,7 +3,6 @@
 # ../../start
 #--------------------
 
-say hi
 data modify storage scdev:_ t.load.this_load set from storage scdev:_ t.load.loads[0]
 
 tellraw @a[tag=scdev.watch] \
