@@ -8,7 +8,7 @@ data modify storage scdev:_ t.load.this_load set from storage scdev:_ t.load.loa
 tellraw @a[tag=scdev.watch] \
 [ \
     {text:"  "}, \
-    {storage: "scdev:_", nbt:"t.load.this_load.index", color: gray}, \
+    {storage: "scdev:_", nbt:"t.load.this_load.index", color: dark_gray}, \
     {text:" - ", color: gray}, \
     {storage: "scdev:_", nbt:"t.load.this_load.pack_ref", color: aqua}, \
 ]
