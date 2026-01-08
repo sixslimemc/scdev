@@ -3,7 +3,7 @@
 # HOOK: slimecore::meta_info/load/start
 #--------------------
 
-tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Loading:"}]
+tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:":"}]
 tellraw @a[tag=scdev.watch] {text:"--[ Loading ]-------", bold:true, color:blue}
 
 tellraw @a[tag=scdev.watch] {text:" Preload Entrypoints:", color:white, bold:true}
