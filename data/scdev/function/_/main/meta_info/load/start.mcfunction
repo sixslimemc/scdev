@@ -3,7 +3,8 @@
 # HOOK: slimecore::meta_info/load/start
 #--------------------
 
-tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:"\n--[ Loading ]-------", bold:true, color:blue}]
+tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Load start (load report below)."}]
+tellraw @a[tag=scdev.watch] {text:"\n--[ Loading ]-------", bold:true, color:blue}
 
 tellraw @a[tag=scdev.watch] {text:" Preload Entrypoints:", color:white, bold:true}
 data modify storage scdev:_ t.load.preloads set from storage slimecore:data build.order.preload_entrypoints
