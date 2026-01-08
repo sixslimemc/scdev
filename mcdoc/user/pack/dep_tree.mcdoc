@@ -1,0 +1,7 @@
+// Prints dependency tree of <pack> in chat.
+
+use super::super::super::def::PackId
+
+struct In {
+    pack: PackId
+}
