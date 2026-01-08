@@ -1,0 +1,4 @@
+
+// Only exist because of absolute path impurity.
+type PackId = ::slimecore::mcdoc::def::PackId
+type PackReference = ::slimecore::mcdoc::def::PackReference

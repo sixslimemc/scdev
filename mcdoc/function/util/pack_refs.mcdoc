@@ -1,0 +1,14 @@
+// converts a list of <pack ids> to pack references.
+
+use super::super::super::def::PackId
+use super::super::super::def::PackReference
+
+struct In {
+    pack_ids: [PackId]
+}
+
+struct Out {
+    result: [PackReference]
+}
+
+type Return = 1

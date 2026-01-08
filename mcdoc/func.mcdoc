@@ -1,16 +1,8 @@
 
 dispatch minecraft:storage[scdev:in] to struct In {
-
+    pack_refs: super::function::util::pack_refs::In,
 }
 
 dispatch minecraft:storage[scdev:out] to struct Out {
-
-}
-
-dispatch minecraft:storage[scdev:abstract/in] to struct AbstractIn {
-
-}
-
-dispatch minecraft:storage[scdev:abstract/out] to struct AbstractOut {
-
+    pack_refs: super::function::util::pack_refs::Out,
 }
