@@ -3,4 +3,4 @@
 # HOOK: slimecore::meta_info/rebuild/start
 #--------------------
 
-tellraw @a[tag=scdev.watch] {text:"> Rebuilding...", color:blue}
+tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Rebuilding...", color:blue}]
