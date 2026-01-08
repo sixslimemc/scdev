@@ -3,5 +3,7 @@
 use super::super::super::def::PackId
 
 struct In {
-    pack: PackId
+    args: struct Args {
+        pack: PackId
+    }
 }
