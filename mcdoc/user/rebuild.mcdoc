@@ -1,0 +1,14 @@
+// Command-line friendly wrapper around `slimecore:rebuild`.
+
+use super::super::def::PackId
+
+struct In {
+    args: struct Args {
+        uninstall?: [PackId],
+        disable?: [PackId],
+        enable?: [PackId],
+        clean?: boolean,
+    }
+}
+
+type Result = 1
