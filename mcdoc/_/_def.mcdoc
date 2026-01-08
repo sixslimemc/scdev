@@ -11,6 +11,9 @@ dispatch minecraft:storage[scdev:_] to struct {
     u: VariableRegister,
     /// in-scope temp
     x: VariableRegister,
+    const: struct {
+        chat_marker: ::java::util::text::Text
+    }
 }
 dispatch minecraft:storage[scdev:_/in] to struct {
     [any]: any

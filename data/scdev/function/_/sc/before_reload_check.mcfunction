@@ -5,7 +5,8 @@
 
 scoreboard objectives add _scdev dummy
 
-
+# consts:
+data modify storage scdev:_ const.chat_marker set value {text:"[scdev]", color:gray}
 
 # DEBUG
 scoreboard players reset *init _scdev
