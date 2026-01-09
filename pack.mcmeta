@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "TODO",
+    "description": "Small utility for developing with SlimeCore.",
     "min_format": 94,
     "max_format": 94
   }
