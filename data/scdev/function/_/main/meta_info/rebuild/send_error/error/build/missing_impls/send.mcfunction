@@ -1,6 +1,6 @@
 #> scdev:_/main/meta_info/rebuild/send_error/error/build/missing_impls/send
 #--------------------
-# ../../do
+# ../../../do
 #--------------------
 
 tellraw @s {text: "> Unimplemented abstract interfaces:", color:red}

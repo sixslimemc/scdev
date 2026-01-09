@@ -10,5 +10,6 @@ execute if data storage slimecore:hook end.result.error.build_error.invalid_pack
 execute if data storage slimecore:hook end.result.error.build_error.duplicate_pack_ids run function scdev:_/main/meta_info/rebuild/send_error/error/build/duplicate_ids/send
 execute if data storage slimecore:hook end.result.error.build_error.multiple_implementations run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/send
 execute if data storage slimecore:hook end.result.error.build_error.unfulfilled_dependencies run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_deps/send
+execute if data storage slimecore:hook end.result.error.build_error.dependency_cycles run function scdev:_/main/meta_info/rebuild/send_error/error/build/dep_cycles/send
 
 data remove storage scdev:_ t.error
