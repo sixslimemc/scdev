@@ -6,7 +6,7 @@ data remove storage slimecore:in manifest.pack
 data modify storage slimecore:in manifest.pack.pack_id set value "scdev"
 data modify storage slimecore:in manifest.pack.author_id set value "sixslime"
 data modify storage slimecore:in manifest.pack.version set value {major:0, minor:1, patch:0}
-data modify storage slimecore:in manifest.pack.url set value "https://github.com/sixslimemc/scdev/releases/download/0.1.0/sixslime.scdev.0.1.0.zip"
+data modify storage slimecore:in manifest.pack.url set value "https://github.com/sixslimemc/scdev/releases/download/v0.1.0/sixslime.scdev.0.1.0.zip"
 
 data modify storage slimecore:in manifest.pack.display.name set value "SlimeCore Minimal Dev. Utility"
 data modify storage slimecore:in manifest.pack.display.summary set value "Small utility for developing with SlimeCore."
