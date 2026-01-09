@@ -6,7 +6,7 @@
 
 ## Description
 
-### Listening To Hooks
+### Listen To SlimeCore Events
 
 Players with the `scdev.listen` entity-tag recieve helpful info in chat related to SlimeCore events when they happen (load/entrypoint order on reload, rebuild status messages, etc.).
 
