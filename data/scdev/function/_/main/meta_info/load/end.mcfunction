@@ -3,4 +3,4 @@
 # HOOK: slimecore::meta_info/load/end
 #--------------------
 
-tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Reached load end.", color:gray}]
+tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Reached Load End.", color:gray}]
