@@ -1,9 +1,0 @@
-// Prints info about <pack> in chat.
-
-use super::super::super::def::PackId
-
-struct In {
-    args: struct Args {
-        pack: PackId
-    }
-}

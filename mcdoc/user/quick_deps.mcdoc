@@ -1,7 +1,12 @@
 // Quickly generates a 'dependencies' array based on the world's currently installed/enabled packs.
 
-use super::super::super::def::PackId
+use super::super::def::PackId
 
 struct In {
     packs: [PackId]
+}
+
+enum(int) Return {
+    Success = 1,
+    InvalidArgs = 0,
 }
