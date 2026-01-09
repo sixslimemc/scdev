@@ -14,10 +14,10 @@ data modify storage scdev:_ t.error.download_button.click_event.url set from sto
 execute if data storage scdev:_ t.error.entry.reason.not_present run tellraw @s [{text:"  (Pack not installed/enabled) ", color:red}, {storage:"scdev:_", nbt:"t.error.download_button",interpret:true}]
 
 # author mismatch:
-execute if data storage scdev:_ t.error.entry.reason.author_mismatch run tellraw @s [{text:"  (Pack with identical pack ID is installed, but incorrect author ID. This pack must be uninstalled/disabled)", color:red}]
+execute if data storage scdev:_ t.error.entry.reason.author_mismatch run tellraw @s [{text:"  (A pack with an identical pack ID, ", color:"red"}, {storage:"scdev:_", nbt:"t.error.entry.reason.author_mismatch.got", color: dark_aqua}, {text:".", color:"dark_aqua"}, {storage:"scdev:_", nbt:"t.error.entry.dependency.pack_id", color: dark_aqua}, {text:" is enabled, it must be uninstalled/disabled)", color:"red"}]
 
 # incompatible version:
-execute if data storage scdev:_ t.error.entry.reason.incompatible_version run tellraw @s [{text:"  (Installed pack does not fulfill the version requirement)", color:red}]
+execute if data storage scdev:_ t.error.entry.reason.incompatible_version run tellraw @s [{text:"  (Currently installed pack does not fulfill the version requirement) ", color:red}, {storage:"scdev:_", nbt:"t.error.download_button",interpret:true}]
 
 data remove storage scdev:_ t.error.entries[-1]
 execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_deps/each
