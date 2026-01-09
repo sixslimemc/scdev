@@ -3,4 +3,4 @@
 # ../../do
 #--------------------
 
-tellraw @s [{text: "> Multiple packs share the same pack ID, ", color:red}, {storage:"slimecore:hook", nbt:"end.result.error.build_error.duplicate_pack_ids", color: yellow}, {text: ".", color:red}]
+tellraw @s [{text: "> Multiple packs share the same pack ID, ", color:dark_red}, {storage:"slimecore:hook", nbt:"end.result.error.build_error.duplicate_pack_ids", color: yellow}, {text: ".", color:dark_red}]
