@@ -8,8 +8,8 @@
 
 ### Listen To SlimeCore Events
 
-Players with the `scdev.listen` entity-tag recieve helpful info in chat related to SlimeCore events when they happen (load/entrypoint order on reload, rebuild status messages, etc.).
+Players with the `scdev.listen` entity-tag recieve info in chat when SlimeCore events occur (load/entrypoint order on reload, rebuild status messages, etc.).
 
 ### User Functions
 
-Offers a command-line friendly wrapper around `slimecore:rebuild`, as well as a function to quickly generate `manifest.pack.dependencies` manifest-function input.
+Provides a command-line friendly wrapper around `slimecore:rebuild`, as well as a function to quickly generate the `dependencies` manifest-function input.
