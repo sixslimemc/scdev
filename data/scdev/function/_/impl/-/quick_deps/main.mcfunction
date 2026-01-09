@@ -10,9 +10,9 @@ execute if data storage scdev:_ v.quick_deps.packs[0] run function scdev:_/impl/
 # {..text}:
 execute summon text_display run function scdev:_/impl/-/quick_deps/gen_text
 
-data modify storage scdev:_ v.quick_deps.message set value {text:"Click to copy value", color:yellow, underline:true, click_event:{action:"copy_to_clipboard", value:""}}
+data modify storage scdev:_ v.quick_deps.message set value {text:"Click to copy value", color:yellow, underlined:true, click_event:{action:"copy_to_clipboard", value:""}}
 data modify storage scdev:_ v.quick_deps.message.click_event.value set from storage scdev:_ v.quick_deps.text
 
 tellraw @s {storage:"scdev:_", nbt:"v.quick_deps.message",interpret:true}
-tellraw @s {text:"This value should go in your pack's manifest function like so:", color:gray}
-tellraw @s [{text:"data modify storage slimecore:in manifest.pack.dependencies set value ", color:dark_gray}, {text: "<value>", color:red}]
+tellraw @s {text:"In your pack's manifest function:", color:gray}
+tellraw @s [{text:"data modify storage slimecore:in manifest.pack.dependencies set value ", color:dark_gray, italic:true}, {text: "<value>", color:green, italic:true}]
