@@ -14,5 +14,5 @@ data modify storage scdev:_ v.quick_deps.message set value {text:"Click to copy 
 data modify storage scdev:_ v.quick_deps.message.click_event.value set from storage scdev:_ v.quick_deps.text
 
 tellraw @s {storage:"scdev:_", nbt:"v.quick_deps.message",interpret:true}
-tellraw @s {text:"In your pack's manifest function:", color:gray}
-tellraw @s [{text:"data modify storage slimecore:in manifest.pack.dependencies set value ", color:dark_gray, italic:true}, {text: "<value>", color:green, italic:true}]
+tellraw @s {text:"In your pack's manifest function:", color:gray, italic:true}
+tellraw @s [{text:"data modify storage slimecore:in manifest.pack.dependencies set value ", color:dark_purple}, {text: "<value>", color:light_purple, italic:true}]
