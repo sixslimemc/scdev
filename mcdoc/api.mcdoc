@@ -1,7 +1,0 @@
-
-
-dispatch minecraft:storage[scdev:api] to struct Api {
-
-}
-
-

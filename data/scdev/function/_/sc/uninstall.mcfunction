@@ -1,6 +1,10 @@
 #> scdev:_/sc/uninstall
 # @ UNINSTALL
 
-# TODO
+scoreboard objectives remove _scdev
 
-tellraw @a [{color:red, text:"[!!!] Uninstallation for 'scdev' has not yet been implemented!"}]
+data remove storage scdev:_ const
+data remove storage scdev:_ x
+data remove storage scdev:_ t
+data remove storage scdev:_ v
+data remove storage scdev:_ u
