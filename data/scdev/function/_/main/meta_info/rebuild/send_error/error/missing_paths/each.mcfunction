@@ -6,7 +6,7 @@
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
 tellraw @s [ \
-    {text:"- Could not find datapack path for ", color: red}, \
+    {text:" - Could not find datapack path for ", color: red}, \
     {storage:"scdev:_", nbt:"t.error.entry.pack.pack_id", color:yellow}, \
     {text:".", color:red} \
 ]
