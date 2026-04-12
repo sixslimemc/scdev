@@ -23,7 +23,7 @@ execute if data storage scdev:_ t.load.entrypoints[0] run function scdev:_/main/
 
 tellraw @a[tag=scdev.watch] {text:"--------------------", bold:true, color:blue}
 
-tellraw @a[tag=scdev.watch] {text:"A \"", color:blue, extra:[{text:"✔", color:dark_green}, {text:" Loading finished.\" message should be below.", color:blue}], hover_event:{action:"show_text", value:[{text:"If not:\n - There may be many packs being loaded, and 'build_time_gamerules.max_command_sequence_length' should be set/increased in slimecore:config.\n - One or more packs may have an infinite loop in it's entrypoint/load function(s).", color:gray}]}}
+tellraw @a[tag=scdev.watch] {text:"A \"", color:blue, extra:[{text:"✔", color:dark_green}, {text:" Loading finished.\" message should be below.", color:blue}], hover_event:{action:"show_text", value:[{text:"If not:\n - There may be many packs being loaded, and 'build_time_gamerules.max_command_sequence_length' should be set/increased in slimecore:config.\n - One or more packs may have an infinite loop in its entrypoint/load function(s).", color:gray}]}}
 
 
 data remove storage scdev:_ t.load
