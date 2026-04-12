@@ -23,7 +23,7 @@ execute if data storage scdev:_ t.load.entrypoints[0] run function scdev:_/main/
 
 tellraw @a[tag=scdev.watch] {text:"--------------------", bold:true, color:blue}
 
-tellraw @a[tag=scdev.watch] {text:"(Expect a ", color:blue, extra:[{text:"✔", color:dark_green}, {text:" message indicating loading finished.)", color:blue}], hover_event:{action:"show_text", value:[{text:"If no ", color:white}, {text:"✔", color:dark_green}, {text:" message is sent, loading did not finish.", color:white}, {text:"\nThis usually means either:\n - There are many packs being loaded, and 'build_time_gamerules.max_command_sequence_length' should be set/increased in slimecore:config.\n - One or more packs has an infinite loop in it's entrypoint/load function(s).", color:gray}]}}
+tellraw @a[tag=scdev.watch] {text:"A \"", color:blue, extra:[{text:"✔", color:dark_green}, {text:" Loading finished.\" message should be below.", color:blue}], hover_event:{action:"show_text", value:[{text:"If no ", color:white}, {text:"✔", color:dark_green}, {text:" message is sent, loading did not finish.", color:white}, {text:"\nThis usually means either:\n - There are many packs being loaded, and 'build_time_gamerules.max_command_sequence_length' should be set/increased in slimecore:config.\n - One or more packs has an infinite loop in it's entrypoint/load function(s).", color:gray}]}}
 
 
 data remove storage scdev:_ t.load
