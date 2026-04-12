@@ -21,7 +21,8 @@ data modify storage scdev:_ t.load.entrypoints set from storage slimecore:data b
 execute unless data storage scdev:_ t.load.entrypoints[0] run tellraw @a[tag=scdev.watch] {text:"  (none)", color:dark_gray}
 execute if data storage scdev:_ t.load.entrypoints[0] run function scdev:_/main/meta_info/load/start/entrypoints/each
 
+tellraw @a[tag=scdev.watch] [{text:"\n If no ", color:dark_gray}, {text:"✔", color:dark_green}, {text:" is sent below, loading did not finish.", color:dark_gray}]
+
 tellraw @a[tag=scdev.watch] {text:"--------------------", bold:true, color:blue}
-tellraw @a[tag=scdev.watch] {text:" If no ✔ message is sent, loading did not finish.", color:dark_gray}
 
 data remove storage scdev:_ t.load
