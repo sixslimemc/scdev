@@ -22,6 +22,6 @@ execute unless data storage scdev:_ t.load.entrypoints[0] run tellraw @a[tag=scd
 execute if data storage scdev:_ t.load.entrypoints[0] run function scdev:_/main/meta_info/load/start/entrypoints/each
 
 tellraw @a[tag=scdev.watch] {text:"--------------------", bold:true, color:blue}
-tellraw @a[tag=scdev.watch] {text:" A '✔' should be sent below, if none is sent, loading did not finish.", color:blue}
+tellraw @a[tag=scdev.watch] {text:" Loading did not finish if no '✔' message is below.", color:blue}
 
 data remove storage scdev:_ t.load
