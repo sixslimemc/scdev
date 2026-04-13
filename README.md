@@ -10,6 +10,10 @@
 
 Players with the `scdev.listen` entity tag recieve info in chat when SlimeCore events occur (load/entrypoint order on reload, rebuild status messages, etc.).
 
+```mcfunction
+tag @s add scdev.listen
+```
+
 ### Functions
 
 Provides `scdev:-/rebuild`, a command-line friendly wrapper around `slimecore:rebuild`, and `scdev:-/quick_deps`, a function to quickly generate the `dependencies` manifest-function input.
