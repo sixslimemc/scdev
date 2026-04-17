@@ -5,14 +5,16 @@
 
 data modify storage scdev:_ t.load.this_preload set from storage scdev:_ t.load.preloads[0]
 
+data modify storage scdev:_/in preload_entrypoint.preload_entrypoint set from storage scdev:_ t.load.this_preload
+function scdev:_/util/format/preload_entrypoint/main
+data modify storage scdev:_ t.load.preload_text set from storage scdev:_/out preload_entrypoint.result
+
 tellraw @a[tag=scdev.watch] \
 [ \
     {text:"  "}, \
     {plain:true, storage: "scdev:_", nbt:"t.load.this_preload.index", color: dark_gray}, \
     {text:" - ", color: gray}, \
-    {plain:true, storage: "scdev:_", nbt:"t.load.this_preload.pack_ref", color: dark_aqua}, \
-    {text:" : ", color: gray}, \
-    {plain:true, storage: "scdev:_", nbt:"t.load.this_preload.id", color: light_purple}, \
+    {interpret:true, storage:"scdev:_", nbt:"t.load.preload_text"} \
 ]
 
 data remove storage scdev:_ t.load.preloads[0]

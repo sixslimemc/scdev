@@ -5,14 +5,16 @@
 
 data modify storage scdev:_ t.load.this_entrypoint set from storage scdev:_ t.load.entrypoints[0]
 
+data modify storage scdev:_/in entrypoint.entrypoint set from storage scdev:_ t.load.this_entrypoint
+function scdev:_/util/format/entrypoint/main
+data modify storage scdev:_ t.load.preload_text set from storage scdev:_/out entrypoint.result
+
 tellraw @a[tag=scdev.watch] \
 [ \
     {text:"  "}, \
     {plain:true, storage: "scdev:_", nbt:"t.load.this_entrypoint.index", color: dark_gray}, \
     {text:" - ", color: gray}, \
-    {plain:true, storage: "scdev:_", nbt:"t.load.this_entrypoint.pack_ref", color: dark_aqua}, \
-    {text:" : ", color: gray}, \
-    {plain:true, storage: "scdev:_", nbt:"t.load.this_entrypoint.id", color: green}, \
+    {interpret:true, storage:"scdev:_", nbt:"t.load.preload_text"} \
 ]
 
 data remove storage scdev:_ t.load.entrypoints[0]
