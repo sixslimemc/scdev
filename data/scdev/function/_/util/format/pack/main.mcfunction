@@ -14,7 +14,7 @@
 data modify storage scdev:_/out pack set value {}
 
 data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ u.pack.data set from storage slimecore:data build.aux.pack_map.", 2:true}
-data modify storage scdev:_ x.mline.2 set from storage scdev:_/in pack_id
+data modify storage scdev:_ x.mline.2 set from storage scdev:_/in pack.pack_id
 function scdev:_/util/mline/2 with storage scdev:_ x.mline
 
 # title:
