@@ -52,7 +52,6 @@ execute if data storage scdev:_ u.pack.data{is_library:true} run data modify sto
 data modify storage scdev:_ u.pack.show.hover.extra append value {text:"\n"}
 data modify storage scdev:_ u.pack.show.hover.extra append from storage scdev:_ u.pack.c.line3
 
-
 # set text/out:
 data modify storage scdev:_ u.pack.text set from storage scdev:_ u.pack.show.title
 data modify storage scdev:_ u.pack.text.hover_event set value {action:"show_text", value:{}}
