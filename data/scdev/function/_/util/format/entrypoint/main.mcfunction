@@ -12,7 +12,7 @@
 
 data modify storage scdev:_/out entrypoint set value {}
 
-data modify storage scdev:_ u.entrypoint.text set value {text:"",extra:[{text:"PACK", color:dark_green}, {text:">",color:gray}, {text:"ID",color:green}]}
+data modify storage scdev:_ u.entrypoint.text set value {text:"",extra:[{text:"PACK", color:gray}, {text:"> ",color:gray}, {text:"ID",color:green}]}
 data modify storage scdev:_ u.entrypoint.text.extra[0].text set from storage scdev:_/in entrypoint.entrypoint.pack_ref
 data modify storage scdev:_ u.entrypoint.text.extra[2].text set from storage scdev:_/in entrypoint.entrypoint.id
 data modify entity @s text set from storage scdev:_ u.entrypoint.text
