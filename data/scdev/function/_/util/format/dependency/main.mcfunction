@@ -17,8 +17,8 @@ data modify storage scdev:_ u.dependency.data set from storage scdev:_/in depend
 data modify storage scdev:_ u.dependency.c.id set value {text:"", color:gold, extra:[{text:"AUTHOR ID"}, {text:"."}, {text:"PACK ID"}]}
 data modify storage scdev:_ u.dependency.c.id.extra[0].text set from storage scdev:_ u.dependency.data.author_id
 data modify storage scdev:_ u.dependency.c.id.extra[2].text set from storage scdev:_ u.dependency.data.pack_id
-data modify storage scdev:_ u.dependency.c.ver set value {text:"", color:dark_green, extra:[{storage:"scdev:_", nbt:"u.dependency.data.version.major"}, {text:"."}, {storage:"scdev:_", nbt:"u.dependency.data.version.minor"}]}
-data modify storage scdev:_ u.dependency.show.title set value {text:"", extra:[{}, {text:"~",color:gray}, {}]}
+data modify storage scdev:_ u.dependency.c.ver set value {text:"", extra:[{storage:"scdev:_", nbt:"u.dependency.data.version.major"}, {text:"."}, {storage:"scdev:_", nbt:"u.dependency.data.version.minor"}]}
+data modify storage scdev:_ u.dependency.show.title set value {text:"", color:dark_green, extra:[{}, {text:"~"}, {}]}
 data modify storage scdev:_ u.dependency.show.title.extra[0] set from storage scdev:_ u.dependency.c.id
 data modify storage scdev:_ u.dependency.show.title.extra[2] set from storage scdev:_ u.dependency.c.ver
 
