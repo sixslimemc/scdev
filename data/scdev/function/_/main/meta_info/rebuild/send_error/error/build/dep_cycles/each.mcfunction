@@ -5,7 +5,7 @@
 
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
-tellraw @s {text:" - Cycle including packs: ", color:red}
+tellraw @a[tag=scdev.listener] {text:" - Cycle including packs: ", color:red}
 
 execute if data storage scdev:_ t.error.entry.cycle[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/dep_cycles/each_pack
 

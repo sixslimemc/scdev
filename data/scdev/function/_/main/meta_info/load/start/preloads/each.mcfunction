@@ -9,7 +9,7 @@ data modify storage scdev:_/in preload_entrypoint.preload_entrypoint set from st
 function scdev:_/util/format/preload_entrypoint/main
 data modify storage scdev:_ t.load.preload_text set from storage scdev:_/out preload_entrypoint.result
 
-tellraw @a[tag=scdev.watch] \
+tellraw @a[tag=scdev.listener] \
 [ \
     {text:"  "}, \
     {plain:true, storage: "scdev:_", nbt:"t.load.this_preload.index", color: dark_gray}, \

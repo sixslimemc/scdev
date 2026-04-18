@@ -5,7 +5,7 @@
 
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
-tellraw @s [ \
+tellraw @a[tag=scdev.listener] [ \
     {text:" - ", color: red}, \
     {storage:"scdev:_", nbt:"t.error.entry.pack_ref", color:yellow}, \
     {text:":", color: gray}, \

@@ -5,7 +5,7 @@
 
 data modify storage scdev:_ t.error.dup_id set from storage scdev:_ t.error.entry.invalid_pack_references[-1]
 
-tellraw @s [\
+tellraw @a[tag=scdev.listener] [\
     {text:"  - Elements in array ", color: red},\
     {plain:true, storage:"scdev:_", nbt:"t.error.dup_id.in", color:dark_aqua},\
     {text:" should be unique by key ", color: red},\

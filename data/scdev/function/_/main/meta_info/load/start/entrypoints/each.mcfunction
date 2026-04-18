@@ -9,7 +9,7 @@ data modify storage scdev:_/in entrypoint.entrypoint set from storage scdev:_ t.
 function scdev:_/util/format/entrypoint/main
 data modify storage scdev:_ t.load.preload_text set from storage scdev:_/out entrypoint.result
 
-tellraw @a[tag=scdev.watch] \
+tellraw @a[tag=scdev.listener] \
 [ \
     {text:"  "}, \
     {plain:true, storage: "scdev:_", nbt:"t.load.this_entrypoint.index", color: dark_gray}, \
