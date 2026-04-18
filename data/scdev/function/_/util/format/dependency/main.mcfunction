@@ -29,7 +29,7 @@ data modify storage scdev:_ u.dependency.show.hover set value {text:"", extra:[{
 data modify storage scdev:_ u.dependency.show.hover.extra[1] set from storage scdev:_ u.dependency.c.dversion
 
 # set text:
-data modify storage scdev:_ u.dependency.text set from storage scdev:_ u.dependency.c.id
+data modify storage scdev:_ u.dependency.text set from storage scdev:_ u.dependency.show.title
 data modify storage scdev:_ u.dependency.text.hover_event set value {action:"show_text", value:{}}
 data modify storage scdev:_ u.dependency.text.hover_event.value set from storage scdev:_ u.dependency.show.hover
 data modify storage scdev:_ u.dependency.text.click_event set value {action:"open_url", url:""}
