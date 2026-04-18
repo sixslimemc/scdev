@@ -25,3 +25,27 @@ data modify storage slimecore:in manifest.pack.dependencies set value []
 data modify storage slimecore:in manifest.pack.is_library set value false
 
 function slimecore:api/manifest
+
+data remove storage slimecore:in manifest.pack
+
+data modify storage slimecore:in manifest.pack.pack_id set value "scdev"
+data modify storage slimecore:in manifest.pack.author_id set value "test"
+data modify storage slimecore:in manifest.pack.version set value {major:99, minor:99, patch:88}
+data modify storage slimecore:in manifest.pack.url set value ""
+
+data modify storage slimecore:in manifest.pack.display.name set value "TEST"
+data modify storage slimecore:in manifest.pack.display.summary set value "TEST"
+data modify storage slimecore:in manifest.pack.display.author_name set value ""
+data modify storage slimecore:in manifest.pack.display.links.author set value ""
+data modify storage slimecore:in manifest.pack.display.links.info set value ""
+data modify storage slimecore:in manifest.pack.display.links.versions set value ""
+
+data modify storage slimecore:in manifest.pack.entrypoints set value []
+data modify storage slimecore:in manifest.pack.preload_entrypoints set value []
+data modify storage slimecore:in manifest.pack.abstract_declarations set value []
+data modify storage slimecore:in manifest.pack.abstract_implementations set value []
+data modify storage slimecore:in manifest.pack.dependencies set value []
+
+data modify storage slimecore:in manifest.pack.is_library set value true
+
+function slimecore:api/manifest
