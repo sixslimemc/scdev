@@ -12,6 +12,7 @@
 
 data modify storage scdev:_/out dependency set value {}
 
+data modify storage scdev:_ u.dependency.data set from storage scdev:_/in dependency.dependency
 # title:
 data modify storage scdev:_ u.dependency.c.id set value {text:"", color:yellow, extra:[{text:"AUTHOR ID"}, {text:"."}, {text:"PACK ID"}]}
 data modify storage scdev:_ u.dependency.c.id.extra[0].text set from storage scdev:_ u.dependency.data.author_id
@@ -24,7 +25,7 @@ data modify storage scdev:_ u.dependency.show.title.extra[0] set from storage sc
 data modify storage scdev:_ u.dependency.show.title.extra[2] set from storage scdev:_ u.dependency.c.ver
 
 # hover:
-data modify storage scdev:_ u.dependency.c.dversion set value {text:"", color:dark_green, extra:[{storage:"scdev:_/in", nbt:"dependency.dependency.download.version.major"}, {text:"."}, {storage:"scdev:_/in", nbt:"dependency.dependency.download.version.minor"}, {text:"."}, {storage:"scdev:_/in", nbt:"dependency.dependency.download.version.patch"}]}
+data modify storage scdev:_ u.dependency.c.dversion set value {text:"", color:dark_green, extra:[{storage:"scdev:_", nbt:"u.dependency.data.download.version.major"}, {text:"."}, {storage:"scdev:_", nbt:"u.dependency.data.download.version.minor"}, {text:"."}, {storage:"scdev:_", nbt:"u.dependency.data.download.version.patch"}]}
 data modify storage scdev:_ u.dependency.show.hover set value {text:"", extra:[{text:"Click to download version ", color:gray}, {}]}
 data modify storage scdev:_ u.dependency.show.hover.extra[1] set from storage scdev:_ u.dependency.c.dversion
 
