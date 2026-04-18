@@ -6,11 +6,13 @@
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
 data modify storage scdev:_/in dependency.dependency set from storage scdev:_ t.error.entry.dependency
-function scdev:_/util/format/dependency/main
+data modify storage scdev:_/in dependency.kill set value true
+execute summon text_display run function scdev:_/util/format/dependency/main
 data modify storage scdev:_ t.error.dependency_text set from storage scdev:_/out dependency.result
 
 data modify storage scdev:_/in pack.pack_id set from storage scdev:_ t.error.entry.from
-function scdev:_/util/format/pack/main
+data modify storage scdev:_/in pack.kill set value true
+execute summon text_display run function scdev:_/util/format/pack/main
 data modify storage scdev:_ t.error.from_text set from storage scdev:_/out pack.result
 
 
