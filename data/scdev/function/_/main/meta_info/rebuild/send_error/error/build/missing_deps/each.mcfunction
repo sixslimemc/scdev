@@ -13,8 +13,6 @@ data modify storage scdev:_ t.error.dependency_text set from storage scdev:_/out
 
 # format from text:
 data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_/in pack.manifest set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
-# DEBUG:
-tellraw @a ["OEUEO", {'storage':'slimecore:hook', 'nbt':'end.result.error.manifests'}]
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.entry.from
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
 data modify storage scdev:_/in pack.kill set value true
