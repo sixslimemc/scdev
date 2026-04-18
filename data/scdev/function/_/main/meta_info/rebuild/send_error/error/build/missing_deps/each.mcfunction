@@ -7,16 +7,14 @@ data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entri
 
 # format dependency text:
 data modify storage scdev:_/in dependency.dependency set from storage scdev:_ t.error.entry.dependency
-data modify storage scdev:_/in dependency.kill set value true
-execute summon text_display run function scdev:_/util/format/dependency/main
+function scdev:_/util/format/dependency/main
 data modify storage scdev:_ t.error.dependency_text set from storage scdev:_/out dependency.result
 
 # format from text:
 data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_/in pack.manifest set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.entry.from
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
-data modify storage scdev:_/in pack.kill set value true
-execute summon text_display run function scdev:_/util/format/pack/main
+function scdev:_/util/format/pack/main
 data modify storage scdev:_ t.error.from_text set from storage scdev:_/out pack.result
 
 tellraw @a[tag=scdev.listener] [{text: " - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.dependency_text"}, {text: " required by ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.from_text"}, {text: ".", color:red}]

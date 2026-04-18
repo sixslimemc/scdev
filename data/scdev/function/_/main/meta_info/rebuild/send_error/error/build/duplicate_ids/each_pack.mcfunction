@@ -1,11 +1,16 @@
 #> scdev:_/main/meta_info/rebuild/send_error/error/duplicate_ids/each_pack
 #--------------------
-# ./send
+# ./each_set
 #--------------------
 
-data modify storage scdev:_ t.error.this_set set from storage scdev:_ t.error.sets[-1]
+data modify storage scdev:_ t.error.this_pack set from storage scdev:_ t.error.this_set.packs[-1]
 
-execute store result score *x _scdev if data storage scdev:_ t.error.this_set.packs[]
+# get pack text:
+data modify storage scdev:_/in pack.manifest set from storage scdev:_ t.error.this_pack
+function scdev:_/util/format/pack/main
+data modify storage scdev:_ t.error.pack_text set from storage scdev:_/out pack.result
 
-data remove storage scdev:_ t.error.sets[-1]
-execute if data storage scdev:_ t.error.sets[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/duplicate_ids/each_set
+tellraw @a[tag=scdev.listener] [{text:"  - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.pack_text"}]
+
+data remove storage scdev:_ t.error.this_set.packs[-1]
+execute if data storage scdev:_ t.error.this_set.packs[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/duplicate_ids/each_pack
