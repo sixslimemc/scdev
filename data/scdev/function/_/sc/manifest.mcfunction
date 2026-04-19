@@ -46,7 +46,7 @@ data modify storage slimecore:in manifest.pack.entrypoints set value []
 data modify storage slimecore:in manifest.pack.preload_entrypoints set value []
 data modify storage slimecore:in manifest.pack.abstract_declarations set value [{id:"bruh"}]
 data modify storage slimecore:in manifest.pack.abstract_implementations set value []
-data modify storage slimecore:in manifest.pack.dependencies set value []
+data modify storage slimecore:in manifest.pack.dependencies set value [{author_id:"test", pack_id:"c",download:{url:"",version:{major:0,minor:1,patch:0}}, optional:false, version:{major:0, minor:1}}]
 
 data modify storage slimecore:in manifest.pack.is_library set value false
 
@@ -95,8 +95,8 @@ data modify storage slimecore:in manifest.pack.display.links.versions set value 
 data modify storage slimecore:in manifest.pack.entrypoints set value []
 data modify storage slimecore:in manifest.pack.preload_entrypoints set value []
 data modify storage slimecore:in manifest.pack.abstract_declarations set value []
-data modify storage slimecore:in manifest.pack.abstract_implementations set value [{pack_ref:"a",id:"bruh"}]
-data modify storage slimecore:in manifest.pack.dependencies set value [{author_id:"test", pack_id:"a",download:{url:"",version:{major:0,minor:1,patch:0}}, optional:false, version:{major:0, minor:1}}]
+data modify storage slimecore:in manifest.pack.abstract_implementations set value []
+data modify storage slimecore:in manifest.pack.dependencies set value [{author_id:"test", pack_id:"b",download:{url:"",version:{major:0,minor:1,patch:0}}, optional:false, version:{major:0, minor:1}}]
 
 data modify storage slimecore:in manifest.pack.is_library set value false
 
