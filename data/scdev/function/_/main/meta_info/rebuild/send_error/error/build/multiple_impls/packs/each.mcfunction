@@ -5,7 +5,7 @@
 
 data modify storage scdev:_ t.error.entry.source set from storage scdev:_ t.error.entry.sources[-1]
 
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_/in pack.manifest set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"}]"}
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_/in pack.manifest set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.entry.source.pack_ref
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
 function scdev:_/util/format/pack/main
