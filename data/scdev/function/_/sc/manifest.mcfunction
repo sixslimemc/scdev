@@ -18,7 +18,7 @@ data modify storage slimecore:in manifest.pack.display.links.versions set value 
 
 data modify storage slimecore:in manifest.pack.entrypoints set value []
 data modify storage slimecore:in manifest.pack.preload_entrypoints set value []
-data modify storage slimecore:in manifest.pack.abstract_declarations set value []
+data modify storage slimecore:in manifest.pack.abstract_declarations set value [{id:"bruh"}]
 data modify storage slimecore:in manifest.pack.abstract_implementations set value []
 data modify storage slimecore:in manifest.pack.dependencies set value []
 
