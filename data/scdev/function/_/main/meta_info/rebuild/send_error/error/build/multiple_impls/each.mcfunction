@@ -5,7 +5,11 @@
 
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
-tellraw @a[tag=scdev.listener] [{text: " - Abstract interface ", color:red}, {storage:"scdev:_", nbt:"t.error.entry.of.pack_ref", color: yellow}, {text: ":", color:gray}, {storage:"scdev:_", nbt:"t.error.entry.of.id", color: dark_green}, {text: " is implemented by packs:", color:red}]
+data modify storage scdev:_/in abstract.abstract set from storage scdev:_ t.error.entry.of
+function scdev:_/util/format/abstract/main
+data modify storage scdev:_ x.abstract_text set from storage scdev:_/out abstract.result
+
+tellraw @a[tag=scdev.listener] [{text: " - Abstract interface (", color:red}, {interpret:true, storage:"scdev:_", nbt:"x.abstract_text"}, {text: ") is implemented by multiple packs:", color:red}]
 
 execute if data storage scdev:_ t.error.entry.sources[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/packs/each
 
