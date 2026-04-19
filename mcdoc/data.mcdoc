@@ -1,0 +1,6 @@
+use super::def::PackManifest
+
+dispatch minecraft:storage["scdev:data"] to struct Data {
+    // used for storing data -> disabled_manifests
+    disabled_manifests: [PackManifest]
+}

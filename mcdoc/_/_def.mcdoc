@@ -1,3 +1,4 @@
+use super::super::def::BuildInfo
 
 struct VariableRegister {
     [string]: any
@@ -13,6 +14,9 @@ dispatch minecraft:storage[scdev:_] to struct {
     x: VariableRegister,
     const: struct {
         chat_marker: ::java::util::text::Text
+    },
+    data: struct {
+        last_build: BuildInfo
     }
 }
 dispatch minecraft:storage[scdev:_/in] to struct {
