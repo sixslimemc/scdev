@@ -3,6 +3,8 @@
 # ./each_entry
 #--------------------
 
+# DEBUG:
+tellraw @a ["PACK: ", {'storage':'slimecore:_', 'nbt':'t.error.this_entry.packs[-1]'}]
 data modify storage slimecore:_/in pack.manifest set from storage slimecore:_ t.error.this_entry.packs[-1]
 function scdev:_/util/format/pack/main
 data modify storage slimecore:_ x.pack_text set from storage slimecore:_/out pack.result
