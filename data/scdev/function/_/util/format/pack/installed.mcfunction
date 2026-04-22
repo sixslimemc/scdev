@@ -1,5 +1,5 @@
 # UTIL > six:_/util/format/pack
-# in_build
+# installed
 #--------------------
 # ./main
 #--------------------
