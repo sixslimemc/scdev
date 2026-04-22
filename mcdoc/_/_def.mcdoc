@@ -15,6 +15,9 @@ dispatch minecraft:storage[scdev:_] to struct {
     const: struct {
         chat_marker: ::java::util::text::Text
     },
+    data: struct {
+
+    },
 }
 dispatch minecraft:storage[scdev:_/in] to struct {
     [any]: any
