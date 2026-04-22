@@ -3,7 +3,7 @@
 
 # {..disables}:
 data modify storage scdev:in pack_refs.pack_ids set value []
-data modify storage scdev:in pack_refs.pack_ids append from storage slimecore:data world.disabled_packs[].pack_id
+data modify storage scdev:in pack_refs.pack_ids append from storage slimecore:data world.installed[{disabled:true}].manifest.pack_id
 data modify storage scdev:in pack_refs.pack_ids append from storage scdev:_ v.rebuild.args.disable[]
 function scdev:util/pack_refs
 data modify storage scdev:_ v.rebuild.disables set from storage scdev:out pack_refs.result
