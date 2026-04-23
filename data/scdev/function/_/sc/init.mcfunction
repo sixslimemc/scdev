@@ -1,7 +1,8 @@
-#> scdev:_/main/meta_info/before_reload_check
+#> scdev:_/sc/init
 #--------------------
-# HOOK: slimecore::meta_info/before_reload_check
+# _/main/rebuild/start
 #--------------------
+scoreboard players set *init _scdev 1
 
 scoreboard objectives add _scdev dummy
 

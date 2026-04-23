@@ -5,19 +5,28 @@
 
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
-tellraw @s [{text: " - ", color:red}, {storage:"scdev:_", nbt:"t.error.entry.dependency.author_id", color: dark_green}, {text: ".", color:dark_green}, {storage:"scdev:_", nbt:"t.error.entry.dependency.pack_id", color: dark_green}, {text: " v", color:"dark_aqua"}, {storage:"scdev:_", nbt:"t.error.entry.dependency.version.major", color: dark_aqua}, {text: ".", color:dark_aqua}, {storage:"scdev:_", nbt:"t.error.entry.dependency.version.minor", color: dark_aqua}, {text: " required by ", color:red}, {storage:"scdev:_", nbt:"t.error.entry.from", color: yellow}, {text: ".", color:red}]
+# format dependency text:
+data modify storage scdev:_/in dependency.dependency set from storage scdev:_ t.error.entry.dependency
+function scdev:_/util/format/dependency/main
+data modify storage scdev:_ t.error.dependency_text set from storage scdev:_/out dependency.result
 
-data modify storage scdev:_ t.error.download_button set value {text:"[Download]",color:aqua,underlined:true,click_event:{action:"open_url",url:""},hover_event:{action:"show_text", value:[{storage:"scdev:_", nbt:"t.error.entry.dependency.author_id", color: dark_aqua}, {text: ".", color:dark_aqua}, {storage:"scdev:_", nbt:"t.error.entry.dependency.pack_id", color: dark_aqua}, " ", {storage:"scdev:_", nbt:"t.error.entry.dependency.download.version.major", color: dark_aqua}, {text: ".", color:dark_aqua}, {storage:"scdev:_", nbt:"t.error.entry.dependency.download.version.minor", color: dark_aqua}, {text: ".", color:dark_aqua}, {storage:"scdev:_", nbt:"t.error.entry.dependency.download.version.patch", color: dark_aqua}]}}
-data modify storage scdev:_ t.error.download_button.click_event.url set from storage scdev:_ t.error.entry.dependency.download.url
+# format from text:
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_/in pack.manifest set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
+data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.entry.from
+function scdev:_/util/mline/3 with storage scdev:_ x.mline
+function scdev:_/util/format/pack/main
+data modify storage scdev:_ t.error.from_text set from storage scdev:_/out pack.result
+
+tellraw @a[tag=scdev.listener] [{text: " - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.dependency_text"}, {text: " required by ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.from_text"}, {text: ".", color:red}]
 
 # not present:
-execute if data storage scdev:_ t.error.entry.reason.not_present run tellraw @s [{text:"  (Pack not installed/enabled) ", color:red}, {storage:"scdev:_", nbt:"t.error.download_button",interpret:true}]
+execute if data storage scdev:_ t.error.entry.reason.not_present run tellraw @a[tag=scdev.listener] [{text:"  (Pack not installed/enabled) ", color:red}]
 
 # author mismatch:
-execute if data storage scdev:_ t.error.entry.reason.author_mismatch run tellraw @s [{text:"  (A pack with an identical pack ID, ", color:"red"}, {storage:"scdev:_", nbt:"t.error.entry.reason.author_mismatch.got", color: dark_aqua}, {text:".", color:"dark_aqua"}, {storage:"scdev:_", nbt:"t.error.entry.dependency.pack_id", color: dark_aqua}, {text:" is enabled, it must be uninstalled/disabled)", color:"red"}]
+execute if data storage scdev:_ t.error.entry.reason.author_mismatch run tellraw @a[tag=scdev.listener] [{text:"  (A pack with an identical pack ID, ", color:"red"}, {storage:"scdev:_", nbt:"t.error.entry.reason.author_mismatch.got", color: dark_aqua}, {text:".", color:"dark_aqua"}, {storage:"scdev:_", nbt:"t.error.entry.dependency.pack_id", color: dark_aqua}, {text:" is enabled, it must be uninstalled/disabled)", color:"red"}]
 
 # incompatible version:
-execute if data storage scdev:_ t.error.entry.reason.incompatible_version run tellraw @s [{text:"  (Currently installed pack does not fulfill the version requirement) ", color:red}, {storage:"scdev:_", nbt:"t.error.download_button",interpret:true}]
+execute if data storage scdev:_ t.error.entry.reason.incompatible_version run tellraw @a[tag=scdev.listener] [{text:"  (Currently installed pack does not fulfill the version requirement) ", color:red}]
 
 data remove storage scdev:_ t.error.entries[-1]
 execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_deps/each

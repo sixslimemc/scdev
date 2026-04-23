@@ -3,4 +3,7 @@
 # HOOK: slimecore::meta_info/rebuild/start
 #--------------------
 
-tellraw @a[tag=scdev.watch] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Rebuilding...", color:blue}]
+# init:
+execute unless score *init _scdev matches 1 run function scdev:_/sc/init
+
+tellraw @a[tag=scdev.listener] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Rebuilding...", color:blue}]

@@ -3,25 +3,16 @@
 # ../../start
 #--------------------
 
-data modify storage scdev:_ t.load.this_load set from storage scdev:_ t.load.loads[0]
+data modify storage scdev:_/in pack.pack_id set from storage scdev:_ t.load.loads[0].pack_ref
+function scdev:_/util/format/pack/main
+data modify storage scdev:_ t.load.pack_text set from storage scdev:_/out pack.result
 
-# get {..pack}
-function scdev:_/main/meta_info/load/start/loads/get_pack with storage scdev:_ t.load.this_load
-
-execute unless data storage scdev:_ t.load.pack{is_library:true} run tellraw @a[tag=scdev.watch] \
+tellraw @a[tag=scdev.listener] \
 [ \
     {text:"  "}, \
-    {storage: "scdev:_", nbt:"t.load.this_load.index", color: dark_gray}, \
+    {plain:true, storage: "scdev:_", nbt:"t.load.loads[0].index", color: dark_gray}, \
     {text:" - ", color: gray}, \
-    {storage: "scdev:_", nbt:"t.load.this_load.pack_ref", color: aqua}, \
-]
-
-execute if data storage scdev:_ t.load.pack{is_library:true} run tellraw @a[tag=scdev.watch] \
-[ \
-    {text:"  "}, \
-    {storage: "scdev:_", nbt:"t.load.this_load.index", color: dark_gray}, \
-    {text:" - ", color: gray}, \
-    {storage: "scdev:_", nbt:"t.load.this_load.pack_ref", color: "yellow", italic:true}, \
+    {interpret:true, storage:"scdev:_", nbt:"t.load.pack_text"}, \
 ]
 
 data remove storage scdev:_ t.load.loads[0]

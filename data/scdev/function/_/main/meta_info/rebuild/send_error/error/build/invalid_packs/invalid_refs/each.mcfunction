@@ -5,13 +5,13 @@
 
 data modify storage scdev:_ t.error.invalid_ref set from storage scdev:_ t.error.entry.invalid_pack_references[-1]
 
-tellraw @s [\
-    {text:"  - Key '", color: red},\
-    {storage:"scdev:_", nbt:"t.error.invalid_ref.in", color:dark_aqua},\
-    {text:"' references a pack that is not a dependency.", color: red},\
+tellraw @a[tag=scdev.listener] [\
+    {text:"  - Key ", color: red},\
+    {plain:true, storage:"scdev:_", nbt:"t.error.invalid_ref.in", color:dark_aqua},\
+    {text:" references a pack that is not a dependency.", color: red},\
 ]
 
-execute if data storage scdev:_ t.error.invalid_ref.index run tellraw @s [\
+execute if data storage scdev:_ t.error.invalid_ref.index run tellraw @a[tag=scdev.listener] [\
     {text:"   (Array index: ", color: red},\
     {storage:"scdev:_", nbt:"t.error.invalid_ref.index", color:dark_aqua},\
     {text:")", color: red},\

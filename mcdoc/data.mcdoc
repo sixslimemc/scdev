@@ -1,0 +1,5 @@
+use super::def::PackManifest
+
+dispatch minecraft:storage["scdev:data"] to struct Data {
+
+}
