@@ -12,7 +12,7 @@ data modify storage scdev:_ t.load.preload_text set from storage scdev:_/out pre
 tellraw @a[tag=scdev.listener] \
 [ \
     {text:"  "}, \
-    {storage: "scdev:_", nbt:"t.load.this_preload.index", color: dark_gray}, \
+    {plain:true, storage: "scdev:_", nbt:"t.load.this_preload.index", color: dark_gray}, \
     {text:" - ", color: gray}, \
     {interpret:true, storage:"scdev:_", nbt:"t.load.preload_text"} \
 ]
