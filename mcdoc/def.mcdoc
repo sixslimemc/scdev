@@ -6,3 +6,15 @@ type PackManifest = ::slimecore::mcdoc::def::PackManifest
 type BuildInfo = ::slimecore::mcdoc::def::BuildInfo
 /// matches command: `data get storage foo:bar foo[$()]`
 type ListIndexer = any
+
+struct ListCondition {
+    only?: ListIndexer,
+    exclude?: ListIndexer,
+}
+
+struct ListArgs {
+    count?: int,
+    page?: int,
+    disabled?: boolean,
+    pack_filter?: ListCondition,
+}

@@ -1,0 +1,8 @@
+
+use super::super::super::def::PackId
+
+struct In {
+    args: struct Args {
+        pack_id: PackId,
+    }
+}
