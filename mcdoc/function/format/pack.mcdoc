@@ -1,6 +1,7 @@
 
 // Optimized if executed as a text_display.
 
+use super::super::super::def::FormatIn
 use super::super::super::def::PackReference
 use super::super::super::def::PackManifest
 use super::super::super::def::Text
@@ -12,9 +13,11 @@ struct Out {
 }
 
 struct ManifestIn {
+    ...FormatIn,
     pack: PackManifest,
 }
 struct ReferenceIn {
+    ...FormatIn,
     reference: PackReference,
 }
 

@@ -1,11 +1,13 @@
 
 // Optimized if executed as a text_display.
 
+use super::super::super::def::FormatIn
 use super::super::super::def::EntrypointReference
 use super::super::super::def::PreloadEntrypointId
 use super::super::super::def::Text
 
 struct In {
+    ...FormatIn,
     reference: EntrypointReference<PreloadEntrypointId>
 }
 

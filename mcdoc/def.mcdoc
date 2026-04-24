@@ -25,3 +25,7 @@ struct ListArgs {
     disabled?: boolean,
     pack_filter?: ListCondition,
 }
+
+struct FormatIn {
+    use_this_entity?: boolean
+}
