@@ -11,5 +11,8 @@ execute if score *pack.use_self _scdev matches 0 summon text_display run functio
 data remove storage scdev:_ v.pack
 data remove storage scdev:in pack
 scoreboard players reset *pack.use_self _scdev
+scoreboard players reset *pack.is_direct _scdev
+scoreboard players reset *pack.disabled _scdev
+scoreboard players reset *pack.library _scdev
 
 return 1
