@@ -1,0 +1,16 @@
+
+// Optimized if executed as a text_display.
+
+use super::super::super::def::EntrypointReference
+use super::super::super::def::EntrypointId
+use super::super::super::def::Text
+
+struct In {
+    reference: EntrypointReference<EntrypointId>
+}
+
+struct Out {
+    result: Text
+}
+
+type Return = 1

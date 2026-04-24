@@ -1,0 +1,21 @@
+
+// Optimized if executed as a text_display.
+
+use super::super::super::def::PackReference
+use super::super::super::def::PackManifest
+use super::super::super::def::Text
+
+type In = (ManifestIn | ReferenceIn)
+
+struct Out {
+    result: Text
+}
+
+struct ManifestIn {
+    pack: PackManifest,
+}
+struct ReferenceIn {
+    reference: PackReference,
+}
+
+type Return = 1

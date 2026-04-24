@@ -1,0 +1,15 @@
+
+// Optimized if executed as a text_display.
+
+use super::super::super::def::AbstractReference
+use super::super::super::def::Text
+
+struct In {
+    reference: AbstractReference
+}
+
+struct Out {
+    result: Text
+}
+
+type Return = 1

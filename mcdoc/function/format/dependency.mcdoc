@@ -1,0 +1,15 @@
+
+// Optimized if executed as a text_display.
+
+use super::super::super::def::Dependency
+use super::super::super::def::Text
+
+struct In {
+    declaration: Dependency
+}
+
+struct Out {
+    result: Text
+}
+
+type Return = 1

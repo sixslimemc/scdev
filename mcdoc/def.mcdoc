@@ -1,9 +1,16 @@
 
-// Only exist because of absolute path impurity.
+// Only exist because of absolute path impurity:
 type PackId = ::slimecore::mcdoc::def::PackId
 type PackReference = ::slimecore::mcdoc::def::PackReference
+type EntrypointReference<T> = ::slimecore::mcdoc::def::EntrypointReference<T>
+type EntrypointId = ::slimecore::mcdoc::def::EntrypointId
+type PreloadEntrypointId = ::slimecore::mcdoc::def::PreloadEntrypointId
+type AbstractReference = ::slimecore::mcdoc::def::AbstractReference
 type PackManifest = ::slimecore::mcdoc::def::PackManifest
 type BuildInfo = ::slimecore::mcdoc::def::BuildInfo
+type Dependency = ::slimecore::mcdoc::def::Dependency
+type Text = ::java::util::text::Text
+
 /// matches command: `data get storage foo:bar foo[$()]`
 type ListIndexer = any
 
