@@ -5,11 +5,12 @@
 
 data modify storage scdev:_ t.error.entry.source set from storage scdev:_ t.error.entry.sources[-1]
 
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_/in pack.manifest set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:in pack.pack set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.entry.source.pack_ref
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
-function scdev:_/util/format/pack/main
-data modify storage scdev:_ x.pack_text set from storage scdev:_/out pack.result
+data modify storage scdev:in pack.use_this_entity set value true
+function scdev:format/pack
+data modify storage scdev:_ x.pack_text set from storage scdev:out pack.result
 
 tellraw @a[tag=scdev.listener] [{text:"   - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"x.pack_text"}]
 

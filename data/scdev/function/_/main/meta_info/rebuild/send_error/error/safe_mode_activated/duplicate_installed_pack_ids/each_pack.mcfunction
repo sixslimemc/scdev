@@ -3,9 +3,10 @@
 # ./each_entry
 #--------------------
 
-data modify storage scdev:_/in pack.manifest set from storage scdev:_ t.error.this_entry.packs[-1]
-function scdev:_/util/format/pack/main
-data modify storage scdev:_ x.pack_text set from storage scdev:_/out pack.result
+data modify storage scdev:in pack.pack set from storage scdev:_ t.error.this_entry.packs[-1]
+data modify storage scdev:in pack.use_this_entity set value true
+function scdev:format/pack
+data modify storage scdev:_ x.pack_text set from storage scdev:out pack.result
 
 tellraw @a[tag=scdev.listener] [{text:"   - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"x.pack_text"}]
 

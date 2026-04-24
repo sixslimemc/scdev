@@ -5,9 +5,10 @@
 
 data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
 
-data modify storage scdev:_/in abstract.abstract set from storage scdev:_ t.error.entry
-function scdev:_/util/format/abstract/main
-data modify storage scdev:_ x.abstract_text set from storage scdev:_/out abstract.result
+data modify storage scdev:in abstract.reference set from storage scdev:_ t.error.entry
+data modify storage scdev:in abstract.use_this_entity set value true
+function scdev:format/abstract
+data modify storage scdev:_ x.abstract_text set from storage scdev:out abstract.result
 
 tellraw @a[tag=scdev.listener] [{text:" - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"x.abstract_text"}]
 

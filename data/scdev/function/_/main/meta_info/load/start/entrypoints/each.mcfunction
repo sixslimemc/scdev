@@ -5,9 +5,10 @@
 
 data modify storage scdev:_ t.load.this_entrypoint set from storage scdev:_ t.load.entrypoints[0]
 
-data modify storage scdev:_/in entrypoint.entrypoint set from storage scdev:_ t.load.this_entrypoint
-function scdev:_/util/format/entrypoint/main
-data modify storage scdev:_ t.load.preload_text set from storage scdev:_/out entrypoint.result
+data modify storage scdev:in entrypoint.reference set from storage scdev:_ t.load.this_entrypoint
+data modify storage scdev:in entrypoint.use_this_entity set value true
+function scdev:format/entrypoint
+data modify storage scdev:_ t.load.preload_text set from storage scdev:out entrypoint.result
 
 tellraw @a[tag=scdev.listener] \
 [ \

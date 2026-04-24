@@ -3,9 +3,10 @@
 # ../../start
 #--------------------
 
-data modify storage scdev:_/in pack.pack_id set from storage scdev:_ t.load.loads[0].pack_ref
-function scdev:_/util/format/pack/main
-data modify storage scdev:_ t.load.pack_text set from storage scdev:_/out pack.result
+data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ t.load.loads[0].pack_ref
+data modify storage scdev:in pack.use_this_entity set value true
+function scdev:format/pack
+data modify storage scdev:_ t.load.pack_text set from storage scdev:out pack.result
 
 tellraw @a[tag=scdev.listener] \
 [ \
