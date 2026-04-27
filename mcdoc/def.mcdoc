@@ -9,6 +9,7 @@ type AbstractReference = ::slimecore::mcdoc::def::AbstractReference
 type PackManifest = ::slimecore::mcdoc::def::PackManifest
 type BuildInfo = ::slimecore::mcdoc::def::BuildInfo
 type Dependency = ::slimecore::mcdoc::def::Dependency
+type Version = ::slimecore::mcdoc::def::Version
 type Text = ::java::util::text::Text
 
 /// matches command: `data get storage foo:bar foo[$()]`

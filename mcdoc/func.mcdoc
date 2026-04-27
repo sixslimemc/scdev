@@ -2,6 +2,7 @@
 dispatch minecraft:storage[scdev:in] to struct In {
     pack_refs: super::function::util::pack_refs::In,
     abstract: super::function::format::abstract::In,
+    version: super::function::format::version::In,
     entrypoint: super::function::format::entrypoint::In,
     preload_entrypoint: super::function::format::preload_entrypoint::In,
     pack: super::function::format::pack::In,
@@ -11,6 +12,7 @@ dispatch minecraft:storage[scdev:in] to struct In {
 dispatch minecraft:storage[scdev:out] to struct Out {
     pack_refs: super::function::util::pack_refs::Out,
     abstract: super::function::format::abstract::Out,
+    version: super::function::format::version::Out,
     entrypoint: super::function::format::entrypoint::Out,
     preload_entrypoint: super::function::format::preload_entrypoint::Out,
     pack: super::function::format::pack::Out,

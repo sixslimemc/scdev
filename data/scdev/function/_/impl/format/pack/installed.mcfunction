@@ -39,7 +39,7 @@ data modify storage scdev:_ v.pack.c.line3.text set from storage scdev:_ v.pack.
 data modify storage scdev:_ v.pack.c.line_lib set value {text:"(Library)", color:dark_gray}
 
 # hover disabled line:
-data modify storage scdev:_ v.pack.c.line_disabled set value {text:"[Disabled]", color:red}
+data modify storage scdev:_ v.pack.c.line_disabled set value {text:"[!] Disabled", color:red}
 
 # construct hover:
 data modify storage scdev:_ v.pack.show.hover set value {text:"", extra:[]}

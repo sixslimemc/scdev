@@ -12,5 +12,7 @@ data remove storage scdev:_ v.dependency
 data remove storage scdev:in dependency
 scoreboard players reset *dependency.use_self _scdev
 scoreboard players reset *dependency.optional _scdev
+scoreboard players reset *dependency.state _scdev
+scoreboard players reset *dependency.click_download _scdev
 
 return 1
