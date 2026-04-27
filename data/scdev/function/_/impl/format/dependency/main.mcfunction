@@ -3,6 +3,10 @@
 execute unless score *dependency.use_self _scdev matches 1 run kill @s
 
 data modify storage scdev:_ v.dependency.data set from storage scdev:in dependency.declaration
+
+# store flags:
+execute store success score *dependency.optional _scdev if data storage scdev:_ v.dependency.data{optional:true}
+
 # title:
 data modify storage scdev:_ v.dependency.c.id set value {text:"", color:gold, extra:[{text:"AUTHOR ID"}, {text:"."}, {text:"PACK ID"}]}
 data modify storage scdev:_ v.dependency.c.id.extra[0].text set from storage scdev:_ v.dependency.data.author_id
@@ -12,10 +16,17 @@ data modify storage scdev:_ v.dependency.show.title set value {text:"", extra:[{
 data modify storage scdev:_ v.dependency.show.title.extra[0] set from storage scdev:_ v.dependency.c.id
 data modify storage scdev:_ v.dependency.show.title.extra[2] set from storage scdev:_ v.dependency.c.ver
 
+# optional '?':
+execute if score *dependency.optional _scdev matches 1 run data modify storage scdev:_ v.dependency.show.title.extra prepend value {text:"?", color:dark_blue}
+
 # hover:
 data modify storage scdev:_ v.dependency.c.dversion set value {text:"", color:dark_green, extra:[{storage:"scdev:_", nbt:"v.dependency.data.download.version.major", plain:true}, {text:"."}, {storage:"scdev:_", nbt:"v.dependency.data.download.version.minor", plain:true}, {text:"."}, {storage:"scdev:_", nbt:"v.dependency.data.download.version.patch", plain:true}]}
 data modify storage scdev:_ v.dependency.show.hover set value {text:"", extra:[{text:"Click to download version ", color:gray}, {}]}
 data modify storage scdev:_ v.dependency.show.hover.extra[1] set from storage scdev:_ v.dependency.c.dversion
+
+# optional hover:
+execute if score *dependency.optional _scdev matches 1 run data modify storage scdev:_ v.dependency.show.hover.extra append value {text:"\n"}
+execute if score *dependency.optional _scdev matches 1 run data modify storage scdev:_ v.dependency.show.hover.extra append value {text:"(Optional dependency)", color:dark_blue}
 
 # set text:
 data modify storage scdev:_ v.dependency.text set from storage scdev:_ v.dependency.show.title

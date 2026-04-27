@@ -11,5 +11,6 @@ execute if score *dependency.use_self _scdev matches 0 summon text_display run f
 data remove storage scdev:_ v.dependency
 data remove storage scdev:in dependency
 scoreboard players reset *dependency.use_self _scdev
+scoreboard players reset *dependency.optional _scdev
 
 return 1
