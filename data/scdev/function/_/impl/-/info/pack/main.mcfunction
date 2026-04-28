@@ -13,7 +13,7 @@ execute store success score *packinfo.library _scdev if data storage scdev:_ v.p
 
 data modify storage scdev:_ v.packinfo.lines set value []
 
-#data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
+data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
 
 # Ref:
 data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
