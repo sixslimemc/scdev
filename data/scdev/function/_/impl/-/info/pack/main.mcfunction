@@ -47,13 +47,13 @@ execute if score *packinfo.disabled _scdev matches 1 run data modify storage scd
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"NAME", color:gray, bold:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"DESC", color:gray}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:gray}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # is library:
