@@ -36,9 +36,9 @@ execute if score *packinfo.library _scdev matches 0 run data modify storage scde
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
 # enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:yellow}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, bold:false}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, bold:false}
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:true}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
