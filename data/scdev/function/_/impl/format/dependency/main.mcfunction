@@ -15,7 +15,7 @@ execute store result score *dependency.state _scdev run function scdev:_/impl/fo
 execute store success score *dependency.optional _scdev if data storage scdev:_ v.dependency.data{optional:true}
 scoreboard players set *dependency.click_download _scdev 0
 execute if score *dependency.state _scdev matches 0 run scoreboard players set *dependency.click_download _scdev 1
-execute if score *dependency.state _scdev matches 4 run scoreboard players set *dependency.click_download _scdev 1
+execute if score *dependency.state _scdev matches 3..4 run scoreboard players set *dependency.click_download _scdev 1
 
 # title:
 data modify storage scdev:_ v.dependency.c.id set value {text:"", extra:[{text:"AUTHOR ID"}, {text:"."}, {text:"PACK ID"}]}

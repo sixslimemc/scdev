@@ -53,9 +53,15 @@ data modify storage scdev:_ v.pack.show.hover.extra append from storage scdev:_ 
 execute if score *pack.disabled _scdev matches 1 run data modify storage scdev:_ v.pack.show.hover.extra append value {text:"\n"}
 execute if score *pack.disabled _scdev matches 1 run data modify storage scdev:_ v.pack.show.hover.extra append from storage scdev:_ v.pack.c.line_disabled
 
+# construct click:
+data modify storage scdev:_/in click_pack.pack_id set from storage scdev:_ v.pack.data.pack_id
+function scdev:_/util/text/click_pack/main
+data modify storage scdev:_ v.pack.click_event set from storage scdev:_/out click_pack.result
+
 # set text/out:
 data modify storage scdev:_ v.pack.text set from storage scdev:_ v.pack.show.title
 data modify storage scdev:_ v.pack.text.hover_event set value {action:"show_text", value:{}}
 data modify storage scdev:_ v.pack.text.hover_event.value set from storage scdev:_ v.pack.show.hover
+data modify storage scdev:_ v.pack.text.click_event set from storage scdev:_ v.pack.click_event
 data modify entity @s text set from storage scdev:_ v.pack.text
 data modify storage scdev:out pack.result set from entity @s text
