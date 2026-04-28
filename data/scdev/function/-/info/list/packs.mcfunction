@@ -2,8 +2,11 @@
 
 $data modify storage scdev:_ v.packs.args set value $(args)
 
-execute store result score *x _scdev run function scdev:_/impl/-/info/list/packs/main
+execute unless data storage scdev:_ v.packs.args.disabled run data modify storage scdev:_ v.packs.args.disabled set value false
+execute unless data storage scdev:_ v.packs.args.page run data modify storage scdev:_ v.packs.args.page set value 1
+
+tag @s add _scdev.info_runner
+execute summon text_display run function scdev:_/impl/-/info/list/packs/main
+tag @s remove _scdev.info_runner
 
 data remove storage scdev:_ v.packs
-
-return run scoreboard players get *x _scdev

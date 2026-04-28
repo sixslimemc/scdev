@@ -129,5 +129,3 @@ data modify storage scdev:_ v.packinfo.lines append value {text:"---------------
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.packinfo.lines
 data modify storage scdev:_/in send.source set value "scdev:-/info/pack"
 execute as @n[tag=_scdev.info_runner] run function scdev:_/util/text/send/main
-
-return 1
