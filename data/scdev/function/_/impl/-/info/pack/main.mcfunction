@@ -49,7 +49,7 @@ data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"DESC", color:gray}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"AUTHOR", color:blue}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  - ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # dependencies:
