@@ -23,6 +23,17 @@ function scdev:format/pack
 data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]------", color:"white", bold:false}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
+# display:
+data modify storage scdev:_ v.packinfo.lines append value {text:"Display:", color:white}
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:gray}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
@@ -43,18 +54,6 @@ data modify storage scdev:_ v.packinfo.lines append from entity @s text
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white}]
 execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
-
-# display:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Display:", color:white}
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:gray}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # is library:
 data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
