@@ -29,11 +29,6 @@ function scdev:format/version
 data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"State: ", color:white}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
-
 # is library:
 data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
 execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
@@ -113,6 +108,11 @@ execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run
 # download:
 data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
 data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
+
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"State: ", color:yellow}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
 
