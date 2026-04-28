@@ -55,7 +55,7 @@ execute if data storage scdev:_ v.packinfo.dependencies[0] run function scdev:_/
 
 # dependents:
 data modify storage scdev:_ v.packinfo.dependents set value []
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.dependants append from storage slimecore:data world.installed[{pack:{dependencies:[{pack_id:'", 2:true, 3:"', author_id:'", 4:true, 5:"'}]}}].pack.pack_id"}
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.dependents append from storage slimecore:data world.installed[{pack:{dependencies:[{pack_id:'", 2:true, 3:"', author_id:'", 4:true, 5:"'}]}}].pack.pack_id"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
 data modify storage scdev:_ x.mline.4 set from storage scdev:_ v.packinfo.entry.pack.author_id
 function scdev:_/util/mline/5 with storage scdev:_ x.mline
