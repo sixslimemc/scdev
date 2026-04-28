@@ -15,12 +15,13 @@ data modify storage scdev:_ v.packinfo.lines set value []
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
 
-# ID:
-data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
-data modify storage scdev:in pack.use_this_entity set value true
-function scdev:format/pack
-data modify entity @s text set value [{text:"ID: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}]
-data modify storage scdev:_ v.packinfo.lines append from entity @s text
+# Pack ID:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
+
+# Author ID:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Author ID", color:"white"}, {text:"AUTHOR ID", color:yellow}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.author_id
 
 # version:
 data modify storage scdev:in version.value set from storage scdev:_ v.packinfo.entry.pack.version
