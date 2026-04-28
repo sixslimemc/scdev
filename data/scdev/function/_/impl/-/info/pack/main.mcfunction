@@ -35,10 +35,22 @@ execute if score *packinfo.disabled _scdev matches 0 run data modify storage scd
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
 
 # is library:
-data modify storage scdev:_ x.line set value [{text:"Is Library: ", color:white}]
+data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
 execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
 execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
+
+# display:
+data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"NAME", color:gray, bold:true}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"DESC", color:gray}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"AUTHOR", color:blue}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
@@ -80,20 +92,8 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Abstract Imple
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
 
-# display:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  Name: ", color:gray}, {text:"NAME", color:gray}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  Summary: ", color:gray}, {text:"DESC", color:gray}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  Author: ", color:gray}, {text:"AUTHOR", color:gray}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
-
 # links:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  Links: ", color:white}, {text:"[Info]"}, {text:"  "}, {text:"[Author]"}, {text:"  "}, {text:"[Versions]"}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"External Links: ", color:white}, {text:"[Info]"}, {text:"  "}, {text:"[Author]"}, {text:"  "}, {text:"[Versions]"}, {text:"  "}, {text:"[Download]"}]
 
 # info:
 execute unless data storage scdev:_ v.packinfo.entry.pack.display.links.info run data modify storage scdev:_ v.packinfo.lines[-1][1] merge value {color:dark_red, hover_event:{action:"show_text", value:{text:"No info link provided", color:red}}}
@@ -110,9 +110,9 @@ execute unless data storage scdev:_ v.packinfo.entry.pack.display.links.versions
 execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run data modify storage scdev:_ v.packinfo.lines[-1][5] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
 execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run data modify storage scdev:_ v.packinfo.lines[-1][5].click_event.url set from storage scdev:_ v.packinfo.entry.pack.display.links.versions
 
-# download button:
-data modify storage scdev:_ v.packinfo.lines append value {text:"[Self-Download]", color:aqua, underlined:true, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
-data modify storage scdev:_ v.packinfo.lines[-1].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
+# download:
+data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
+data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
 
