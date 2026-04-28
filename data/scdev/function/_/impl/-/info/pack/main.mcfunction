@@ -45,7 +45,7 @@ execute if score *packinfo.disabled _scdev matches 0 run data modify storage scd
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
 # display:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
+data modify storage scdev:_ v.packinfo.lines append value {text:"Display:", color:white}
 
 data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
