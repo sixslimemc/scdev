@@ -15,11 +15,6 @@ data modify storage scdev:_ v.packinfo.lines set value []
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
 
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"", color:white, italic:false}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
-
 # ID:
 data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
 data modify storage scdev:in pack.use_this_entity set value true
@@ -34,11 +29,10 @@ function scdev:format/version
 data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
-# is library:
-data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
-execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
-execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
-data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
@@ -51,6 +45,12 @@ data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:
 
 data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
+
+# is library:
+data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
+execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
+execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
+data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
