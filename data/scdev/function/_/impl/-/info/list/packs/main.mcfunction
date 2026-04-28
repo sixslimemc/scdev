@@ -18,7 +18,7 @@ data modify storage scdev:_ v.packs.indicies set from storage scdev:_/out pagina
 data modify storage scdev:_ v.packs.lines set value []
 
 # title:
-data modify storage scdev:_ v.packs.c.title set value {text:"List: Packs", color:yellow, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"\nGet: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.packs.args.page", color:gray}, {text:"Count: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
+data modify storage scdev:_ v.packs.c.title set value {text:"List: Packs", color:yellow, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"Get: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.packs.args.page", color:gray}, {text:"\nCount: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
 execute if data storage scdev:_ v.packs.args.count run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[5] set value {plain:true, storage:"scdev:_", nbt:"v.packs.args.count", color:gray}
 execute if data storage scdev:_ v.packs.args{disabled:true} run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[1] set value {text:"Disabled", color:red}
 execute if data storage scdev:_ v.packs.args.pack_filter run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[7] set value {storage:"scdev:_", nbt:"v.packs.args.pack_filter", color:gray}
