@@ -101,8 +101,6 @@ data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:
 data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
-data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:false, color:white}
-
 # links:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"External Links: ", color:white}, {text:"[Info]"}, {text:"  "}, {text:"[Author]"}, {text:"  "}, {text:"[Versions]"}, {text:"  "}, {text:"[Download]"}]
 
@@ -124,6 +122,8 @@ execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run
 # download:
 data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
 data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
+
+data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:false, color:white}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.packinfo.lines
