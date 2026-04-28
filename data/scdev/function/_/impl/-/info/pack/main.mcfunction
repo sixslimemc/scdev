@@ -20,7 +20,7 @@ data modify storage scdev:_ v.packinfo.lines set value []
 data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
 data modify storage scdev:in pack.use_this_entity set value true
 function scdev:format/pack
-data modify entity @s text set value [{text:"--[ ", color:"white", bold:true}, {interpret:true, storage:"scdev:out", nbt:"pack.result", bold:false}, {text:" ]--------", color:"white", bold:true}]
+data modify entity @s text set value [{text:"--[ ", color:"white", bold:true}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]----", color:"white", bold:true}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 
