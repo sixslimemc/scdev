@@ -27,7 +27,7 @@ data modify storage scdev:_ v.packs.c.title set from entity @s text
 
 # header line:
 data modify storage scdev:_ v.packs.lines append value {text:"", color:white, extra:[{text:"--[ "}, {}, {text:" ]------"}]}
-data modify storage scdev:_ v.packs.lines[-1][1] set from storage scdev:_ v.packs.c.title
+data modify storage scdev:_ v.packs.lines[-1].extra[1] set from storage scdev:_ v.packs.c.title
 
 # each:
 execute unless data storage scdev:_ v.packs.pack_ids[0] run data modify storage scdev:_ v.packs.lines append value {text:"(none)", color:dark_gray}
