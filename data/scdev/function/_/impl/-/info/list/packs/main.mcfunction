@@ -33,11 +33,10 @@ data modify storage scdev:_ v.packs.lines[-1].extra[1] set from storage scdev:_ 
 # each:
 execute if data storage scdev:_ v.packs.pack_ids[0] run function scdev:_/impl/-/info/list/packs/each
 
-# hidden indicator line:
+# showing line:
 execute unless data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:false}]
 execute if data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:true}]
-scoreboard players operation *x _scdev -= *packs.showing _scdev
-data modify entity @s text set value {text:"", color:"gray", extra:[{text:"("}, {score:{name:"*x", objective:"_scdev"}}, {text:" hidden)"}]}
+data modify entity @s text set value {text:"", color:"gray", extra:[{text:"(showing "}, {score:{name:"*packs.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*x", objective:"_scdev"}}, {text:")"}]}
 data modify storage scdev:_ v.packs.lines append from entity @s text
 
 data modify storage scdev:_ v.packs.lines append value {text:"--------------------", color:white}
