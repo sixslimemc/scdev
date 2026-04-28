@@ -14,6 +14,7 @@ function scdev:_/util/paginate/main
 
 data modify storage scdev:_ v.packs.pack_ids set from storage scdev:_/out paginate.result
 data modify storage scdev:_ v.packs.indicies set from storage scdev:_/out paginate.indicies
+execute store result score *packs.showing _scdev if data storage scdev:_ v.packs.pack_ids[]
 
 data modify storage scdev:_ v.packs.lines set value []
 
@@ -32,6 +33,13 @@ data modify storage scdev:_ v.packs.lines[-1].extra[1] set from storage scdev:_ 
 # each:
 execute unless data storage scdev:_ v.packs.pack_ids[0] run data modify storage scdev:_ v.packs.lines append value {text:"(none)", color:dark_gray}
 execute if data storage scdev:_ v.packs.pack_ids[0] run function scdev:_/impl/-/info/list/packs/each
+
+# hidden indicator line:
+execute unless data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:false}]
+execute if data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:true}]
+scoreboard players operation *x _scdev -= *packs.showing _scdev
+data modify entity @s text set value {text:"", color:"dark_gray", extra:[{text:"("}, {score:{name:"*x", objective:"_scdev"}}, {text:" hidden)"}]}
+data modify storage scdev:_ v.packs.lines append from entity @s text
 
 data modify storage scdev:_ v.packs.lines append value {text:"--------------------", color:white}
 
