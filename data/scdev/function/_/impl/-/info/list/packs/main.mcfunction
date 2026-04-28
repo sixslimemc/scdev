@@ -36,7 +36,7 @@ execute if data storage scdev:_ v.packs.pack_ids[0] run function scdev:_/impl/-/
 # showing line:
 execute unless data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:false}]
 execute if data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:true}]
-data modify entity @s text set value {text:"", color:"gray", extra:[{text:"("}, {score:{name:"*packs.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*x", objective:"_scdev"}}, {text:")"}]}
+data modify entity @s text set value {text:"", color:"gray", extra:[{text:"("}, {score:{name:"*packs.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*x", objective:"_scdev"}}, {text:" shown)"}]}
 data modify storage scdev:_ v.packs.lines append from entity @s text
 
 data modify storage scdev:_ v.packs.lines append value {text:"--------------------", color:white}
