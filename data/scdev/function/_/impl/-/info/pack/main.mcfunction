@@ -35,6 +35,11 @@ execute if score *packinfo.library _scdev matches 1 run data modify storage scde
 execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:yellow}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, bold:false}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, bold:false}
+
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
@@ -108,11 +113,6 @@ execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run
 # download:
 data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
 data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
-
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:yellow}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, bold:true}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, bold:true}
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
 
