@@ -23,18 +23,6 @@ function scdev:format/pack
 data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]------", color:"white", bold:false}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
-# display:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Display:", color:white}
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:gray}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
-
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
-
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
@@ -122,6 +110,18 @@ execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run
 # download:
 data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
 data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
+
+# display:
+data modify storage scdev:_ v.packinfo.lines append value {text:"Display:", color:white}
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:gray}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
+
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:false, color:white}
 
