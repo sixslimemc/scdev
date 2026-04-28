@@ -19,7 +19,7 @@ data modify storage scdev:_ v.pack.c.id[2].text set from storage scdev:_ v.pack.
 data modify storage scdev:_ v.pack.show.title set value {text:"", color:aqua, extra:[]}
 data modify storage scdev:_ v.pack.show.title.extra set from storage scdev:_ v.pack.c.id
 execute if score *pack.library _scdev matches 1 run data modify storage scdev:_ v.pack.show.title.color set value dark_aqua
-execute if score *pack.disabled _scdev matches 1 run data modify storage scdev:_ v.pack.show.title.extra prepend value {text:"!", color:"red", bold:true}
+execute if score *pack.disabled _scdev matches 1 run data modify storage scdev:_ v.pack.show.title.extra prepend value {text:"!", color:"red", bold:false}
 
 # hover line 1:
 data modify storage scdev:_ v.pack.c.line1 set value {text:"", extra:[{text:"DISPLAY NAME", color:aqua}, {text:" "}, {text:"", color:dark_green, extra:[]}]}
