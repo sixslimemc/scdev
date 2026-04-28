@@ -110,5 +110,7 @@ execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:gray}
 
+# send:
+data modify storage scdev:_/in send.lines set from storage scdev:_ v.packinfo.lines
 
 return 1
