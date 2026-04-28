@@ -112,7 +112,7 @@ data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true
 data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
 
 # display:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Display:", color:white}
+data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
 data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
