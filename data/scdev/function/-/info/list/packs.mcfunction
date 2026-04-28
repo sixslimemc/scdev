@@ -9,4 +9,5 @@ tag @s add _scdev.info_runner
 execute summon text_display run function scdev:_/impl/-/info/list/packs/main
 tag @s remove _scdev.info_runner
 
+scoreboard players reset *packs.index _scdev
 data remove storage scdev:_ v.packs
