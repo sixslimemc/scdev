@@ -13,7 +13,14 @@ execute store success score *packinfo.library _scdev if data storage scdev:_ v.p
 
 data modify storage scdev:_ v.packinfo.lines set value []
 
-data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
+#data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:true, color:white}
+
+# Ref:
+data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
+data modify storage scdev:in pack.use_this_entity set value true
+function scdev:format/pack
+data modify entity @s text set value [{text:"--[ ", color:"white", bold:true}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]--", color:white, bold:true}]
+data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
