@@ -35,11 +35,6 @@ execute if score *packinfo.library _scdev matches 1 run data modify storage scde
 execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:true}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
-
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
@@ -51,6 +46,11 @@ data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:
 
 data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
+
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
