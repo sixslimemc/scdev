@@ -10,7 +10,7 @@ execute summon text_display run function scdev:_/impl/-/info/list/entrypoints/ma
 tag @s remove _scdev.info_runner
 
 scoreboard players reset *entrypoints.index _scdev
-scoreboard players reset *entrypoints.total_enabled _scdev
-scoreboard players reset *entrypoints.total_disabled _scdev
+scoreboard players reset *entrypoints.total _scdev
+scoreboard players reset *entrypoints.disabled _scdev
 scoreboard players reset *entrypoints.showing _scdev
 data remove storage scdev:_ v.entrypoints

@@ -2,24 +2,22 @@
 # main
 kill @s
 
-# get pack pool:
+# store flags:
+execute store success score *entrypoints.disabled _scdev if data storage scdev:_ v.entrypoints.args{disabled:true}
+
+# get {..pack_pool}:
 data modify storage scdev:_/in query_packs.disabled set from storage scdev:_ v.entrypoints.args.disabled
 data modify storage scdev:_/in query_packs.pack_filter set from storage scdev:_ v.entrypoints.args.pack_filter
 function scdev:_/util/query_packs/main
 data modify storage scdev:_ v.entrypoints.pack_pool set from storage scdev:_/out query_packs.result
 
-# populate {..pack_pool_map}
-data modify storage scdev:_ v.entrypoints.pack_pool_map set value {}
-execute if data storage scdev:_ v.entrypoints.pack_pool[0] run function scdev:_/impl/-/info/list/entrypoints/each_pack with storage scdev:_ v.entrypoints.pack_pool[-1]
-
 # populate {..entrypoints}
-# set *.total_enabled
-# set *.total_disabled
-scoreboard players set *entrypoints.total_enabled _scdev 0
-scoreboard players set *entrypoints.total_disabled _scdev 0
 data modify storage scdev:_ v.entrypoints.entrypoints set value []
-data modify storage scdev:_ v.entrypoints.entrypoint_iter set from storage slimecore:data build.order.entrypoints
-execute if data storage scdev:_ v.entrypoints.entrypoint_iter[0] run function scdev:_/impl/-/info/list/entrypoints/filter_entrypoint with storage scdev:_ v.entrypoints.entrypoint_iter[0]
+execute if data storage scdev:_ v.entrypoints.pack_pool[0] run function scdev:_/impl/-/info/list/entrypoints/each_pack
+
+# get *.total:
+execute if score *entrypoints.disabled _scdev matches 0 store result score *entrypoints.total _scdev if data storage slimecore:data world.installed[{disabled:false}].pack.entrypoints[]
+execute if score *entrypoints.disabled _scdev matches 1 store result score *entrypoints.total _scdev if data storage slimecore:data world.installed[{disabled:true}].pack.entrypoints[]
 
 # paginate {..entrypoints}:
 data modify storage scdev:_/in paginate.list set from storage scdev:_ v.entrypoints.entrypoints
@@ -46,9 +44,7 @@ data modify storage scdev:_ v.entrypoints.lines append value {text:"", color:whi
 data modify storage scdev:_ v.entrypoints.lines[-1].extra[1] set from storage scdev:_ v.entrypoints.c.title
 
 # showing line:
-execute if data storage scdev:_ v.entrypoints.args{disabled:false} run scoreboard players operation *x _scdev = *entrypoints.total_enabled _scdev
-execute unless data storage scdev:_ v.entrypoints.args{disabled:false} run scoreboard players operation *x _scdev = *entrypoints.total_disabled _scdev
-data modify entity @s text set value {text:"", color:"gray", extra:[{text:"Showing "}, {score:{name:"*entrypoints.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*x", objective:"_scdev"}}, {text:":"}]}
+data modify entity @s text set value {text:"", color:"gray", extra:[{text:"Showing "}, {score:{name:"*entrypoints.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*entrypoints.total", objective:"_scdev"}}, {text:":"}]}
 data modify storage scdev:_ v.entrypoints.lines append from entity @s text
 
 # each:
