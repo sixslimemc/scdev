@@ -6,9 +6,11 @@
 
 # get index:
 scoreboard players set *packs.index _scdev -1
-data modify storage scdev:_ x.mline set value {1:"execute store result score *packs.index _scdev run data get storage slimecore:data build.order.load[{pack_ref:'", 2:true, 3:"'}].index"}
+data remove storage scdev:_ v.packs.index
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packs.index set from storage slimecore:data build.order.load[{pack_ref:'", 2:true, 3:"'}].index"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packs.pack_ids[0]
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
+execute if data storage scdev:_ v.packs.index store result score *packs.index _scdev run data get storage scdev:_ v.packs.index
 
 # {..index.text}:
 execute if score *packs.index _scdev matches -1 run data modify storage scdev:_ v.packs.index_text set value {text:"#", color:dark_red}
