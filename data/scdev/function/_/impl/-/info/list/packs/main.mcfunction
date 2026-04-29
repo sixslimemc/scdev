@@ -25,7 +25,7 @@ data modify storage scdev:_ v.packs.lines set value []
 data modify storage scdev:_ v.packs.c.title set value {text:"List: Packs", color:green, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"Get: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.packs.args.page", color:gray}, {text:"\nCount: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
 execute if score *packs.disabled _scdev matches 1 run data modify storage scdev:_ v.packs.c.title.color set value red
 execute if data storage scdev:_ v.packs.args.count run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[5] set value {plain:true, storage:"scdev:_", nbt:"v.packs.args.count", color:gray}
-execute if data storage scdev:_ v.packs.args{disabled:true} run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[1] set value {text:"Disabled", color:red}
+execute if score *packs.disabled _scdev matches 1 run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[1] set value {text:"Disabled", color:red}
 execute if data storage scdev:_ v.packs.args.pack_filter run data modify storage scdev:_ v.packs.c.title.hover_event.value.extra[7] set value {storage:"scdev:_", nbt:"v.packs.args.pack_filter", color:gray}
 data modify entity @s text set from storage scdev:_ v.packs.c.title
 data modify storage scdev:_ v.packs.c.title set from entity @s text
