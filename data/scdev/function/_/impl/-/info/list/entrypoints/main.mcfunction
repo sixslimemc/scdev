@@ -15,8 +15,6 @@ data modify storage scdev:_ v.entrypoints.pack_pool set from storage scdev:_/out
 data modify storage scdev:_ v.entrypoints.entrypoints set value []
 execute if data storage scdev:_ v.entrypoints.pack_pool[0] run function scdev:_/impl/-/info/list/entrypoints/each_pack
 
-# DEBUG:
-tellraw @a ["E: ", {'storage':'scdev:_', 'nbt':'v.entrypoints.entrypoints'}]
 # get *.total:
 execute if score *entrypoints.disabled _scdev matches 0 store result score *entrypoints.total _scdev if data storage slimecore:data world.installed[{disabled:false}].pack.entrypoints[]
 execute if score *entrypoints.disabled _scdev matches 1 store result score *entrypoints.total _scdev if data storage slimecore:data world.installed[{disabled:true}].pack.entrypoints[]
