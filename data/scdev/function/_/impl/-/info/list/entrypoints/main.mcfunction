@@ -41,7 +41,7 @@ data modify entity @s text set from storage scdev:_ v.entrypoints.c.title
 data modify storage scdev:_ v.entrypoints.c.title set from entity @s text
 
 # header line:
-data modify storage scdev:_ v.entrypoints.lines append value {text:"", color:white, extra:[{text:"--[ "}, {}, {text:" ]------"}]}
+data modify storage scdev:_ v.entrypoints.lines append value {text:"", color:white, extra:[{text:"--[ "}, {}, {text:" ]--"}]}
 data modify storage scdev:_ v.entrypoints.lines[-1].extra[1] set from storage scdev:_ v.entrypoints.c.title
 
 # showing line:
