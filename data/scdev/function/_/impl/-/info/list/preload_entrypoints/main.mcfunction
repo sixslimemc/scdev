@@ -45,7 +45,7 @@ data modify storage scdev:_ v.preload_entrypoints.lines append value {text:"", c
 data modify storage scdev:_ v.preload_entrypoints.lines[-1].extra[1] set from storage scdev:_ v.preload_entrypoints.c.title
 
 # showing line:
-data modify entity @s text set value {text:"", color:"gray", extra:[{text:"Showing "}, {score:{name:"preload_entrypoints.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"preload_entrypoints.total", objective:"_scdev"}}, {text:":"}]}
+data modify entity @s text set value {text:"", color:"gray", extra:[{text:"Showing "}, {score:{name:"*preload_entrypoints.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*preload_entrypoints.total", objective:"_scdev"}}, {text:":"}]}
 data modify storage scdev:_ v.preload_entrypoints.lines append from entity @s text
 
 # each:
