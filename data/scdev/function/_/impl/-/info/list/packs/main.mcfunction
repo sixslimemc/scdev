@@ -31,8 +31,8 @@ data modify storage scdev:_ v.packs.lines append value {text:"", color:white, ex
 data modify storage scdev:_ v.packs.lines[-1].extra[1] set from storage scdev:_ v.packs.c.title
 
 # showing line:
-execute unless data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:false}]
-execute if data storage scdev:_ v.packs.args{disabled:true} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:true}]
+execute if data storage scdev:_ v.packs.args{disabled:false} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:false}]
+execute unless data storage scdev:_ v.packs.args{disabled:false} store result score *x _scdev if data storage slimecore:data world.installed[{disabled:true}]
 data modify entity @s text set value {text:"", color:"gray", extra:[{text:"Showing "}, {score:{name:"*packs.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*x", objective:"_scdev"}}, {text:":"}]}
 data modify storage scdev:_ v.packs.lines append from entity @s text
 
