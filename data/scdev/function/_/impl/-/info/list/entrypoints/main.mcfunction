@@ -32,7 +32,8 @@ execute store result score *entrypoints.showing _scdev if data storage scdev:_ v
 data modify storage scdev:_ v.entrypoints.lines set value []
 
 # title:
-data modify storage scdev:_ v.entrypoints.c.title set value {text:"List: Entrypoints", color:yellow, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"Get: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.entrypoints.args.page", color:gray}, {text:"\nCount: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
+data modify storage scdev:_ v.entrypoints.c.title set value {text:"List: Entrypoints", color:green, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"Get: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.entrypoints.args.page", color:gray}, {text:"\nCount: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
+execute if score *entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.entrypoints.c.title.color set value red
 execute if data storage scdev:_ v.entrypoints.args.count run data modify storage scdev:_ v.entrypoints.c.title.hover_event.value.extra[5] set value {plain:true, storage:"scdev:_", nbt:"v.entrypoints.args.count", color:gray}
 execute if data storage scdev:_ v.entrypoints.args{disabled:true} run data modify storage scdev:_ v.entrypoints.c.title.hover_event.value.extra[1] set value {text:"Disabled", color:red}
 execute if data storage scdev:_ v.entrypoints.args.pack_filter run data modify storage scdev:_ v.entrypoints.c.title.hover_event.value.extra[7] set value {storage:"scdev:_", nbt:"v.entrypoints.args.pack_filter", color:gray}

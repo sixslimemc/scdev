@@ -11,4 +11,5 @@ tag @s remove _scdev.info_runner
 
 scoreboard players reset *packs.index _scdev
 scoreboard players reset *packs.showing _scdev
+scoreboard players reset *packs.disabled _scdev
 data remove storage scdev:_ v.packs
