@@ -1,4 +1,4 @@
-#> scdev:_/main/meta_info/rebuild/send_error/error/build/missing_impls/each_pack
+#> scdev:_/main/meta_info/rebuild/send_error/error/build/missing_impls/each_entrypoint
 #--------------------
 # ./each
 #--------------------
@@ -14,4 +14,4 @@ data modify storage scdev:_ t.error.lines append value {text:"", color:gray, ext
 data modify storage scdev:_ t.error.lines[-1].extra[1] set from storage scdev:_ t.error.entrypoint_text
 
 data remove storage scdev:_ t.error.this_entry.conflicting_group[0]
-execute if data storage scdev:_ t.error.this_entry.conflicting_group[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/entrypoint_conflicts/each_pack
+execute if data storage scdev:_ t.error.this_entry.conflicting_group[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/entrypoint_conflicts/each_entrypoint

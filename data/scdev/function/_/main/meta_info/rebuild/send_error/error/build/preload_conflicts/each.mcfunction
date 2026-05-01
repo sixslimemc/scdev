@@ -3,11 +3,11 @@
 # ./send
 #--------------------
 
-data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
+data modify storage scdev:_ t.error.this_entry set from storage scdev:_ t.error.entries[-1]
 
-tellraw @a[tag=scdev.listener] {text:" - Conflicting group of preload entrypoints: ", color:red}
+data modify storage scdev:_ t.error.lines append value {text:" - Conflicting group of preload entrypoints: ", color:red}
 
-execute if data storage scdev:_ t.error.entry.cycle[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/preload_conflicts/each_pack
+execute if data storage scdev:_ t.error.this_entry.cycle[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/preload_conflicts/each_entrypoint
 
 data remove storage scdev:_ t.error.entries[-1]
 execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/preload_conflicts/each
