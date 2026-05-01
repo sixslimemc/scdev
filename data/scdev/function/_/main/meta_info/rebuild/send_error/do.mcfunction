@@ -15,6 +15,7 @@ execute if data storage slimecore:hook end.result.error.build_error.unimplemente
 execute if data storage slimecore:hook end.result.error.build_error.unfulfilled_dependencies run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_deps/send
 execute if data storage slimecore:hook end.result.error.build_error.dependency_cycles run function scdev:_/main/meta_info/rebuild/send_error/error/build/dep_cycles/send
 execute if data storage slimecore:hook end.result.error.build_error.entrypoint_order_conflicts run function scdev:_/main/meta_info/rebuild/send_error/error/build/entrypoint_conflicts/send
+execute if data storage slimecore:hook end.result.error.build_error.preload_entrypoint_order_conflicts run function scdev:_/main/meta_info/rebuild/send_error/error/build/preload_conflicts/send
 execute if data storage slimecore:hook end.result.error.safe_mode_activated run function scdev:_/main/meta_info/rebuild/send_error/error/safe_mode_activated/send
 
 data remove storage scdev:_ t.error
