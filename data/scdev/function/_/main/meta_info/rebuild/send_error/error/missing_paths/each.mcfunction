@@ -3,21 +3,20 @@
 # ./send
 #--------------------
 
-data modify storage scdev:_ t.error.entry set from storage scdev:_ t.error.entries[-1]
+data modify storage scdev:_ t.error.this_entry set from storage scdev:_ t.error.entries[-1]
 
-tellraw @a[tag=scdev.listener] [ \
-    {text:" - Could not find datapack path for ", color: red}, \
-    {storage:"scdev:_", nbt:"t.error.entry.pack.pack_id", color:yellow}, \
-    {text:".", color:red} \
-]
+# get {..pack_text}:
+data modify storage scdev:in pack.pack set from storage scdev:_ t.error.this_entry.pack
+data modify storage scdev:in pack.use_this_entity set value true
+function scdev:format/pack
+data modify storage scdev:_ t.error.pack_text set from storage scdev:out pack.result
 
-execute if data storage scdev:_ t.error.entry.path_override run tellraw @a[tag=scdev.listener] [ \
-    {text:"  Expected path was ", color:"red"}, \
-    {storage:"scdev:_", nbt:"t.error.entry.path_override", color:dark_aqua}, \
-    {text:" (specified by path override).", color:"red"}, \
-]
+data modify storage scdev:_ t.error.lines append value {text:"", color:red, extra:[{text:" - No datapack found for "}, {}, {text:" could not be found."}]}
+data modify storage scdev:_ t.error.lines[-1].extra[1] set from storage scdev:_ t.error.pack_text
 
-execute unless data storage scdev:_ t.error.entry.path_override run tellraw @a[tag=scdev.listener] {text:" Expected a standard datapack path.", color:"dark_aqua"}
+execute if data storage scdev:_ t.error.this_entry.path_override run data modify storage scdev:_ t.error.lines append value {text:"", color:gray, italic:true, extra:[{text:"   Path override specifies path should be "}, {plain:true, storage:"scdev:_", nbt:"t.error.this_entry.path_override", color:white}, {text:""}]}
+
+execute unless data storage scdev:_ t.error.this_entry.path_override run data modify storage scdev:_ t.error.lines append value {text:"   Expected a standard datapack path.", color:gray, italic:true}
 
 data remove storage scdev:_ t.error.entries[-1]
 execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/missing_paths/each

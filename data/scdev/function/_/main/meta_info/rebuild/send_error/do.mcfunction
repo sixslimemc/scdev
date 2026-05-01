@@ -4,7 +4,8 @@
 #--------------------
 kill @s
 
-tellraw @a[tag=scdev.listener] [{storage:"scdev:_", nbt:"const.chat_marker", interpret:true}, {text:":", color:gray}, {text:"\nRebuild Error:", color: dark_red, bold:true}]
+data modify storage scdev:_ t.error.lines set value []
+data modify storage scdev:_ t.error.lines append value [{text:"Rebuild Error:", color: dark_red, bold:true}]
 
 execute if data storage slimecore:hook end.result.error.missing_datapack_paths run function scdev:_/main/meta_info/rebuild/send_error/error/missing_paths/send
 execute if data storage slimecore:hook end.result.error.build_error.invalid_packs run function scdev:_/main/meta_info/rebuild/send_error/error/build/invalid_packs/send
