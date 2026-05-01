@@ -12,7 +12,7 @@ function scdev:format/dependency
 data modify storage scdev:_ t.error.dependency_text set from storage scdev:out dependency.result
 
 # format from text:
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:in pack.pack set from storage slimecore:hook end.result.error.manifests[{pack_id:'", 2:true, 3:"'}]"}
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:in pack.pack set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.pack"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.entry.from
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
 data modify storage scdev:in pack.use_this_entity set value true
