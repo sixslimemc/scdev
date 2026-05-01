@@ -22,7 +22,7 @@ data modify storage scdev:_ t.error.from_text set from storage scdev:out pack.re
 tellraw @a[tag=scdev.listener] [{text: " - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.dependency_text"}, {text: " required by ", color:red}, {interpret:true, storage:"scdev:_", nbt:"t.error.from_text"}, {text: ".", color:red}]
 
 # not present:
-execute if data storage scdev:_ t.error.entry.reason.not_present run tellraw @a[tag=scdev.listener] [{text:"  (Pack not installed/enabled) ", color:red}]
+execute if data storage scdev:_ t.error.entry.reason.not_present run tellraw @a[tag=scdev.listener] [{text:"  (Pack would not be present in build) ", color:red}]
 
 # author mismatch:
 execute if data storage scdev:_ t.error.entry.reason.author_mismatch run tellraw @a[tag=scdev.listener] [{text:"  (A pack with an identical pack ID, ", color:"red"}, {storage:"scdev:_", nbt:"t.error.entry.reason.author_mismatch.got", color: dark_aqua}, {text:".", color:"dark_aqua"}, {storage:"scdev:_", nbt:"t.error.entry.dependency.pack_id", color: dark_aqua}, {text:" is enabled, it must be uninstalled/disabled)", color:"red"}]
