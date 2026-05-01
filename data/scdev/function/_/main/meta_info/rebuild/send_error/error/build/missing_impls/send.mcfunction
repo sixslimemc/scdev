@@ -3,7 +3,7 @@
 # ../../../do
 #--------------------
 
-tellraw @a[tag=scdev.listener] {text: "> Unimplemented abstract interface(s):", color:dark_red}
+tellraw @a[tag=scdev.listener] {text: "> Abstract interface(s) would be unimplemented:", color:dark_red}
 
 data modify storage scdev:_ t.error.entries set from storage slimecore:hook end.result.error.build_error.unimplemented_abstracts
 execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_impls/each

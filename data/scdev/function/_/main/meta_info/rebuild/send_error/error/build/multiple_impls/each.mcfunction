@@ -10,7 +10,7 @@ data modify storage scdev:in abstract.use_this_entity set value true
 function scdev:format/abstract
 data modify storage scdev:_ x.abstract_text set from storage scdev:out abstract.result
 
-tellraw @a[tag=scdev.listener] [{text: " - Abstract interface ", color:red}, {interpret:true, storage:"scdev:_", nbt:"x.abstract_text"}, {text: " would be implemented by:", color:red}]
+tellraw @a[tag=scdev.listener] [{text: " - ", color:red}, {interpret:true, storage:"scdev:_", nbt:"x.abstract_text"}, {text: " would be implemented by:", color:red}]
 
 execute if data storage scdev:_ t.error.entry.sources[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/packs/each
 
