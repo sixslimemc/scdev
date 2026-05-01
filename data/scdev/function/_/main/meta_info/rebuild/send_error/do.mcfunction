@@ -18,4 +18,8 @@ execute if data storage slimecore:hook end.result.error.build_error.entrypoint_o
 execute if data storage slimecore:hook end.result.error.build_error.preload_entrypoint_order_conflicts run function scdev:_/main/meta_info/rebuild/send_error/error/build/preload_conflicts/send
 execute if data storage slimecore:hook end.result.error.safe_mode_activated run function scdev:_/main/meta_info/rebuild/send_error/error/safe_mode_activated/send
 
+data modify storage scdev:_/in send.to_listeners set value true
+data modify storage scdev:_/in send.lines set from storage scdev:_ t.error.lines
+function scdev:_/util/text/send/main
+
 data remove storage scdev:_ t.error
