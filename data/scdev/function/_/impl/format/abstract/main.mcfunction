@@ -11,7 +11,7 @@ data modify storage scdev:_ x.mline.2 set from storage scdev:in abstract.referen
 data modify storage scdev:_ x.mline.4 set from storage scdev:in abstract.reference.id
 function scdev:_/util/mline/5 with storage scdev:_ x.mline
 
-execute unless data storage scdev:_ v.abstract.implementor run data modify storage scdev:_ v.abstract.text.hover_event set value {action:"show_text", value:[{text:"Not implemented in current build", color:red}]}
+execute unless data storage scdev:_ v.abstract.implementor run data modify storage scdev:_ v.abstract.text.hover_event set value {action:"show_text", value:[{text:"Not implemented", color:red}]}
 execute if data storage scdev:_ v.abstract.implementor run function scdev:_/impl/format/abstract/implemented
 
 data modify entity @s text set from storage scdev:_ v.abstract.text
