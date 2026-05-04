@@ -5,9 +5,6 @@
 
 data modify storage scdev:_ t.error.this_entry set from storage scdev:_ t.error.entries[-1]
 
-# DEBUG:
-tellraw @a ["", {'storage':'scdev:_', 'nbt':'t.error.this_entry'}]
-
 data modify storage scdev:in abstract.reference set from storage scdev:_ t.error.this_entry.of
 data modify storage scdev:in abstract.use_this_entity set value true
 function scdev:format/abstract
