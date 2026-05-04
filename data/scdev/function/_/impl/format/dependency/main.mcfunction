@@ -36,9 +36,9 @@ execute if score *dependency.optional _scdev matches 1 run data modify storage s
 
 # status line:
 execute if score *dependency.state _scdev matches 0 run data modify storage scdev:_ v.dependency.c.line_status set value {text:"Not installed", color:red}
-execute if score *dependency.state _scdev matches 1 run data modify storage scdev:_ v.dependency.c.line_status set value {text:"", color:green, extra:[{text:"Version "}, {}, {text:" installed and enabled."}]}
+execute if score *dependency.state _scdev matches 1 run data modify storage scdev:_ v.dependency.c.line_status set value {text:"", color:green, extra:[{text:"Version "}, {}, {text:" installed and enabled"}]}
 execute if score *dependency.state _scdev matches 1 run data modify storage scdev:_ v.dependency.c.line_status.extra[1] set from storage scdev:_ v.dependency.installed_ver_text
-execute if score *dependency.state _scdev matches 2 run data modify storage scdev:_ v.dependency.c.line_status set value {text:"", color:red, extra:[{text:"Version "}, {}, {text:" installed, but disabled."}]}
+execute if score *dependency.state _scdev matches 2 run data modify storage scdev:_ v.dependency.c.line_status set value {text:"", color:red, extra:[{text:"Version "}, {}, {text:" installed, but disabled"}]}
 execute if score *dependency.state _scdev matches 2 run data modify storage scdev:_ v.dependency.c.line_status.extra[1] set from storage scdev:_ v.dependency.installed_ver_text
 execute if score *dependency.state _scdev matches 3 run data modify storage scdev:_ v.dependency.c.line_status set value {text:"", color:dark_red, extra:[{text:"Pack ID conflicts with "}, {text:"PACK ID", color:yellow}, {text:".", color:yellow}, {text:"AUTHOR ID", color:yellow}, {text:"."}]}
 execute if score *dependency.state _scdev matches 3 run data modify storage scdev:_ v.dependency.c.line_status.extra[1] set from storage scdev:_ v.dependency.installed.pack.author_id
