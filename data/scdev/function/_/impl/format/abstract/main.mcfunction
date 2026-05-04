@@ -14,5 +14,10 @@ function scdev:_/util/mline/5 with storage scdev:_ x.mline
 execute unless data storage scdev:_ v.abstract.implementor run data modify storage scdev:_ v.abstract.text.hover_event set value {action:"show_text", value:[{text:"Not implemented", color:red}]}
 execute if data storage scdev:_ v.abstract.implementor run function scdev:_/impl/format/abstract/implemented
 
+# click event:
+data modify storage scdev:_/in click_pack.pack_id set from storage scdev:in abstract.reference.pack_ref
+function scdev:_/util/text/click_pack/main
+data modify storage scdev:_ v.abstract.text.click_event set from storage scdev:_/out click_pack.result
+
 data modify entity @s text set from storage scdev:_ v.abstract.text
 data modify storage scdev:out abstract.result set from entity @s text
