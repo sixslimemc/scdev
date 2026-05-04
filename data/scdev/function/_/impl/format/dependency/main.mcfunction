@@ -66,12 +66,18 @@ execute if score *dependency.state _scdev matches 4 run data modify storage scde
 execute if score *dependency.optional _scdev matches 1 run data modify storage scdev:_ v.dependency.show.hover.extra append value {text:"\n"}
 execute if score *dependency.optional _scdev matches 1 run data modify storage scdev:_ v.dependency.show.hover.extra append from storage scdev:_ v.dependency.c.line_optional
 
+# get click_pack action:
+data modify storage scdev:_/in click_pack.pack_id set from storage scdev:_ v.dependency.data.pack_id
+function scdev:_/util/text/click_pack/main
+data modify storage scdev:_ v.dependency.click_pack set from storage scdev:_/out click_pack.result
+
 # set text:
 data modify storage scdev:_ v.dependency.text set from storage scdev:_ v.dependency.show.title
 data modify storage scdev:_ v.dependency.text.hover_event set value {action:"show_text", value:{}}
 data modify storage scdev:_ v.dependency.text.hover_event.value set from storage scdev:_ v.dependency.show.hover
 execute if score *dependency.click_download _scdev matches 1 run data modify storage scdev:_ v.dependency.text.click_event set value {action:"open_url", url:""}
 execute if score *dependency.click_download _scdev matches 1 run data modify storage scdev:_ v.dependency.text.click_event.url set from storage scdev:_ v.dependency.data.download.url
+execute if score *dependency.click_download _scdev matches 0 run data modify storage scdev:_ v.dependency.text.click_event set from storage scdev:_ v.dependency.click_pack
 
 # set out:
 data modify entity @s text set from storage scdev:_ v.dependency.text
