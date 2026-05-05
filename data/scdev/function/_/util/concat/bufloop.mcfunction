@@ -18,6 +18,10 @@ data modify storage scdev:_ x.quote set from storage scdev:_ u.concat.quote
 execute store result score *concat.fix_quote _scdev run data modify storage scdev:_ x.quote set from storage scdev:_ u.concat.acc_quote
 execute if score *concat.fix_quote _scdev matches 1 run function scdev:_/util/concat/fix_string with storage scdev:_ u.concat
 
+# DEBUG:
+tellraw @a ["ACC: ", {'storage':'scdev:_', 'nbt':'u.concat.acc'}]
+tellraw @a ["STRING: ", {'storage':'scdev:_', 'nbt':'u.concat.string'}]
+
 # concat to {..acc}:
 function scdev:_/util/concat/concat with storage scdev:_ u.concat
 
