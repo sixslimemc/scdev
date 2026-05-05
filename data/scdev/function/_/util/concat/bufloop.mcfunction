@@ -24,6 +24,10 @@ tellraw @a ["STRING: ", {'storage':'scdev:_', 'nbt':'u.concat.string'}]
 tellraw @a ["ACC_QUOTE: ", {'storage':'scdev:_', 'nbt':'u.concat.acc_quote'}]
 function scdev:_/util/concat/test with storage scdev:_ u.concat
 
+# stupid freaking resolve {..acc}:
+data modify entity @s text set value {plain:true, storage:"scdev:_", nbt:"u.concat.acc"}
+data modify storage scdev:_ u.concat.acc set from entity @s text.extra[1]
+
 # concat to {..acc}:
 function scdev:_/util/concat/concat with storage scdev:_ u.concat
 
