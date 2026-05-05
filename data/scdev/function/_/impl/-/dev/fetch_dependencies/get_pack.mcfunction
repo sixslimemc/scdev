@@ -4,6 +4,7 @@
 # ./each_id
 #--------------------
 
+$say $(this_id)
 # check seen:
 $execute store result score *x _scdev run data modify storage scdev:_ v.fetch.seen_map.'$(this_id)' set value true
 execute if score *x _scdev matches 0 run return 1
