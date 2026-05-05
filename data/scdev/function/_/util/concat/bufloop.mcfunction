@@ -22,6 +22,7 @@ execute if score *concat.fix_quote _scdev matches 1 run function scdev:_/util/co
 tellraw @a ["ACC: ", {'storage':'scdev:_', 'nbt':'u.concat.acc'}]
 tellraw @a ["STRING: ", {'storage':'scdev:_', 'nbt':'u.concat.string'}]
 tellraw @a ["ACC_QUOTE: ", {'storage':'scdev:_', 'nbt':'u.concat.acc_quote'}]
+function scdev:_/util/concat/test with storage scdev:_ u.concat
 
 # concat to {..acc}:
 function scdev:_/util/concat/concat with storage scdev:_ u.concat
