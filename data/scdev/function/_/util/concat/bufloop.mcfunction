@@ -35,10 +35,7 @@ function scdev:_/util/concat/concat with storage scdev:_ u.concat
 execute if score *concat.fix_quote _scdev matches 1 run data modify entity @s text set value {plain:true, storage:"scdev:_", nbt:"u.concat.acc"}
 execute if score *concat.fix_quote _scdev matches 1 run data modify storage scdev:_ u.concat.acc_quote set from entity @s text.extra[0]
 
-# remove quote, "", " ", and ",":
-data remove storage scdev:_ u.concat.buffer[-1]
-data remove storage scdev:_ u.concat.buffer[-1]
-data remove storage scdev:_ u.concat.buffer[-1]
-data remove storage scdev:_ u.concat.buffer[-1]
+# cycle to next quote:
+function scdev:_/util/concat/cycle_next
 
 execute if data storage scdev:_ u.concat.buffer[0] run function scdev:_/util/concat/bufloop
