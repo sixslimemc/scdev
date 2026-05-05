@@ -1,0 +1,15 @@
+use super::super::super::def::PackId
+
+struct In {
+    args: struct Args {
+        packs: [PackId],
+        /// Default: 0
+        compact?: CompactLevel
+    }
+}
+
+enum(int) CompactLevel {
+    Expanded = 0,
+    Compact = 1,
+    OneLine = 2,
+}
