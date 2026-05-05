@@ -18,12 +18,6 @@ data modify storage scdev:_ x.quote set from storage scdev:_ u.concat.quote
 execute store result score *concat.fix_quote _scdev run data modify storage scdev:_ x.quote set from storage scdev:_ u.concat.acc_quote
 execute if score *concat.fix_quote _scdev matches 1 run function scdev:_/util/concat/fix_string with storage scdev:_ u.concat
 
-# DEBUG:
-tellraw @a ["ACC: ", {'storage':'scdev:_', 'nbt':'u.concat.acc'}]
-tellraw @a ["STRING: ", {'storage':'scdev:_', 'nbt':'u.concat.string'}]
-tellraw @a ["ACC_QUOTE: ", {'storage':'scdev:_', 'nbt':'u.concat.acc_quote'}]
-function scdev:_/util/concat/test with storage scdev:_ u.concat
-
 # stupid freaking resolve {..acc}:
 data modify entity @s text set value {plain:true, storage:"scdev:_", nbt:"u.concat.acc"}
 data modify storage scdev:_ u.concat.acc set from entity @s text.extra[1]
