@@ -15,6 +15,9 @@ data remove storage scdev:_ u.concat.buffer[-1]
 data modify storage scdev:_ u.concat.acc set value ""
 data modify storage scdev:_ u.concat.acc_quote set value '"'
 
+# DEBUG:
+tellraw @a ["BUFFER: ", {'storage':'scdev:_', 'nbt':'u.concat.buffer'}]
+
 # accumulate string into {..acc}:
 execute if data storage scdev:_ u.concat.buffer[0] run function scdev:_/util/concat/bufloop
 
