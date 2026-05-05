@@ -30,9 +30,6 @@ data modify storage scdev:_/in concat.strings set from storage scdev:_ v.fetch.c
 function scdev:_/util/concat/main
 data modify storage scdev:_ v.fetch.copy_string set from storage scdev:_/out concat.result
 
-# DEBUG:
-tellraw @a ["", {'storage':'scdev:_', 'nbt':'v.fetch.copy_string'}]
-
 # send:
 data modify storage scdev:_/in send.lines set value [{text:"[Copy Command(s) to Clipboard]", color:white, underlined:true, hover_event:{action:"show_text", value:{text:"Click to copy", color:gray}}, click_event:{action:"copy_to_clipboard", value:""}}]
 data modify storage scdev:_/in send.lines[0].click_event.value set from storage scdev:_ v.fetch.copy_string
