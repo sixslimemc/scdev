@@ -2,10 +2,8 @@
 #--------------------
 # HOOK: slimecore::meta_info/rebuild/start
 #--------------------
-scoreboard objectives add _scdev dummy
 
-# init:
-execute unless score *init _scdev matches 1 run function scdev:_/sc/init
+function scdev:_/sc/rebuild_load
 
 data modify storage scdev:_/in send.lines set value [{text:"Rebuilding...", color:blue}]
 data modify storage scdev:_/in send.to_listeners set value true
