@@ -38,16 +38,16 @@ function scdev:format/version
 data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
-
 # is library:
 data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
 execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
 execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
+
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
