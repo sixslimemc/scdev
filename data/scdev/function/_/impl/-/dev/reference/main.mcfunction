@@ -21,7 +21,7 @@ data modify storage scdev:_ v.reference.lines append value {text:"        ├ ",
 data modify storage scdev:_ v.reference.lines append value {text:"        └ ", color:gray, extra:[{text:"uninstall.json", color:aqua, bold:true, hover_event:{action:"show_text", value:{text:"", color:gray, extra:[{text:"#<pack id>:uninstall", italic:true, color:aqua}, {text:"\n"}, {text:"Called when the pack is uninstalled by SlimeCore--assumedly before the user removes the datapack from the world. Dependencies will never be uninstalled before their dependents.\nA pack should attempt to erase all traces of itself when this tag is called, including (but not limited to) storage NBT, scoreboards, and entities."}]}}}]}
 data modify storage scdev:_ v.reference.lines append value {text:""}
 data modify storage scdev:_ v.reference.lines append value {text:"[SlimeCore Info URL]", color:blue, underlined:true, hover_event:{action:"show_text", value:{text:"Click to open URL", color:gray}, click_event:{action:"open_url", url:""}}}
-data modify storage scdev:_ v.reference.lines[-1].click_event.url set from storage slimecore:data slimecore.display.links.Info
+data modify storage scdev:_ v.reference.lines[-1].click_event.url set from storage slimecore:data slimecore.display.links.info
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.reference.lines
