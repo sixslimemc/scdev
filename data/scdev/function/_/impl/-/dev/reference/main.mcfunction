@@ -8,7 +8,7 @@ data modify storage scdev:_ v.reference.lines set value []
 data modify storage scdev:_ v.reference.lines append value {text:"<datapack>", color:dark_gray, italic:true}
 data modify storage scdev:_ v.reference.lines append value {text:"└ ", color:gray, extra:[{text:"data", color:white}]}
 data modify storage scdev:_ v.reference.lines append value {text:"  ├ ", color:gray, extra:[{text:"slimecore/tags/function", color:white}]}
-data modify storage scdev:_ v.reference.lines append value {text:"  │ └ ", color:gray, extra:[{text:"manifest.json", color:dark_aqua, bold:true, hover_event:{action:"show_text", value:{text:"", color:gray, extra:[{text:"#slimecore:manifest", italic:true, color:dark_aqua}, {text:"\n"}, {text:"Called by SlimeCore during manifest processing.\nA pack must append their manifest function--the single function that calls slimecore:api/manifest--to this tag."}]}}}]}
+data modify storage scdev:_ v.reference.lines append value {text:"  │ └ ", color:gray, extra:[{text:"manifest.json", color:dark_aqua, bold:true, hover_event:{action:"show_text", value:{text:"", color:gray, extra:[{text:"#slimecore:manifest", italic:true, color:dark_aqua}, {text:"\n"}, {text:"Called during manifest processing.\nA pack must append their manifest function--the single function that calls slimecore:api/manifest--to this tag."}]}}}]}
 data modify storage scdev:_ v.reference.lines append value {text:"  └ ", color:gray, extra:[{text:"<pack_id>", color:dark_aqua, italic:true}]}
 data modify storage scdev:_ v.reference.lines append value {text:"     └ ", color:gray, extra:[{text:"tags/function", color:white}]}
 data modify storage scdev:_ v.reference.lines append value {text:"        ├ ", color:gray, extra:[{text:"entrypoint", color:white}]}
