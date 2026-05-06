@@ -7,10 +7,8 @@ data modify storage scdev:_ v.reference.lines set value []
 
 data modify storage scdev:_ v.reference.lines append value {text:"<datapack>", color:gray}
 data modify storage scdev:_ v.reference.lines append value {text:"├ ", color:gray, extra:[{text:"data"}]}
-data modify storage scdev:_ v.reference.lines append value {text:"│ ├ ", color:gray, extra:[{text:"slimecore"}]}
-data modify storage scdev:_ v.reference.lines append value {text:"│ │ └ ", color:gray, extra:[{text:"tags"}]}
-data modify storage scdev:_ v.reference.lines append value {text:"│ │   └ ", color:gray, extra:[{text:"function"}]}
-data modify storage scdev:_ v.reference.lines append value {text:"│ │     └ ", color:gray, extra:[{text:"manifest.json", color:light_purple}]}
+data modify storage scdev:_ v.reference.lines append value {text:"│ ├ ", color:gray, extra:[{text:"slimecore/tags/function"}]}
+data modify storage scdev:_ v.reference.lines append value {text:"│ │ └ ", color:gray, extra:[{text:"manifest.json", color:light_purple}]}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.reference.lines
