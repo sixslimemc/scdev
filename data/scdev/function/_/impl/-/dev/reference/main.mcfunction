@@ -9,10 +9,10 @@ data modify storage scdev:_ v.reference.lines append value {text:"<datapack>", c
 data modify storage scdev:_ v.reference.lines append value {text:"├ ", color:dark_gray, extra:[{text:"data", color:gray}]}
 data modify storage scdev:_ v.reference.lines append value {text:"│ ├ ", color:dark_gray, extra:[{text:"slimecore/tags/function", color:gray}]}
 data modify storage scdev:_ v.reference.lines append value {text:"│ │ └ ", color:dark_gray, extra:[{text:"manifest.json", color:aqua}]}
-data modify storage scdev:_ v.reference.lines append value {text:"│ └ ", color:dark_gray, extra:[{text:"<pack ID>", color:dark_aqua, italic:true}]}
+data modify storage scdev:_ v.reference.lines append value {text:"│ └ ", color:dark_gray, extra:[{text:"<pack_id>", color:dark_aqua, italic:true}]}
 data modify storage scdev:_ v.reference.lines append value {text:"│    ├ ", color:dark_gray, extra:[{text:"tags/function", color:gray}]}
 data modify storage scdev:_ v.reference.lines append value {text:"│    │ ├ ", color:dark_gray, extra:[{text:"entrypoint", color:gray}]}
-data modify storage scdev:_ v.reference.lines append value {text:"│    │ │ └", color:dark_gray, extra:[{text:"<Entrypoint ID...>.json", color:gold, italic:true}]}
+data modify storage scdev:_ v.reference.lines append value {text:"│    │ │ └", color:dark_gray, extra:[{text:"<id>", color:gold, italic:true}, {text:".json", color:gold, italic:false}, {text:" (...)", color:dark_blue}]}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.reference.lines
