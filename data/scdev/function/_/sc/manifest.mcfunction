@@ -9,7 +9,7 @@ data modify storage slimecore:in manifest.pack.version set value {major:0, minor
 data modify storage slimecore:in manifest.pack.url set value "https://github.com/sixslimemc/scdev/releases/download/v0.1.0/sixslime.scdev.0.2.0.zip"
 
 data modify storage slimecore:in manifest.pack.display.name set value "SCDev"
-data modify storage slimecore:in manifest.pack.display.summary set value "Simple chat-based frontend for SlimeCore."
+data modify storage slimecore:in manifest.pack.display.summary set value "Basic chat-based frontend for SlimeCore."
 data modify storage slimecore:in manifest.pack.display.author_name set value "SixSlime"
 
 data modify storage slimecore:in manifest.pack.display.links.author set value "https://github.com/sixslimemc"
