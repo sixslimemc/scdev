@@ -18,7 +18,7 @@ execute if data storage scdev:_ v.entrypoints.pack_pool[0] run function scdev:_/
 # order if not *.disabled:
 execute unless score *entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.entrypoints.order set from storage slimecore:data build.order.entrypoints
 execute unless score *entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.entrypoints.ordered set value []
-execute unless score *entrypoints.disabled _scdev matches 1 if data storage scdev:_ v.entrypoints.order[0] run function scdev:_/impl/-/info/list/entrypoints/main
+execute unless score *entrypoints.disabled _scdev matches 1 if data storage scdev:_ v.entrypoints.order[0] run function scdev:_/impl/-/info/list/entrypoints/order/each
 execute unless score *entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.entrypoints.entrypoints set from storage scdev:_ v.entrypoints.ordered
 
 # get *.total:
