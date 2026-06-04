@@ -11,6 +11,8 @@
 # 1: 
 #--------------------
 
+# DEBUG:
+tellraw @a ["IN: ", {'storage':'scdev:_/in', 'nbt':'index_order.list'}]
 data modify storage scdev:_/out index_order set value {result:[]}
 
 # get max index:
