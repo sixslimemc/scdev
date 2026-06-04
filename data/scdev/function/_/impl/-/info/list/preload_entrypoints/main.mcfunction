@@ -15,6 +15,12 @@ data modify storage scdev:_ v.preload_entrypoints.pack_pool set from storage scd
 data modify storage scdev:_ v.preload_entrypoints.entrypoints set value []
 execute if data storage scdev:_ v.preload_entrypoints.pack_pool[0] run function scdev:_/impl/-/info/list/preload_entrypoints/each_pack
 
+# order if not *.disabled:
+execute unless score *preload_entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.preload_entrypoints.order set from storage slimecore:data build.order.preload_entrypoints
+execute unless score *preload_entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.preload_entrypoints.ordered set value []
+execute unless score *preload_entrypoints.disabled _scdev matches 1 if data storage scdev:_ v.preload_entrypoints.order[0] run function scdev:_/impl/-/info/list/preload_entrypoints/order/each
+execute unless score *preload_entrypoints.disabled _scdev matches 1 run data modify storage scdev:_ v.preload_entrypoints.entrypoints set from storage scdev:_ v.preload_entrypoints.ordered
+
 # get *.total:
 execute if score *preload_entrypoints.disabled _scdev matches 0 store result score *preload_entrypoints.total _scdev if data storage slimecore:data world.installed[{disabled:false}].pack.preload_entrypoints[]
 execute if score *preload_entrypoints.disabled _scdev matches 1 store result score *preload_entrypoints.total _scdev if data storage slimecore:data world.installed[{disabled:true}].pack.preload_entrypoints[]
