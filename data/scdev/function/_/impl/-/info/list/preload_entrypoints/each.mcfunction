@@ -10,9 +10,10 @@ data modify storage scdev:_ v.preload_entrypoints.this_entrypoint set from stora
 # get index:
 scoreboard players set *preload_entrypoints.index _scdev -1
 data remove storage scdev:_ v.preload_entrypoints.index
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.preload_entrypoints.index set from storage slimecore:data build.order.entrypoints[{pack_ref:'", 2:true, 3:"'}].index"}
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.entrypoints.index set from storage slimecore:data build.order.preload_entrypoints[{pack_ref:'", 2:true, 3:"', id:'", 4:true, 5:"'}].index"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.preload_entrypoints.this_entrypoint.pack_ref
-function scdev:_/util/mline/3 with storage scdev:_ x.mline
+data modify storage scdev:_ x.mline.4 set from storage scdev:_ v.preload_entrypoints.this_entrypoint.id
+function scdev:_/util/mline/5 with storage scdev:_ x.mline
 execute if data storage scdev:_ v.preload_entrypoints.index store result score *preload_entrypoints.index _scdev run data get storage scdev:_ v.preload_entrypoints.index
 
 # {..index.text}:
