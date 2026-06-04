@@ -48,11 +48,6 @@ data modify storage scdev:_ v.entrypoints.lines[-1].extra[1] set from storage sc
 data modify entity @s text set value {text:"", color:"gray", extra:[{text:"Showing "}, {score:{name:"*entrypoints.showing", objective:"_scdev"}}, {text:"/"}, {score:{name:"*entrypoints.total", objective:"_scdev"}}, {text:":"}]}
 data modify storage scdev:_ v.entrypoints.lines append from entity @s text
 
-# sort entrypoints:
-data modify storage scdev:_/in index_order.list set from storage scdev:_ v.entrypoints.entrypoints
-function scdev:_/util/index_order/main
-data modify storage scdev:_ v.entrypoints.entrypoints set from storage scdev:_/out index_order.result
-
 # each:
 execute if data storage scdev:_ v.entrypoints.entrypoints[0] run function scdev:_/impl/-/info/list/entrypoints/each
 
