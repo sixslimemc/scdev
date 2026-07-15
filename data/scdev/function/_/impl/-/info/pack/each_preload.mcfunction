@@ -9,7 +9,7 @@ data modify storage scdev:in preload_entrypoint.reference.id set from storage sc
 data modify storage scdev:in preload_entrypoint.use_this_entity set value true
 function scdev:format/preload_entrypoint
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" - ", color:dark_gray}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" - ", color:gray}]
 data modify storage scdev:_ v.packinfo.lines[-1] append from storage scdev:out preload_entrypoint.result
 
 data remove storage scdev:_ v.packinfo.preloads[0]
