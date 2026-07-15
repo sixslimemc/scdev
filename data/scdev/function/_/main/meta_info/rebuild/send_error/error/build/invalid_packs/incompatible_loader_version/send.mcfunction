@@ -18,7 +18,7 @@ data modify entity @s text set value {text:"", color:dark_green, extra:[{text:"~
 data modify storage scdev:_ t.error.sc_req_text set from entity @s text
 
 # error line:
-data modify storage scdev:_ t.error.lines append value {text:"", color:gold, extra:[{text:"   - The installed version of SlimeCore is incompatible with this pack (SlimeCore "}, {}, {text:" is required, but "}, {}, {text:" is installed)."}]}
+data modify storage scdev:_ t.error.lines append value {text:"", color:gold, extra:[{text:"   - The installed version of SlimeCore is incompatible with this pack (SlimeCore"}, {}, {text:" is required, but "}, {}, {text:" is installed)."}]}
 data modify storage scdev:_ t.error.lines[-1].extra[1] set from storage scdev:_ t.error.sc_req_text
 data modify storage scdev:_ t.error.lines[-1].extra[3] set from storage scdev:_ t.error.sc_version_text
 
