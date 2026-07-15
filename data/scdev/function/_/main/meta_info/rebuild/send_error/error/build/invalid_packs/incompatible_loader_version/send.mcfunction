@@ -27,5 +27,5 @@ data modify entity @s text set value {text:"", color:gray, extra:[{text:"This ca
 data modify storage scdev:_ t.error.hover_text set from entity @s text
 
 # hover line:
-data modify storage scdev:_ t.error.lines append value {text:"", color:gray, extra:[{text:"    "}, {text:"(Hover here for more info)", color:white, italic:true, hover_event:{action:show_text, value:{}}}]}
+data modify storage scdev:_ t.error.lines append value {text:"", color:gray, extra:[{text:"    "}, {text:"(Hover for more info)", color:gray, italic:true, hover_event:{action:show_text, value:{}}}]}
 data modify storage scdev:_ t.error.lines[-1].extra[1].hover_event.value set from storage scdev:_ t.error.hover_text
