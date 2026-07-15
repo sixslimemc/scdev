@@ -7,7 +7,6 @@ kill @s
 data modify storage scdev:_ t.error.lines set value []
 data modify storage scdev:_ t.error.lines append value [{text:"Rebuild Error:", color: dark_red, bold:true}]
 
-execute if data storage slimecore:hook end.result.error.missing_datapack_paths run function scdev:_/main/meta_info/rebuild/send_error/error/missing_paths/send
 execute if data storage slimecore:hook end.result.error.build_error.invalid_packs run function scdev:_/main/meta_info/rebuild/send_error/error/build/invalid_packs/send
 execute if data storage slimecore:hook end.result.error.build_error.duplicate_pack_ids run function scdev:_/main/meta_info/rebuild/send_error/error/build/duplicate_ids/send
 execute if data storage slimecore:hook end.result.error.build_error.multiple_implementations run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/send
