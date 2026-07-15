@@ -1,4 +1,4 @@
-#> scdev:_/main/meta_info/rebuild/send_error/error/build/invalid_packs/incompatible_slimecore_version/send
+#> scdev:_/main/meta_info/rebuild/send_error/error/build/invalid_packs/incompatible_loader_version/send
 #--------------------
 # ../each
 #--------------------
@@ -14,7 +14,7 @@ function scdev:format/pack
 data modify storage scdev:_ t.error.pack_text set from storage scdev:out pack.result
 
 # req text:
-data modify entity @s text set value {text:"", color:dark_green, extra:[{text:"~"}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.slimecore_version.major", plain:true}, {text:"."}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.slimecore_version.minor", plain:true}]}
+data modify entity @s text set value {text:"", color:dark_green, extra:[{text:"~"}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.loader_version.major", plain:true}, {text:"."}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.loader_version.minor", plain:true}]}
 data modify storage scdev:_ t.error.sc_req_text set from entity @s text
 
 # error line:

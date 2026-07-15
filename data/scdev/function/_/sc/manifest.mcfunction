@@ -24,4 +24,6 @@ data modify storage slimecore:in manifest.pack.dependencies set value []
 
 data modify storage slimecore:in manifest.pack.is_library set value false
 
+data modify storage slimecore:in manifest.pack.loader_version set value {major:0, minor:3}
+
 function slimecore:api/manifest
