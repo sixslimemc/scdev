@@ -10,6 +10,6 @@ function scdev:format/pack
 data modify storage scdev:_ v.abstract.impl_text set from storage scdev:out pack.result
 data remove storage scdev:_ v.abstract.impl_text.hover_event
 
-data modify storage scdev:_ v.abstract.text.hover_event set value {action:"show_text", value:{text:"", color:green, extra:[{text:"Implemented by "}, {}]}}
+data modify storage scdev:_ v.abstract.text.hover_event set value {action:"show_text", value:{text:"", color:gray, extra:[{text:"Implemented by "}, {}]}}
 data modify storage scdev:_ v.abstract.text.hover_event.value.extra[1] set from storage scdev:_ v.abstract.impl_text
 
