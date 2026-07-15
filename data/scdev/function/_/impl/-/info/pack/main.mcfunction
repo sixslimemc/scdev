@@ -52,7 +52,7 @@ execute if score *packinfo.disabled _scdev matches 1 run data modify storage scd
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependencies:", color:white}]
-execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:dark_gray, italic:false}
 # execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:gray, italic:false}
 execute if data storage scdev:_ v.packinfo.dependencies[0] run function scdev:_/impl/-/info/pack/each_dependency
 
@@ -63,48 +63,48 @@ data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.
 data modify storage scdev:_ x.mline.4 set from storage scdev:_ v.packinfo.entry.pack.author_id
 function scdev:_/util/mline/5 with storage scdev:_ x.mline
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependents:", color:white}]
-execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:dark_gray, italic:false}
 # execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:gray, italic:false}
 execute if data storage scdev:_ v.packinfo.dependents[0] run function scdev:_/impl/-/info/pack/each_dependent
 
 # preload entrypoints:
 data modify storage scdev:_ v.packinfo.preloads set from storage scdev:_ v.packinfo.entry.pack.preload_entrypoints
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Preload Entrypoints:", color:white}]
-execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:dark_gray, italic:false}
 # execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:gray, italic:false}
 execute if data storage scdev:_ v.packinfo.preloads[0] run function scdev:_/impl/-/info/pack/each_preload
 
 # entrypoints:
 data modify storage scdev:_ v.packinfo.entrypoints set from storage scdev:_ v.packinfo.entry.pack.entrypoints
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Entrypoints:", color:white}]
-execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:dark_gray, italic:false}
 # execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:gray, italic:false}
 execute if data storage scdev:_ v.packinfo.entrypoints[0] run function scdev:_/impl/-/info/pack/each_entrypoint
 
 # abstract interfaces:
 data modify storage scdev:_ v.packinfo.interfaces set from storage scdev:_ v.packinfo.entry.pack.abstract_declarations
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Declarations:", color:white}]
-execute unless data storage scdev:_ v.packinfo.interfaces[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.interfaces[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:dark_gray, italic:false}
 # execute unless data storage scdev:_ v.packinfo.interfaces[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:gray, italic:false}
 execute if data storage scdev:_ v.packinfo.interfaces[0] run function scdev:_/impl/-/info/pack/each_abstract
 
 # abstract implementations:
 data modify storage scdev:_ v.packinfo.implements set from storage scdev:_ v.packinfo.entry.pack.abstract_implementations
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Implementations:", color:white}]
-execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:true, color:dark_gray, italic:false}
 # execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:gray, italic:false}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
 
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:blue, bold:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:gray, bold:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:blue}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:gray}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:blue, italic:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:gray, italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # links:
