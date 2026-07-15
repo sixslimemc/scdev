@@ -65,27 +65,27 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependents: ",
 execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
 execute if data storage scdev:_ v.packinfo.dependents[0] run function scdev:_/impl/-/info/pack/each_dependent
 
-# entrypoints:
-data modify storage scdev:_ v.packinfo.entrypoints set from storage scdev:_ v.packinfo.entry.pack.entrypoints
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Entrypoints: ", color:white}]
-execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
-execute if data storage scdev:_ v.packinfo.entrypoints[0] run function scdev:_/impl/-/info/pack/each_entrypoint
-
 # preload entrypoints:
 data modify storage scdev:_ v.packinfo.preloads set from storage scdev:_ v.packinfo.entry.pack.preload_entrypoints
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Preload Entrypoints: ", color:white}]
 execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
 execute if data storage scdev:_ v.packinfo.preloads[0] run function scdev:_/impl/-/info/pack/each_preload
 
+# entrypoints:
+data modify storage scdev:_ v.packinfo.entrypoints set from storage scdev:_ v.packinfo.entry.pack.entrypoints
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Entrypoints: ", color:white}]
+execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
+execute if data storage scdev:_ v.packinfo.entrypoints[0] run function scdev:_/impl/-/info/pack/each_entrypoint
+
 # abstract interfaces:
 data modify storage scdev:_ v.packinfo.interfaces set from storage scdev:_ v.packinfo.entry.pack.abstract_declarations
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Abstract Declarations: ", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Declarations: ", color:white}]
 execute unless data storage scdev:_ v.packinfo.interfaces[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
 execute if data storage scdev:_ v.packinfo.interfaces[0] run function scdev:_/impl/-/info/pack/each_abstract
 
 # abstract implementations:
 data modify storage scdev:_ v.packinfo.implements set from storage scdev:_ v.packinfo.entry.pack.abstract_implementations
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Abstract Implementations: ", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Implementations: ", color:white}]
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(none)", color:dark_gray}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
 
