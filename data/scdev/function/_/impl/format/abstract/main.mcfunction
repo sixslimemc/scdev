@@ -6,7 +6,7 @@ data modify storage scdev:_ v.abstract.text set value {text:"",extra:[{text:"PAC
 data modify storage scdev:_ v.abstract.text.extra[0].text set from storage scdev:in abstract.reference.pack_ref
 data modify storage scdev:_ v.abstract.text.extra[2].text set from storage scdev:in abstract.reference.id
 
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.abstract.implementor set from storage slimecore:data build.aux.impl_map.'", 2:true, 3:"'.'", 4:true, 5:"'"}
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.abstract.implementor set from storage slimecore:data build.aux.abstract_map.'", 2:true, 3:"'.'", 4:true, 5:"'"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:in abstract.reference.pack_ref
 data modify storage scdev:_ x.mline.4 set from storage scdev:in abstract.reference.id
 function scdev:_/util/mline/5 with storage scdev:_ x.mline
