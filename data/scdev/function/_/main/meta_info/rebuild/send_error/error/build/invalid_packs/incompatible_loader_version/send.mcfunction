@@ -23,7 +23,7 @@ data modify storage scdev:_ t.error.lines[-1].extra[1] set from storage scdev:_ 
 data modify storage scdev:_ t.error.lines[-1].extra[3] set from storage scdev:_ t.error.sc_version_text
 
 # hover text gen:
-data modify entity @s text set value {text:"", color:gray, extra:[{text:"Usually fixed by installing a newer version of SlimeCore (recommended if available) or an older version of "}, {storage:"scdev:_", nbt:"t.error.pack_text", interpret:true}, {text:"."}, {text:"\n"}, {text:"See "}, {text:"[Versions]", color:blue}, {text:" URL(s) from output of:"}, {text:"\n - "}, {text:"", color:dark_aqua, italic:true, extra:[{text:"/function scdev:-/info/slimecore"}]}, {text:"\n - "}, {text:"", color:dark_aqua, italic:true, extra:[{text:"/function scdev:-/info/pack {args:{pack_id:"}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.pack_id", plain:true}, {text:"}}"}]}]}
+data modify entity @s text set value {text:"", color:gray, extra:[{text:"Usually fixed by installing a newer version of SlimeCore or an older version of "}, {storage:"scdev:_", nbt:"t.error.pack_text", interpret:true}, {text:"."}, {text:"\n"}, {text:"See "}, {text:"[Versions]", color:blue}, {text:" URL(s) from output of:"}, {text:"\n - "}, {text:"", color:dark_aqua, italic:true, extra:[{text:"/function scdev:-/info/slimecore"}]}, {text:"\n - "}, {text:"", color:dark_aqua, italic:true, extra:[{text:"/function scdev:-/info/pack {args:{pack_id:"}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.pack_id", plain:true}, {text:"}}"}]}]}
 data modify storage scdev:_ t.error.hover_text set from entity @s text
 
 # hover line:
