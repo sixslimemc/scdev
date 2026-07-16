@@ -7,6 +7,10 @@ data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.args.pack_id
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
 
+# SlimeCore itself special handling:
+execute if data storage scdev:_ v.packinfo.args{pack_id:'slimecore'} run data modify storage scdev:_ v.packinfo.entry set value {pack:{}, disabled:false, path:""}
+execute if data storage scdev:_ v.packinfo.args{pack_id:'slimecore'} run data modify storage scdev:_ v.packinfo.entry.pack set from storage slimecore:data slimecore
+
 execute unless data storage scdev:_ v.packinfo.entry run return run function scdev:_/impl/-/info/pack/not_installed
 execute store success score *packinfo.disabled _scdev if data storage scdev:_ v.packinfo.entry{disabled:true}
 execute store success score *packinfo.library _scdev if data storage scdev:_ v.packinfo.entry.pack{is_library:true}
