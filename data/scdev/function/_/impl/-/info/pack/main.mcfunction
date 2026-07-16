@@ -42,6 +42,16 @@ function scdev:format/version
 data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
+# path:
+data remove storage scdev:_ v.packinfo.path
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
+data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
+function scdev:_/util/mline/3 with storage scdev:_ x.mline
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Datapack Path: ", color:white}]
+execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
+execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
+execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(not linked)", color:red, italic:true}
+
 # is library:
 data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
 execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
@@ -52,16 +62,6 @@ data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white}]
 execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
-
-# path:
-data remove storage scdev:_ v.packinfo.path
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
-data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
-function scdev:_/util/mline/3 with storage scdev:_ x.mline
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Path: ", color:white}]
-execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
-execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
-execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(not linked)", color:red, italic:true}
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
