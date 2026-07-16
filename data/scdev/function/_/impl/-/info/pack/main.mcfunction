@@ -42,6 +42,12 @@ function scdev:format/version
 data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
+# loader version:
+data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
+data modify storage scdev:in version_req.use_this_entity set value true
+function scdev:format/version_req
+data modify entity @s text set value [{text:"Loader Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
+
 # is library:
 data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
 execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
