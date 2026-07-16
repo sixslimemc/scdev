@@ -98,13 +98,13 @@ execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/im
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:"#cccccc", bold:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:"#c2c2c2", bold:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:"#cccccc"}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:"#c2c2c2"}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:"#cccccc", italic:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:"#c2c2c2", italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # links:
