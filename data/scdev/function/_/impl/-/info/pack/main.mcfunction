@@ -31,7 +31,7 @@ data modify storage scdev:_ v.packinfo.lines append from entity @s text
 data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
 data modify storage scdev:in version_req.use_this_entity set value true
 function scdev:format/version_req
-data modify entity @s text set value [{text:"Loader: ", color:"white", italic:true}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
+data modify entity @s text set value [{text:"Loader Req.: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # Pack ID:
