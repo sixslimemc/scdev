@@ -26,9 +26,16 @@ execute if score *dependency.state _scdev matches 1 run data modify storage scde
 execute if score *dependency.state _scdev matches 2 run data modify storage scdev:_ v.dependency.c.id.color set value gold
 execute if score *dependency.state _scdev matches 3 run data modify storage scdev:_ v.dependency.c.id.color set value dark_red
 execute if score *dependency.state _scdev matches 4 run data modify storage scdev:_ v.dependency.c.id.color set value gold
-data modify storage scdev:_ v.dependency.c.ver set value {text:"", color:dark_green, extra:[{storage:"scdev:_", nbt:"v.dependency.data.version.major", plain:true}, {text:"."}, {storage:"scdev:_", nbt:"v.dependency.data.version.minor", plain:true}]}
-data modify storage scdev:_ v.dependency.show.title set value {text:"", extra:[{}, {text:"~", color:dark_green}, {}]}
+
+data modify storage scdev:_ v.dependency.show.title set value {text:"", extra:[{}, {}]}
 data modify storage scdev:_ v.dependency.show.title.extra[0] set from storage scdev:_ v.dependency.c.id
+
+data modify storage scdev:in version_req.value set from storage scdev:_ v.dependency.data.version
+execute store success storage scdev:in version_req.use_this_entity byte 1 run scoreboard players get *dependency.use_self _scdev
+function scdev:format/version_req
+data modify storage scdev:_ v.dependency.show.title.extra[1] set from storage scdev:out version_req.result
+
+
 data modify storage scdev:_ v.dependency.show.title.extra[2] set from storage scdev:_ v.dependency.c.ver
 
 # optional '?':
