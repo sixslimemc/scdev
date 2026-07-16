@@ -62,4 +62,4 @@ data modify storage scdev:_ v.template.copy_string set from storage scdev:_/out 
 data modify storage scdev:_/in send.lines set value [{text:"[Copy Template to Clipboard]", color:white, underlined:true, hover_event:{action:"show_text", value:{text:"Click to copy", color:gray}}, click_event:{action:"copy_to_clipboard", value:""}}]
 data modify storage scdev:_/in send.lines[0].click_event.value set from storage scdev:_ v.template.copy_string
 data modify storage scdev:_/in send.source set value "scdev:-/dev/manifest_template"
-execute as @p[tag=_scdev.runner] at @s run function scdev:_/util/text/send/main
+function scdev:_/util/text/send/main
