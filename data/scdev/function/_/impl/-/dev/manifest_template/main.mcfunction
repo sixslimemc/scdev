@@ -30,7 +30,7 @@ data modify storage scdev:_ v.template.lines append value 'data modify storage s
 data modify storage scdev:_ v.template.lines append value 'data modify storage slimecore:in manifest.pack.display.summary set value "DISPLAY_SUMMARY"'
 data modify storage scdev:_ v.template.lines append value 'data modify storage slimecore:in manifest.pack.display.author_name set value "DISPLAY_AUTHOR_NAME"'
 data modify storage scdev:_ v.template.lines append value ''
-data modify storage scdev:_ v.template.lines append value '# Display Links (optional):'
+data modify storage scdev:_ v.template.lines append value '# Display Links (optional, but recommended):'
 execute if score *template.format _scdev matches 0 run data modify storage scdev:_ v.template.lines append value '# data modify storage slimecore:in manifest.pack.display.links.info set value "INFO_WEBSITE"'
 execute if score *template.format _scdev matches 1 run data modify storage scdev:_ v.template.lines append value 'data modify storage slimecore:in manifest.pack.display.links.info set value "https://github.com/GITHUB_USER/GITHUB_REPO"'
 execute if score *template.format _scdev matches 0 run data modify storage scdev:_ v.template.lines append value '# data modify storage slimecore:in manifest.pack.display.links.author set value "AUTHOR_WEBSITE"'
