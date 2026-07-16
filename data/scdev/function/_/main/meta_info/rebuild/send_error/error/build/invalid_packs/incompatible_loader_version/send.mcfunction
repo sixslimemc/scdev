@@ -14,8 +14,10 @@ function scdev:format/pack
 data modify storage scdev:_ t.error.pack_text set from storage scdev:out pack.result
 
 # req text:
-data modify entity @s text set value {text:"", color:dark_green, extra:[{text:"~"}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.loader_version.major", plain:true}, {text:"."}, {storage:"scdev:_", nbt:"t.error.this_entry.pack.loader_version.minor", plain:true}]}
-data modify storage scdev:_ t.error.sc_req_text set from entity @s text
+data modify storage scdev:in version_req.value set from storage scdev:_ t.error.this_entry.pack.loader_version
+data modify storage scdev:in version_req.use_this_entity set value true
+function scdev:format/version_req
+data modify storage scdev:_ t.error.sc_req_text set from storage scdev:out version_req.result
 
 # error line:
 data modify storage scdev:_ t.error.lines append value {text:"", color:gray, extra:[{text:"   - This pack requires SlimeCore"}, {}, {text:" in order to load.\n     (Currently installed SlimeCore version is "}, {}, {text:")"}]}
