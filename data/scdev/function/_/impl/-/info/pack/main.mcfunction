@@ -27,6 +27,13 @@ function scdev:format/pack
 data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]------", color:"white", bold:false}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
+# loader version:
+data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
+data modify storage scdev:in version_req.use_this_entity set value true
+function scdev:format/version_req
+data modify entity @s text set value [{text:"Loader: ", color:"white", italic:true}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
+data modify storage scdev:_ v.packinfo.lines append from entity @s text
+
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
@@ -52,13 +59,6 @@ data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white}]
 execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
-
-# loader version:
-data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
-data modify storage scdev:in version_req.use_this_entity set value true
-function scdev:format/version_req
-data modify entity @s text set value [{text:"Loader Ver.: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
-data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
