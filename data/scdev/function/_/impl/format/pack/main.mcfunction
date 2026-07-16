@@ -2,6 +2,9 @@
 # main
 execute unless score *entrypoint.use_self _scdev matches 1 run kill @s
 
+# 'slimecore' special case:
+execute unless data storage scdev:in pack.pack if data storage scdev:in pack.reference{pack_ref:'slimecore'} run data modify storage scdev:in pack.pack set from storage slimecore:data slimecore
+
 # get reference:
 data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.pack.data set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.pack"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:in pack.reference.pack_ref
