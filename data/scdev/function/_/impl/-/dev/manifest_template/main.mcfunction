@@ -65,4 +65,3 @@ data modify storage scdev:_/in send.lines set value [{text:"[Copy Template to Cl
 data modify storage scdev:_/in send.lines[0].click_event.value set from storage scdev:_ v.template.copy_string
 data modify storage scdev:_/in send.source set value "scdev:-/dev/manifest_template"
 function scdev:_/util/text/send/main
-
