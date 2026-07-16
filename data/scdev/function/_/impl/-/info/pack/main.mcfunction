@@ -95,14 +95,14 @@ execute unless data storage scdev:_ v.packinfo.implements[0] run data modify sto
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
 
 # world info header
-data modify storage scdev:_ v.packinfo.lines append value {text:"World Info:", color:white}
+data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack:", color:white}
 
 # path:
 data remove storage scdev:_ v.packinfo.path
 data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
 function scdev:_/util/mline/3 with storage scdev:_ x.mline
-data modify storage scdev:_ v.packinfo.lines append value [{text:" Datapack Path: ", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Path: ", color:white}]
 execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
 execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
 execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:red, italic:true}
