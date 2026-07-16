@@ -48,6 +48,24 @@ execute if score *packinfo.library _scdev matches 1 run data modify storage scde
 execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
+# world info header
+data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack:", color:white}
+
+# path:
+data remove storage scdev:_ v.packinfo.path
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
+data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
+function scdev:_/util/mline/3 with storage scdev:_ x.mline
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Path: ", color:white}]
+execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
+execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
+execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:red, italic:true}
+
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Status: ", color:white}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
+
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependencies:", color:white}]
@@ -93,24 +111,6 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Implement
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
-
-# world info header
-data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack:", color:white}
-
-# path:
-data remove storage scdev:_ v.packinfo.path
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
-data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
-function scdev:_/util/mline/3 with storage scdev:_ x.mline
-data modify storage scdev:_ v.packinfo.lines append value [{text:" Path: ", color:white}]
-execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
-execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
-execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:red, italic:true}
-
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:" Status: ", color:white}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
