@@ -53,16 +53,6 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", col
 execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green, italic:false}
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red, italic:false}
 
-# path:
-data remove storage scdev:_ v.packinfo.path
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
-data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
-function scdev:_/util/mline/3 with storage scdev:_ x.mline
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Datapack Path: ", color:white}]
-execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
-execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
-execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:red, italic:true}
-
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependencies:", color:white}]
@@ -149,6 +139,16 @@ execute if data storage scdev:_ v.packinfo.entry.pack.display.links.versions run
 # download:
 data modify storage scdev:_ v.packinfo.lines[-1][7] merge value {underlined:true, color:blue, hover_event:{action:"show_text", value:[{text:"Click to open URL", color:gray}]}, click_event:{action:"open_url", url:"URL"}}
 data modify storage scdev:_ v.packinfo.lines[-1][7].click_event.url set from storage scdev:_ v.packinfo.entry.pack.url
+
+# path:
+data remove storage scdev:_ v.packinfo.path
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
+data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
+function scdev:_/util/mline/3 with storage scdev:_ x.mline
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Datapack Path: ", color:white}]
+execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
+execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
+execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:red, italic:true}
 
 data modify storage scdev:_ v.packinfo.lines append value {text:"--------------------", bold:false, color:white}
 
