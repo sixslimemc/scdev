@@ -27,16 +27,8 @@ function scdev:format/pack
 data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]------", color:"white", bold:false}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
-# world info header
-# data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack:", color:white}
-
-# Pack ID:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
-
-# Author ID:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Author ID: ", color:"white"}, {text:"AUTHOR ID", color:yellow}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.author_id
+# datapack header:
+data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack", color:white, bold:true}
 
 # version:
 data modify storage scdev:in version.value set from storage scdev:_ v.packinfo.entry.pack.version
@@ -54,6 +46,17 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Path: ", color
 execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
 execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
 execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:dark_gray, italic:true}
+
+# manifest header:
+data modify storage scdev:_ v.packinfo.lines append value {text:"Manifest", color:white, bold:true}
+
+# Pack ID:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
+
+# Author ID:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Author ID: ", color:"white"}, {text:"AUTHOR ID", color:yellow}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.author_id
 
 # enabled status:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
