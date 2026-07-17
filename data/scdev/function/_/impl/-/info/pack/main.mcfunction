@@ -27,27 +27,6 @@ function scdev:format/pack
 data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, {interpret:true, storage:"scdev:out", nbt:"pack.result"}, {text:" ]------", color:"white", bold:false}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
-# datapack header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Local Info:", color:white, bold:true}
-
-# path:
-data remove storage scdev:_ v.packinfo.path
-data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
-data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
-function scdev:_/util/mline/3 with storage scdev:_ x.mline
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Path: ", color:white, italic:false}]
-execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
-execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
-execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:dark_gray, italic:true}
-
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
-
-# manifest header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Pack Manifest:", color:white, bold:true}
-
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
@@ -115,6 +94,28 @@ execute unless data storage scdev:_ v.packinfo.implements[0] run data modify sto
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
 
+# loader version:
+data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
+data modify storage scdev:in version_req.use_this_entity set value true
+function scdev:format/version_req
+data modify entity @s text set value [{text:"Loader Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
+data modify storage scdev:_ v.packinfo.lines append from entity @s text
+
+# path:
+data remove storage scdev:_ v.packinfo.path
+data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:_ v.packinfo.path set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.path"}
+data modify storage scdev:_ x.mline.2 set from storage scdev:_ v.packinfo.entry.pack.pack_id
+function scdev:_/util/mline/3 with storage scdev:_ x.mline
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Path: ", color:white, italic:false}]
+execute if data storage scdev:_ v.packinfo.path run data modify entity @s text set value {storage:"scdev:_", nbt:"v.packinfo.path", plain:true, color:yellow}
+execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
+execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:dark_gray, italic:true}
+
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
+
 # display:
 data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
 
@@ -126,13 +127,6 @@ data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:
 
 data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:"#bbbbbb", italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
-
-# loader version:
-data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
-data modify storage scdev:in version_req.use_this_entity set value true
-function scdev:format/version_req
-data modify entity @s text set value [{text:"Loader Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
-data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # links:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"URLs: ", color:white}, {text:"[Info]"}, {text:"  "}, {text:"[Author]"}, {text:"  "}, {text:"[Versions]"}, {text:"  "}, {text:"[Download]"}]
