@@ -8,7 +8,7 @@ data modify storage scdev:in dependency.declaration set from storage scdev:_ v.p
 data modify storage scdev:in dependency.use_this_entity set value true
 function scdev:format/dependency
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:"  - ", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" - ", color:white}]
 data modify storage scdev:_ v.packinfo.lines[-1] append from storage scdev:out dependency.result
 
 data remove storage scdev:_ v.packinfo.dependencies[0]
