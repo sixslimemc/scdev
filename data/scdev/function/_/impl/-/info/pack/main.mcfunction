@@ -28,14 +28,7 @@ data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, 
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # datapack header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack", color:white, bold:true}
-
-# version:
-data modify storage scdev:in version.value set from storage scdev:_ v.packinfo.entry.pack.version
-data modify storage scdev:in version.use_this_entity set value true
-function scdev:format/version
-data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
-data modify storage scdev:_ v.packinfo.lines append from entity @s text
+data modify storage scdev:_ v.packinfo.lines append value {text:"World:", color:white, bold:true}
 
 # path:
 data remove storage scdev:_ v.packinfo.path
@@ -47,8 +40,13 @@ execute if data storage scdev:_ v.packinfo.path run data modify entity @s text s
 execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
 execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:dark_gray, italic:true}
 
+# enabled status:
+data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
+execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
+execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
+
 # manifest header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Manifest", color:white, bold:true}
+data modify storage scdev:_ v.packinfo.lines append value {text:"Pack:", color:white, bold:true}
 
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
@@ -58,10 +56,12 @@ data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Author ID: ", color:"white"}, {text:"AUTHOR ID", color:yellow}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.author_id
 
-# enabled status:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
-execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
-execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
+# version:
+data modify storage scdev:in version.value set from storage scdev:_ v.packinfo.entry.pack.version
+data modify storage scdev:in version.use_this_entity set value true
+function scdev:format/version
+data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
+data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # is library:
 data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
