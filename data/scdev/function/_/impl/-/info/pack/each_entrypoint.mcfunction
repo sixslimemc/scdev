@@ -9,7 +9,7 @@ data modify storage scdev:in entrypoint.reference.id set from storage scdev:_ v.
 data modify storage scdev:in entrypoint.use_this_entity set value true
 function scdev:format/entrypoint
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" - ", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  - ", color:white}]
 data modify storage scdev:_ v.packinfo.lines[-1] append from storage scdev:out entrypoint.result
 
 data remove storage scdev:_ v.packinfo.entrypoints[0]

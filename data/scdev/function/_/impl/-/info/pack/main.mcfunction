@@ -28,14 +28,7 @@ data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, 
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # datapack header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack", color:white, bold:true}
-
-# version:
-data modify storage scdev:in version.value set from storage scdev:_ v.packinfo.entry.pack.version
-data modify storage scdev:in version.use_this_entity set value true
-function scdev:format/version
-data modify entity @s text set value [{text:"Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
-data modify storage scdev:_ v.packinfo.lines append from entity @s text
+data modify storage scdev:_ v.packinfo.lines append value {text:"Datapack:", color:white, bold:true}
 
 # path:
 data remove storage scdev:_ v.packinfo.path
@@ -47,31 +40,38 @@ execute if data storage scdev:_ v.packinfo.path run data modify entity @s text s
 execute if data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append from entity @s text
 execute unless data storage scdev:_ v.packinfo.path run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"(untracked)", color:dark_gray, italic:true}
 
-# manifest header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Manifest", color:white, bold:true}
-
-# Pack ID:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
-
-# Author ID:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Author ID: ", color:"white"}, {text:"AUTHOR ID", color:yellow}]
-data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.author_id
-
 # enabled status:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", color:white, italic:false}]
 execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
 
+# manifest header:
+data modify storage scdev:_ v.packinfo.lines append value {text:"Manifest:", color:white, bold:true}
+
+# Pack ID:
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.pack_id
+
+# Author ID:
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Author ID: ", color:"white"}, {text:"AUTHOR ID", color:yellow}]
+data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.author_id
+
+# version:
+data modify storage scdev:in version.value set from storage scdev:_ v.packinfo.entry.pack.version
+data modify storage scdev:in version.use_this_entity set value true
+function scdev:format/version
+data modify entity @s text set value [{text:" Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version.result"}]
+data modify storage scdev:_ v.packinfo.lines append from entity @s text
+
 # is library:
-data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
+data modify storage scdev:_ x.line set value [{text:" Library: ", color:white}]
 execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
 execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
 data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependencies:", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Dependencies:", color:white}]
 execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.dependencies[0] run function scdev:_/impl/-/info/pack/each_dependency
@@ -89,53 +89,53 @@ execute if data storage scdev:_ v.packinfo.dependents[0] run function scdev:_/im
 
 # preload entrypoints:
 data modify storage scdev:_ v.packinfo.preloads set from storage scdev:_ v.packinfo.entry.pack.preload_entrypoints
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Preload Entrypoints:", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Preload Entrypoints:", color:white}]
 execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.preloads[0] run function scdev:_/impl/-/info/pack/each_preload
 
 # entrypoints:
 data modify storage scdev:_ v.packinfo.entrypoints set from storage scdev:_ v.packinfo.entry.pack.entrypoints
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Entrypoints:", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Entrypoints:", color:white}]
 execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.entrypoints[0] run function scdev:_/impl/-/info/pack/each_entrypoint
 
 # abstract interfaces:
 data modify storage scdev:_ v.packinfo.interfaces set from storage scdev:_ v.packinfo.entry.pack.abstract_declarations
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Declarations:", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Abs. Declarations:", color:white}]
 execute unless data storage scdev:_ v.packinfo.interfaces[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.interfaces[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.interfaces[0] run function scdev:_/impl/-/info/pack/each_abstract
 
 # abstract implementations:
 data modify storage scdev:_ v.packinfo.implements set from storage scdev:_ v.packinfo.entry.pack.abstract_implementations
-data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Implementations:", color:white}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" Abs. Implementations:", color:white}]
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
 
 # display:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Display Info:", color:white}
+data modify storage scdev:_ v.packinfo.lines append value {text:" Display Info:", color:white}
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"NAME", color:"#bbbbbb", bold:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"NAME", color:"#bbbbbb", bold:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.name
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"DESC", color:"#bbbbbb"}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"DESC", color:"#bbbbbb"}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.summary
 
-data modify storage scdev:_ v.packinfo.lines append value [{text:" ", color:gray}, {text:"AUTHOR", color:"#bbbbbb", italic:true}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:"  ", color:gray}, {text:"AUTHOR", color:"#bbbbbb", italic:true}]
 data modify storage scdev:_ v.packinfo.lines[-1][1].text set from storage scdev:_ v.packinfo.entry.pack.display.author_name
 
 # loader version:
 data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
 data modify storage scdev:in version_req.use_this_entity set value true
 function scdev:format/version_req
-data modify entity @s text set value [{text:"Loader Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
+data modify entity @s text set value [{text:" Loader Version: ", color:"white"}, {interpret:true, storage:"scdev:out", nbt:"version_req.result"}]
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # links:
-data modify storage scdev:_ v.packinfo.lines append value [{text:"URLs: ", color:white}, {text:"[Info]"}, {text:"  "}, {text:"[Author]"}, {text:"  "}, {text:"[Versions]"}, {text:"  "}, {text:"[Download]"}]
+data modify storage scdev:_ v.packinfo.lines append value [{text:" URLs: ", color:white}, {text:"[Info]"}, {text:"  "}, {text:"[Author]"}, {text:"  "}, {text:"[Versions]"}, {text:"  "}, {text:"[Download]"}]
 
 # info:
 execute unless data storage scdev:_ v.packinfo.entry.pack.display.links.info run data modify storage scdev:_ v.packinfo.lines[-1][1] merge value {color:dark_red, hover_event:{action:"show_text", value:{text:"No info link provided", color:red}}}
