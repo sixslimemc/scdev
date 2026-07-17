@@ -28,7 +28,7 @@ data modify entity @s text set value [{text:"--[ ", color:"white", bold:false}, 
 data modify storage scdev:_ v.packinfo.lines append from entity @s text
 
 # datapack header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"World:", color:white, bold:true}
+data modify storage scdev:_ v.packinfo.lines append value {text:"Local:", color:white, bold:true}
 
 # path:
 data remove storage scdev:_ v.packinfo.path
