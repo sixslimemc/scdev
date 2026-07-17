@@ -57,12 +57,6 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Status: ", col
 execute if score *packinfo.disabled _scdev matches 0 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Enabled", color:green}
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
 
-# is library:
-data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
-execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
-execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
-data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
-
 # dependencies:
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.entry.pack.dependencies
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependencies:", color:white}]
@@ -108,6 +102,12 @@ data modify storage scdev:_ v.packinfo.lines append value [{text:"Abs. Implement
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
 execute unless data storage scdev:_ v.packinfo.implements[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.implements[0] run function scdev:_/impl/-/info/pack/each_implement
+
+# is library:
+data modify storage scdev:_ x.line set value [{text:"Library: ", color:white}]
+execute if score *packinfo.library _scdev matches 1 run data modify storage scdev:_ x.line append value {text:"Yes", color:dark_aqua}
+execute if score *packinfo.library _scdev matches 0 run data modify storage scdev:_ x.line append value {text:"No", color:aqua}
+data modify storage scdev:_ v.packinfo.lines append from storage scdev:_ x.line
 
 # loader version:
 data modify storage scdev:in version_req.value set from storage scdev:_ v.packinfo.entry.pack.loader_version
