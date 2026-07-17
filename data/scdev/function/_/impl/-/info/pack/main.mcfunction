@@ -46,7 +46,7 @@ execute if score *packinfo.disabled _scdev matches 0 run data modify storage scd
 execute if score *packinfo.disabled _scdev matches 1 run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"Disabled", color:red}
 
 # manifest header:
-data modify storage scdev:_ v.packinfo.lines append value {text:"Pack:", color:white, bold:true}
+data modify storage scdev:_ v.packinfo.lines append value {text:"Pack Info:", color:white, bold:true}
 
 # Pack ID:
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Pack ID: ", color:"white"}, {text:"PACK ID", color:yellow}]
