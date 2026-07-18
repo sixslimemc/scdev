@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "Basic chat-based frontend and utility for SlimeCore.",
+    "description": "Chat-based frontend and utility for SlimeCore.",
     "min_format": 101,
     "max_format": 101
   }
