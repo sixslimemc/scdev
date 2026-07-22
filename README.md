@@ -43,9 +43,7 @@ Load summaries include:
 - **Packs:** All SlimeCore-loaded packs in their loading order
 - **Entrypoints:** All enabled entrypoints in their calling order
 
-For most administrative purposes, only the "Packs" section is relevant.
-
-If a [rebuild](./key_concepts.md#rebuilding) fails, the subsequent load summary will be supressed in order to bring attention to the [rebuild error message(s)](#rebuild-messages).
+If a SlimeCore rebuild fails, the subsequent load summary will be supressed in order to bring attention to the [rebuild error message(s)](#rebuild-messages).
 
 *Example of load summary:*
 
@@ -58,10 +56,10 @@ If a [rebuild](./key_concepts.md#rebuilding) fails, the subsequent load summary 
 
 ## Rebuild Messages
 
-Upon [rebuilding](./key_concepts.md#rebuilding), a "Rebuilding..." message will be sent, followed by a "Rebuild success." message if rebuilding was successful. If rebuilding failed, a descriptive error message will be sent instead. \
-*Refer to [this section](./troubleshooting.md#rebuild-errors) for resolving rebuild errors.*
+Upon SlimeCore rebuild, a "Rebuilding..." message will be sent, followed by a "Rebuild success." message if rebuilding was successful. If rebuilding failed, a descriptive error message will be sent instead. \
+*See [this section in the SlimeCore docs](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#rebuild-errors) for resolving rebuild errors.*
 
-If "Rebuilding..." is sent but no messages are sent afterward, this may indicate an [unfinished rebuild](./troubleshooting.md#unfinished-loadingrebuilding). However, it is normal for the rebuild process to take [some time](./troubleshooting.md#very-long-rebuilding).
+If "Rebuilding..." is sent but no messages are sent afterward, this may indicate an [unfinished rebuild](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#unfinished-loadingrebuilding).
 
 *Due to the nature of rebuilding, rebuild messages will always be immediately followed by a [load summary](#load-summaries).*
 
@@ -75,17 +73,15 @@ If "Rebuilding..." is sent but no messages are sent afterward, this may indicate
 
 ## Explicit Rebuilding
 
-The function `scdev:-/rebuild` directly initiates an [explicit rebuild](./key_concepts.md#managing-datapacks-explicit-rebuilding).
-
-**Explicit rebuilding is the only proper way to enable/disable/uninstall SlimeCore-loaded datapacks. Using `/datapack` for such operations is improper and may cause unexpected behavior.**
+The function `scdev:-/rebuild` directly initiates an [explicit SlimeCore rebuild](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/key_concepts.md#managing-datapacks-explicit-rebuilding).
 
 `scdev:-/rebuild` takes `args` as a macro argument for input, which is a struct with the following optional keys:
 | Key | Type | Description | Default | Example Value |
 | :-- | :-- | :-- | :-- | :-- |
 | `disable` | list of pack IDs | Packs to disable that are currently enabled. | `[]` | `[scdev, foo]` |
 | `enable` | list of pack IDs | Packs to enable that are currently disabled. | `[]` | `[scdev, bar]` |
-| `uninstall` | list of pack IDs | Packs to [uninstall](./key_concepts.md#datapack-uninstallation) that are currently installed. | `[]` | `[scdev, baz]` |
-| `clean` | boolean | Whether to force a [clean rebuild](./troubleshooting.md#clean-rebuilding). | `false` | `true` |
+| `uninstall` | list of pack IDs | Packs to uninstall that are currently installed. | `[]` | `[scdev, baz]` |
+| `clean` | boolean | Whether to force a clean rebuild. | `false` | `true` |
 
 *Example usage:*
 ```mcfunction
@@ -133,7 +129,7 @@ function scdev:-/info/list/entrypoints {args:{count:5, page:2, pack_filter:{only
 
 *Example of message from `/function scdev:-/info/list/packs {args:{}}`:*
 
-![Screenshot of chat masseg](./docs/_assets/images/list_packs.png)
+![Screenshot of chat message](./docs/_assets/images/list_packs.png)
 
 ### Individual Pack Info
 
