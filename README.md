@@ -1,3 +1,5 @@
+<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/This%20Datapack%20Is%20Loaded%20By-SlimeCore-forestgreen?style=flat" alt="Datapack Loaded By SlimeCore"></a>
+
 # SCDev | `scdev`
 
 **ID:** `sixslime.scdev`
