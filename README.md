@@ -1,4 +1,4 @@
-<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/This%20Datapack%20Is%20Loaded%20By-SlimeCore-639d5a?style=plastic&labelColor=33502d" alt="This Datapack Is Loaded By SlimeCore"></a>
+<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/SlimeCore-Loads%20This%20Datapack-33502d?style=plastic&labelColor=639d5a" alt="This Datapack Is Loaded By SlimeCore"></a>
 
 # SCDev | `scdev`
 
