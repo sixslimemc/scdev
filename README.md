@@ -167,4 +167,4 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 
 | Key | Type | Description | Example Value |
 | :-- | :-- | :-- | :-- |
-| `format` | string (`"github"`) *(more formats supported in the future)* | Pack ID of the target pack. | `scdev` |
+| `format` | string (`github`) *(more formats supported in the future)* | Pack ID of the target pack. | `scdev` |
