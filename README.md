@@ -140,8 +140,8 @@ The `scdev:-/info/pack` function displays the detailed manifest information for 
 | :-- | :-- | :-- | :-- |
 | `pack_id` | pack ID | Pack ID of the target pack. | `scdev` |
 
-**SlimeCore Info:** \
-The function `scdev:-/info/slimecore` displays information about SlimeCore itself and does not take any input.
+#### SlimeCore Info
+The `scdev:-/info/slimecore` function is an alias for `scdev:-/info/pack {args:{pack_id:"slimecore"}}` and does not take any input.
 
 *Example usage:*
 ```mcfunction
