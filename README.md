@@ -1,4 +1,4 @@
-# SlimeCore Minimal Dev. Utility | `scdev`
+# SCDev | `scdev`
 
 **ID:** `sixslime.scdev`
 
