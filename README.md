@@ -2,18 +2,12 @@
 
 **ID:** `sixslime.scdev`
 
-> Small utility for developing with SlimeCore.
+> Chat-based frontend and utility for SlimeCore.
 
 ## Description
 
-### Listen To SlimeCore Events
+SCDev is a chat-based frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) designed to be simple and accessible for all users. It also provides a handful of utilities that may be useful for SlimeCore-loaded datapack development and retrieving information about installed SlimeCore-loaded datapacks.
 
-Players with the `scdev.listen` entity tag recieve info in chat when SlimeCore events occur (load/entrypoint order on reload, rebuild status messages, etc.).
+## Usage
 
-```mcfunction
-tag @s add scdev.listen
-```
-
-### Functions
-
-Provides `scdev:-/rebuild`, a command-line friendly wrapper around `slimecore:rebuild`, and `scdev:-/quick_deps`, a function to quickly generate the `dependencies` manifest-function input.
+See [docs/usage.md](./docs/usage.md).
