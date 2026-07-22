@@ -134,7 +134,7 @@ function scdev:-/info/list/entrypoints {args:{count:5, page:2, pack_filter:{only
 
 The function `scdev:-/info/pack` displays the detailed manifest information for a single pack.
 
-It takes `args` as macro argument for input, which is a struct with the following required key:
+`scdev:-/info/pack` takes `args` as macro argument for input, which is a struct with the following required key:
 
 | Key | Type | Description | Example Value |
 | :-- | :-- | :-- | :-- |
@@ -163,7 +163,7 @@ SCDev provides small utilities that may be useful in SlimeCore-loaded datapack d
 
 The function `scdev:-/dev/manifest_template` generates a copyable manifest function template.
 
-It takes `args` as a macro argument for input, which is a struct with the following optional key:
+`scdev:-/dev/manifest_template` takes `args` as a macro argument for input, which is a struct with the following optional key:
 
 | Key | Type | Default | Description | Example Value |
 | :-- | :-- | :-- | :-- | :-- |
@@ -177,7 +177,7 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 
 The function `scdev:-/dev/fetch_dependencies` takes a set of pack IDs and generates copyable commands that properly set the `dependencies` key in a manifest function to match the packs specified, based on the world's installed datapacks and their versions.
 
-It takes `args` as a macro argument for input, which is a struct with the following keys:
+`scdev:-/dev/fetch_dependencies` takes `args` as a macro argument for input, which is a struct with the following keys:
 
 | Key | Type | Default | Description | Example Value |
 | :-- | :-- | :-- | :-- | :-- |
@@ -190,4 +190,4 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 
 The function `scdev:_/dev/reference` sends a helpful reference of SlimeCore-loaded datapack structure.
 
-It does not take any input.
+`scdev:_/dev/reference` does not take any input.
