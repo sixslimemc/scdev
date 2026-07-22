@@ -32,7 +32,7 @@ To confirm successful setup, run `/reload`--you should recieve a [load summary](
 
 If you have the `scdev.listener` tag but do not recieve a load summary on `/reload`, see [this section in the SlimeCore docs](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#frontend-not-loading).
 
-SCDev will only send chat notifications to players with the `scdev.listener` tag. Many chat messages sent by SCDev contain clickable/hoverable elements, though click actions will only work if the player has operator privilages.
+SCDev will only send chat notifications to players with the `scdev.listener` tag. Many chat messages sent by SCDev contain click actions and hoverable elements; note that click actions will only work if the player has operator privilages.
 
 ## Load Summaries
 
