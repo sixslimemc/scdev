@@ -8,4 +8,4 @@
 
 SCDev is a chat-based frontend for [SlimeCore](https://github.com/sixslimemc/slimecore), designed to be simple and accessible for all users. In addition to providing basic frontend features, it includes a handful of utilities for development and general management of SlimeCore-loaded datapacks.
 
-**[SCDev User Guide](./docs/usage.md)**
+See the **[SCDev User Guide](./docs/usage.md)** for more info.
