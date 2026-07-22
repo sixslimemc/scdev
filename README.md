@@ -132,7 +132,7 @@ function scdev:-/info/list/entrypoints {args:{count:5, page:2, pack_filter:{only
 
 ### Individual Pack Info
 
-The function `scdev:-/info/pack` displays the detailed manifest information for a single pack.
+The `scdev:-/info/pack` function displays the detailed manifest information for a single pack.
 
 `scdev:-/info/pack` takes `args` as macro argument for input, which is a struct with the following required key:
 
@@ -161,7 +161,7 @@ SCDev provides small utilities that may be useful in SlimeCore-loaded datapack d
 
 ### Manifest Template
 
-The function `scdev:-/dev/manifest_template` generates a copyable manifest function template.
+The `scdev:-/dev/manifest_template` function generates a copyable manifest function template.
 
 `scdev:-/dev/manifest_template` takes `args` as a macro argument for input, which is a struct with the following optional key:
 
@@ -175,7 +175,7 @@ The function `scdev:-/dev/manifest_template` generates a copyable manifest funct
 
 ### Fetch Dependencies
 
-The function `scdev:-/dev/fetch_dependencies` takes a set of pack IDs and generates copyable commands that properly set the `dependencies` key in a manifest function to match the packs specified, based on the world's installed datapacks and their versions.
+The `scdev:-/dev/fetch_dependencies` function takes a set of pack IDs and generates copyable commands that properly set the `dependencies` key in a manifest function to match the packs specified, based on the world's installed datapacks and their versions.
 
 `scdev:-/dev/fetch_dependencies` takes `args` as a macro argument for input, which is a struct with the following keys:
 
@@ -188,6 +188,6 @@ The function `scdev:-/dev/fetch_dependencies` takes a set of pack IDs and genera
 
 ### Reference
 
-The function `scdev:_/dev/reference` sends a helpful reference of SlimeCore-loaded datapack structure.
+The `scdev:_/dev/reference` function sends a helpful reference of SlimeCore-loaded datapack structure.
 
 `scdev:_/dev/reference` does not take any input.
