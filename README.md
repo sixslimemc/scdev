@@ -165,7 +165,7 @@ The function `scdev:-/dev/manifest_template` generates a copyable manifest funct
 
 It takes `args` as a macro argument for input, which is a struct with the following optional key:
 
-| Key | Type | Description | Default | Example Value |
+| Key | Type | Default | Description | Example Value |
 | :-- | :-- | :-- | :-- | :-- |
 | `format` | string (`github`) *(more formats supported in the future)* | *(none)* | Preset template type; primarily affects URLs. | `github` |
 
@@ -179,7 +179,7 @@ The function `scdev:-/dev/fetch_dependencies` takes a set of pack IDs and genera
 
 It takes `args` as a macro argument for input, which is a struct with the following keys:
 
-| Key | Type | Description | Default | Example Value |
+| Key | Type | Default | Description | Example Value |
 | :-- | :-- | :-- | :-- | :-- |
 | `pack_ids` | list of pack IDs | *(required)* | Pack IDs of dependencies to fetch. | `[scdev, foo]` |
 | `compact` | int | 0 | **0:** Each dependency has it's own multi-line command. <br> **1:** Each dependency has it's own single-line command. <br> **2:** Dependencies are set in one single-line command. | `1` |
