@@ -1,4 +1,4 @@
-<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/This%20Datapack%20Is%20Loaded%20By-SlimeCore-639d5a?style=flat-square&labelColor=33502d" alt="This Datapack Is Loaded By SlimeCore"></a>
+<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/This%20Datapack%20Is%20Loaded%20By-SlimeCore-639d5a?style=flat-square&labelColor=gray" alt="This Datapack Is Loaded By SlimeCore"></a>
 
 # SCDev | `scdev`
 
@@ -11,7 +11,7 @@
 SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that uses chat messages and commands for interaction.
 
 ## Dependencies
-
+33502d
 None.
 
 # Usage
