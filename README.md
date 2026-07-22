@@ -6,11 +6,11 @@
 
 ## Description
 
-SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that uses chat messages and commands for interaction.
+SCDev is a frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that uses chat messages and commands for interaction, designed to be simple and accessible for all users.
 
 ## Dependencies
 
-*None.*
+None.
 
 # Usage
 
