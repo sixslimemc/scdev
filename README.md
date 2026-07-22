@@ -175,7 +175,7 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 
 ### Fetch Dependencies
 
-The function `scdev:-/dev/fetch_dependencies` takes a set of pack IDs and generates copyable commands that would properly set the `dependencies` key in a manifest function to match the packs specified, based on the world's installed datapacks and their versions.
+The function `scdev:-/dev/fetch_dependencies` takes a set of pack IDs and generates copyable commands that properly set the `dependencies` key in a manifest function to match the packs specified, based on the world's installed datapacks and their versions.
 
 It takes `args` as a macro argument for input, which is a struct with the following keys:
 
