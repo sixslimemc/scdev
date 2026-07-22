@@ -161,10 +161,25 @@ SCDev provides small utilities that may be useful in SlimeCore-loaded datapack d
 
 ### Manifest Template
 
-The function `scdev:-/dev/manifest_template` generates a template manifest function for copy-pasting.
+The function `scdev:-/dev/manifest_template` generates a copyable template manifest function.
 
 It takes `args` as a macro argument for input, which is a struct with the following optional key:
 
-| Key | Type | Description | Example Value |
-| :-- | :-- | :-- | :-- |
-| `format` | string (`github`) *(more formats supported in the future)* | Preset template type; primarily affects URLs. | `github` |
+| Key | Type | Description | Default | Example Value |
+| :-- | :-- | :-- | :-- | :-- |
+| `format` | string (`github`) *(more formats supported in the future)* | *(none)* | Preset template type; primarily affects URLs. | `github` |
+
+*Example of message from `/function scdev:-/dev/manifest_template {args:{}}`:*
+
+![Screenshot of chat message](TODO)
+
+### Fetch Dependencies
+
+The function `scdev:-/dev/fetch_dependencies` generates a copyable set of commands that would properly set the `dependencies` key in a manifest function based on the world's installed datapacks and their versions, given a set of pack IDs.
+
+It takes `args` as a macro argument for input, which is a struct with the following keys:
+
+| Key | Type | Description | Default | Example Value |
+| :-- | :-- | :-- | :-- | :-- |
+| `pack_ids` | list of pack IDs | *(required)* | Pack IDs of dependencies to fetch. | `[scdev, foo]` |
+| `compact` | int | 0 | If 0: Each dependency is it's own command with multiline expansion. If 1: Each dependency is it's own command in a single line. If 2: Dependencies are set in a single line. | `1` |
