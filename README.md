@@ -183,3 +183,9 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 | :-- | :-- | :-- | :-- | :-- |
 | `pack_ids` | list of pack IDs | *(required)* | Pack IDs of dependencies to fetch. | `[scdev, foo]` |
 | `compact` | int | 0 | **0:** Each dependency has it's own multi-line command. <br> **1:** Each dependency has it's own single-line command. <br> **2:** Dependencies are set in one single-line command. | `1` |
+
+![Screenshot of chat message](TODO)
+
+### Reference
+
+The function `scdev:_/dev/reference` sends a helpful reference for SlimeCore-loaded datapack structure.
