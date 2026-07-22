@@ -53,7 +53,6 @@ If a SlimeCore rebuild fails, the subsequent load summary will be supressed in o
 
 ![Screenshot of supressed load summary](./docs/_assets/images/load_supressed.png)
 
-
 ## Rebuild Messages
 
 Upon SlimeCore rebuild, a "Rebuilding..." message will be sent, followed by a "Rebuild success." message if rebuilding was successful. If rebuilding failed, a descriptive error message will be sent instead. \
@@ -73,7 +72,7 @@ If "Rebuilding..." is sent but no messages are sent afterward, this may indicate
 
 ## Explicit Rebuilding
 
-The function `scdev:-/rebuild` directly initiates an [explicit SlimeCore rebuild](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/key_concepts.md#managing-datapacks-explicit-rebuilding).
+The function `scdev:-/rebuild` directly initiates a [SlimeCore explicit rebuild](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/key_concepts.md#managing-datapacks-explicit-rebuilding).
 
 `scdev:-/rebuild` takes `args` as a macro argument for input, which is a struct with the following optional keys:
 | Key | Type | Description | Default | Example Value |
@@ -135,7 +134,7 @@ function scdev:-/info/list/entrypoints {args:{count:5, page:2, pack_filter:{only
 
 The function `scdev:-/info/pack` displays the detailed manifest information for a single pack.
 
-`scdev:-/info/pack` takes `args` as macro argument for input, which is a struct with the following required key:
+It takes `args` as macro argument for input, which is a struct with the following required key:
 
 | Key | Type | Description | Example Value |
 | :-- | :-- | :-- | :-- |
@@ -155,3 +154,17 @@ function scdev:-/info/slimecore
 *Example of message from `/function scdev:-/info/pack {args:{pack_id:"scdev"}}`:*
 
 ![Screenshot of chat message](./docs/_assets/images/pack_info.png)
+
+## Dev Functions
+
+SCDev provides small utilities that may be useful in SlimeCore-loaded datapack development.
+
+### Manifest Template
+
+The function `scdev:-/dev/manifest_template` generates a template manifest function for copy-pasting.
+
+It takes `args` as a macro argument for input, which is a struct with the following optional key:
+
+| Key | Type | Description | Example Value |
+| :-- | :-- | :-- | :-- |
+| `format` | string (`"github"`) *(more formats supported in the future)* | Pack ID of the target pack. | `scdev` |
