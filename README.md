@@ -6,7 +6,7 @@
 
 ## Description
 
-SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that provides UI via chat messages and commands. Additionally, it includes a handful of utilities to aide in development and administration of SlimeCore-loaded datapacks.
+SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that uses chat messages and commands for interaction. It additionally includes a handful of utilities that may be useful in development of SlimeCore-loaded datapacks.
 
 # Usage
 
