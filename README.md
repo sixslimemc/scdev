@@ -147,7 +147,7 @@ The `scdev:-/info/slimecore` function is an alias for `scdev:-/info/pack {args:{
 ```mcfunction
 # display manifest information of pack with pack ID 'foo':
 function scdev:-/info/pack {args:{pack_id:"foo"}}
-# display manifest information of SlimeCore itself:
+# display manifest information of SlimeCore:
 function scdev:-/info/slimecore
 ```
 
@@ -191,3 +191,5 @@ The `scdev:-/dev/fetch_dependencies` function takes a set of pack IDs and genera
 The `scdev:_/dev/reference` function sends a helpful reference of SlimeCore-loaded datapack structure.
 
 `scdev:_/dev/reference` does not take any input.
+
+![Screenshot of chat message](TODO)
