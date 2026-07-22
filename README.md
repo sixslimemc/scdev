@@ -12,11 +12,7 @@ SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixsl
 ## Dependencies
 
 None.
-33502d
-639d5a
-#619e58
-#51834c
-#34502f
+
 # Usage
 
 - [Setup](#setup)
