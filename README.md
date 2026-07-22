@@ -155,7 +155,7 @@ function scdev:-/info/slimecore
 
 ![Screenshot of chat message](./docs/_assets/images/pack_info.png)
 
-## Dev Functions
+## Dev Utility Functions
 
 SCDev provides small utilities that may be useful in SlimeCore-loaded datapack development.
 
