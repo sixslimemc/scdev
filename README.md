@@ -61,7 +61,7 @@ Upon SlimeCore rebuild, a "Rebuilding..." message will be sent, followed by a "R
 
 If "Rebuilding..." is sent but no messages are sent afterward, this may indicate an [unfinished rebuild](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#unfinished-loadingrebuilding).
 
-*Due to the nature of rebuilding, rebuild messages will always be immediately followed by a [load summary](#load-summaries).*
+*Rebuild messages will always be immediately followed by a [load summary](#load-summaries).*
 
 *Example of rebuild success:*
 
