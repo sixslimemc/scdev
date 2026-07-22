@@ -188,4 +188,4 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 
 ### Reference
 
-The function `scdev:_/dev/reference` sends a helpful reference for SlimeCore-loaded datapack structure.
+The function `scdev:_/dev/reference` sends a helpful reference of SlimeCore-loaded datapack structure.
