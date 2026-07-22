@@ -1,4 +1,4 @@
-<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/SlimeCore-Loaded-33502d?style=for-the-badge&labelColor=639d5a" alt="This Datapack Is Loaded By SlimeCore"></a>
+<a href="https://github.com/sixslimemc/slimecore"><img src="https://img.shields.io/badge/SlimeCore-Loaded-blue?style=for-the-badge&labelColor=639d5a" alt="This Datapack Is Loaded By SlimeCore"></a>
 
 # SCDev | `scdev`
 
@@ -13,7 +13,7 @@ SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixsl
 ## Dependencies
 
 None.
-
+33502d
 # Usage
 
 - [Setup](#setup)
