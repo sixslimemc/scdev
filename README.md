@@ -22,8 +22,6 @@ None.
 
 ## Setup
 
-See [releases](https://github.com/sixslimemc/scdev/releases) for downloads.
-
 Once SCDev is installed, add the tag `scdev.listener` to yourself.
 
 ```mcfunction
@@ -32,7 +30,7 @@ tag add @s scdev.listener
 
 To confirm successful setup, run `/reload`--you should recieve a [load summary](#load-summaries) in chat. 
 
-If you have the `scdev.listener` tag but do not recieve a load summary on `/reload`, SCDev may not be loading due to SlimeCore rebuild errors; see [this section in the SlimeCore docs](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#frontend-not-loading).
+If you have the `scdev.listener` tag but do not recieve a load summary on `/reload`, see [this section in the SlimeCore docs](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#frontend-not-loading).
 
 SCDev will only send chat notifications to players with the `scdev.listener` tag. Many chat messages sent by SCDev contain clickable/hoverable elements, though click actions will only work if the player has operator privilages.
 
