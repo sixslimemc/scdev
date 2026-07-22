@@ -6,7 +6,7 @@
 
 ## Description
 
-SCDev is a frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that uses chat messages and commands for interaction, designed to be simple and accessible for all users.
+SCDev is simple and accessible frontend for [SlimeCore](https://github.com/sixslimemc/slimecore) that uses chat messages and commands for interaction.
 
 ## Dependencies
 
@@ -14,15 +14,15 @@ None.
 
 # Usage
 
-- [Install and Setup](#install-and-setup)
+- [Setup](#setup)
 - [Load Summaries](#load-summaries)
 - [Rebuild Messages](#rebuild-messages)
 - [Explicit Rebuilding](#explicit-rebuilding)
 - [Info Functions](#info-functions)
 
-## Install and Setup
+## Setup
 
-Versions of SCDev can be found [here](https://github.com/sixslimemc/scdev/releases). It is installed like any other datapack and does not require any dependencies.
+See [releases](https://github.com/sixslimemc/scdev/releases) for downloads.
 
 Once SCDev is installed, add the tag `scdev.listener` to yourself.
 
@@ -32,7 +32,7 @@ tag add @s scdev.listener
 
 To confirm successful setup, run `/reload`--you should recieve a [load summary](#load-summaries) in chat. 
 
-If you have the `scdev.listener` tag but do not recieve a load summary on `/reload`, see [this section](./index.md#frontend-not-loading).
+If you have the `scdev.listener` tag but do not recieve a load summary on `/reload`, SCDev may not be loading due to SlimeCore rebuild errors; see [this section in the SlimeCore docs](https://github.com/sixslimemc/slimecore_docs/blob/main/admin_guide/troubleshooting.md#frontend-not-loading).
 
 SCDev will only send chat notifications to players with the `scdev.listener` tag. Many chat messages sent by SCDev contain clickable/hoverable elements, though click actions will only work if the player has operator privilages.
 
