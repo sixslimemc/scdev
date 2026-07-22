@@ -161,7 +161,7 @@ SCDev provides small utilities that may be useful in SlimeCore-loaded datapack d
 
 ### Manifest Template
 
-The function `scdev:-/dev/manifest_template` generates a copyable template manifest function.
+The function `scdev:-/dev/manifest_template` generates a copyable manifest function template.
 
 It takes `args` as a macro argument for input, which is a struct with the following optional key:
 
