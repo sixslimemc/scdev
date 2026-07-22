@@ -182,5 +182,4 @@ It takes `args` as a macro argument for input, which is a struct with the follow
 | Key | Type | Description | Default | Example Value |
 | :-- | :-- | :-- | :-- | :-- |
 | `pack_ids` | list of pack IDs | *(required)* | Pack IDs of dependencies to fetch. | `[scdev, foo]` |
-| `compact` | int | 0 | If 0: Each dependency is it's own command with multiline expansion. \
-If 1: Each dependency is it's own command in a single line. If 2: Dependencies are set in a single line. | `1` |
+| `compact` | int | 0 | If 0: Each dependency is it's own command with multiline expansion. <br> If 1: Each dependency is it's own command in a single line. <br> If 2: Dependencies are set in a single line. | `1` |
