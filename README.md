@@ -51,11 +51,11 @@ If a [rebuild](./key_concepts.md#rebuilding) fails, the subsequent load summary 
 
 *Example of load summary:*
 
-![Screenshot of load summary](./_assets/images/load_summary.png)
+![Screenshot of load summary](./docs/_assets/images/load_summary.png)
 
 *Example of supressed load summary:*
 
-![Screenshot of supressed load summary](./_assets/images/load_supressed.png)
+![Screenshot of supressed load summary](./docs/_assets/images/load_supressed.png)
 
 
 ## Rebuild Messages
@@ -69,11 +69,11 @@ If "Rebuilding..." is sent but no messages are sent afterward, this may indicate
 
 *Example of rebuild success:*
 
-![Screenshot of "Rebuild success." message](./_assets/images/rebuild_success.png)
+![Screenshot of "Rebuild success." message](./docs/_assets/images/rebuild_success.png)
 
 *Example of rebuild error:*
 
-![Screenshot of a rebuild error message](./_assets/images/rebuild_error.png)
+![Screenshot of a rebuild error message](./docs/_assets/images/rebuild_error.png)
 
 ## Explicit Rebuilding
 
@@ -135,7 +135,7 @@ function scdev:-/info/list/entrypoints {args:{count:5, page:2, pack_filter:{only
 
 *Example of message from `/function scdev:-/info/list/packs {args:{}}`:*
 
-![Screenshot of chat masseg](./_assets/images/list_packs.png)
+![Screenshot of chat masseg](./docs/_assets/images/list_packs.png)
 
 ### Individual Pack Info
 
@@ -160,4 +160,4 @@ function scdev:-/info/slimecore
 
 *Example of message from `/function scdev:-/info/pack {args:{pack_id:"scdev"}}`:*
 
-![Screenshot of chat message](./_assets/images/pack_info.png)
+![Screenshot of chat message](./docs/_assets/images/pack_info.png)
