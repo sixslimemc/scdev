@@ -1,6 +1,6 @@
-#> scdev:_/main/meta_info/call/uninstall
+#> scdev:_/main/meta_info/call/pre/uninstall
 #--------------------
-# HOOK: slimecore::meta_info/call/uninstall
+# HOOK: slimecore::meta_info/call/pre/uninstall
 #--------------------
 
 data modify storage scdev:_ x.text set value [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Calling #", color:gray}, {text:"PACK ID", color:gray}, {text:":uninstall", color:gray}]

@@ -1,6 +1,6 @@
-#> scdev:_/main/meta_info/call/safe_mode
+#> scdev:_/main/meta_info/call/pre/safe_mode
 #--------------------
-# HOOK: slimecore::meta_info/call/safe_mode
+# HOOK: slimecore::meta_info/call/pre/safe_mode
 #--------------------
 
 data modify storage scdev:_ x.text set value [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Calling #", color:gray}, {text:"PACK ID", color:gray}, {text:":safe_mode", color:gray}]
