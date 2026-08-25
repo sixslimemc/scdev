@@ -3,6 +3,8 @@
 # HOOK: slimecore::meta_info/call/pre/uninstall
 #--------------------
 
-data modify storage scdev:_ x.text set value [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Calling #", color:gray}, {text:"PACK ID", color:gray}, {text:":uninstall", color:gray}]
-data modify storage scdev:_ x.text[2].text set from storage slimecore:hook uninstall.pack_id
-tellraw @a[tag=scdev.listener] {interpret:true, storage:"scdev:_", nbt:"x.text"}
+data modify storage scdev:_/in send.lines set value [{text:"", color:gray, italic:true, extra:[{text:"Calling ", italic:false}, {text:"#"}, {text:"PACK ID"}, {text:":uninstall"}]}]
+data modify storage scdev:_/in send.lines[0].extra[2].text set from storage slimecore:hook uninstall.pack_id
+data modify storage scdev:_/in send.to_listeners set value true
+function scdev:_/util/text/send/main
+
