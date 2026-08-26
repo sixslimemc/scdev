@@ -13,7 +13,7 @@ data modify storage scdev:_ t.error.abstract_text set from storage scdev:out abs
 data modify storage scdev:_ t.error.lines append value {text:"", color:red, extra:[{text: " - "}, {}, {text: " would be implemented by:"}]}
 data modify storage scdev:_ t.error.lines[-1].extra[1] set from storage scdev:_ t.error.abstract_text
 
-execute if data storage scdev:_ t.error.this_entry.sources[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/packs/each
+execute if data storage scdev:_ t.error.this_entry.sources[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/oversatisfied_contracts/packs/each
 
 data remove storage scdev:_ t.error.entries[-1]
-execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/each
+execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/meta_info/rebuild/send_error/error/build/oversatisfied_contracts/each

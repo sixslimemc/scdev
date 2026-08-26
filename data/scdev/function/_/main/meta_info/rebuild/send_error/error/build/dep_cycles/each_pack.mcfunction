@@ -1,4 +1,4 @@
-#> scdev:_/main/meta_info/rebuild/send_error/error/build/missing_impls/each_pack
+#> scdev:_/main/meta_info/rebuild/send_error/error/build/dep_cycles/each_pack
 #--------------------
 # ./each
 #--------------------

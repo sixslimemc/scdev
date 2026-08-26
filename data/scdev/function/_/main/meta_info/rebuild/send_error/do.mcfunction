@@ -10,8 +10,8 @@ data modify storage scdev:_ t.error.lines append value [{text:"Rebuild Error:", 
 execute if data storage slimecore:hook end.result.error.build_error.invalid_packs run function scdev:_/main/meta_info/rebuild/send_error/error/build/invalid_packs/send
 execute if data storage slimecore:hook end.result.error.build_error.packs_with_invalid_references run function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/send
 execute if data storage slimecore:hook end.result.error.build_error.duplicate_pack_ids run function scdev:_/main/meta_info/rebuild/send_error/error/build/duplicate_ids/send
-execute if data storage slimecore:hook end.result.error.build_error.multiple_implementations run function scdev:_/main/meta_info/rebuild/send_error/error/build/multiple_impls/send
-execute if data storage slimecore:hook end.result.error.build_error.unimplemented_abstracts run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_impls/send
+execute if data storage slimecore:hook end.result.error.build_error.oversatisfied_contracts run function scdev:_/main/meta_info/rebuild/send_error/error/build/oversatisfied_contracts/send
+execute if data storage slimecore:hook end.result.error.build_error.unsatisfied_contracts run function scdev:_/main/meta_info/rebuild/send_error/error/build/unsatisfied_contracts/send
 execute if data storage slimecore:hook end.result.error.build_error.unfulfilled_dependencies run function scdev:_/main/meta_info/rebuild/send_error/error/build/missing_deps/send
 execute if data storage slimecore:hook end.result.error.build_error.dependency_cycles run function scdev:_/main/meta_info/rebuild/send_error/error/build/dep_cycles/send
 execute if data storage slimecore:hook end.result.error.build_error.entrypoint_order_conflicts run function scdev:_/main/meta_info/rebuild/send_error/error/build/entrypoint_conflicts/send
