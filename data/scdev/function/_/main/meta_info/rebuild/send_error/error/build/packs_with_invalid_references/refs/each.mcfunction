@@ -9,6 +9,9 @@ data modify storage scdev:_ t.error.this_ref set from storage scdev:_ t.error.re
 data remove storage scdev:_ t.error.reference
 function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/refs/get_reference with storage scdev:_ t.error.this_ref
 
+# DEBUG:
+tellraw @a ["REF: ", {'storage':'scdev:_', 'nbt':'t.error.this_ref'}]
+
 # get {..type_text} & {..ref_text}:
 execute store result score *x _scdev run data get storage scdev:_ t.error.this_ref.type
 execute if score *x _scdev matches 1 run function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/refs/entrypoint
