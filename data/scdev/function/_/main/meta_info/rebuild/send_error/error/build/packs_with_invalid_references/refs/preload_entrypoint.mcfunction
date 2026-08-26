@@ -3,8 +3,6 @@
 # ./each
 #--------------------
 
-data modify storage scdev:_ t.error.type_text set value {text:"preload_entrypoint"}
-
 data modify storage scdev:in preload_entrypoint.reference set from storage scdev:_ t.error.reference
 data modify storage scdev:in preload_entrypoint.use_this_entity set value true
 function scdev:format/preload_entrypoint
