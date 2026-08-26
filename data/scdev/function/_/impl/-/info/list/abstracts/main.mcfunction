@@ -16,8 +16,8 @@ data modify storage scdev:_ v.abstracts.abstracts set value []
 execute if data storage scdev:_ v.abstracts.pack_pool[0] run function scdev:_/impl/-/info/list/abstracts/each_pack
 
 # get *.total:
-execute if score *abstracts.disabled _scdev matches 0 store result score *abstracts.total _scdev if data storage slimecore:data world.installed[{disabled:false}].pack.abstract_declarations[]
-execute if score *abstracts.disabled _scdev matches 1 store result score *abstracts.total _scdev if data storage slimecore:data world.installed[{disabled:true}].pack.abstract_declarations[]
+execute if score *abstracts.disabled _scdev matches 0 store result score *abstracts.total _scdev if data storage slimecore:data world.installed[{disabled:false}].pack.contract_declarations[]
+execute if score *abstracts.disabled _scdev matches 1 store result score *abstracts.total _scdev if data storage slimecore:data world.installed[{disabled:true}].pack.contract_declarations[]
 
 # paginate {..abstracts}:
 data modify storage scdev:_/in paginate.list set from storage scdev:_ v.abstracts.abstracts
