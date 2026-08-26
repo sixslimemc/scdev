@@ -1,13 +1,12 @@
-
 // Optimized if executed as a text_display.
 
 use super::super::super::def::FormatIn
-use super::super::super::def::AbstractReference
+use super::super::super::def::ContractReference
 use super::super::super::def::Text
 
 struct In {
     ...FormatIn,
-    reference: AbstractReference
+    reference: ContractReference
 }
 
 struct Out {
