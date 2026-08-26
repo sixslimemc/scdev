@@ -13,7 +13,7 @@ function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invali
 execute store result score *x _scdev run data get storage scdev:_ t.error.this_ref.type
 execute if score *x _scdev matches 1 run function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/refs/entrypoint
 execute if score *x _scdev matches 2 run function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/refs/preload_entrypoint
-execute if score *x _scdev matches 3 run function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/refs/abstract_interface
+execute if score *x _scdev matches 3 run function scdev:_/main/meta_info/rebuild/send_error/error/build/packs_with_invalid_references/refs/contract
 
 # line:
 data modify storage scdev:_ t.error.lines append value {text:"", color:gray, extra:[{text:"   - Key "}, {text:"KEY", color:white}, {text:" references "}, "REFERENCE", {text:", which does not exist."}]}
