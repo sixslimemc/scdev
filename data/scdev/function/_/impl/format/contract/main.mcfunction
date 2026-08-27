@@ -12,7 +12,7 @@ data remove storage scdev:_ v.contract.declaration
 function scdev:_/impl/format/contract/get_data with storage scdev:in contract.reference
 
 execute unless data storage scdev:_ v.contract.declaration run function scdev:_/impl/format/contract/undeclared
-execute unless data storage scdev:_ v.contract.satisfier run function scdev:_/impl/format/contract/unsatisfied
+execute if data storage scdev:_ v.contract.declaration unless data storage scdev:_ v.contract.satisfier run function scdev:_/impl/format/contract/unsatisfied
 execute if data storage scdev:_ v.contract.satisfier run function scdev:_/impl/format/contract/satisfied
 
 data modify entity @s text set from storage scdev:_ v.contract.show_text
