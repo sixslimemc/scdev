@@ -1,6 +1,6 @@
 #> scdev : format/pack
 # main
-execute unless score *entrypoint.use_self _scdev matches 1 run kill @s
+execute unless score *pack.use_self _scdev matches 1 run kill @s
 
 # 'slimecore' special case:
 execute unless data storage scdev:in pack.pack if data storage scdev:in pack.reference{pack_ref:'slimecore'} run data modify storage scdev:in pack.pack set from storage slimecore:data slimecore
