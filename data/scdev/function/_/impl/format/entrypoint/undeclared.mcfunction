@@ -6,9 +6,11 @@
 
 # build {..hover_extra}:
 data modify storage scdev:_ eval[-1].v.hover_extra set value []
-data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.tag_text
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.show_text
 data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
 data modify storage scdev:_ eval[-1].v.hover_extra append value {text:"[`] Untracked/uninitialized", color:dark_red}
+data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.tag_text
 
 # set hover event:
 data modify storage scdev:_ eval[-1].v.show_text.hover_event set value {action:"show_text", value:{text:"", color:white, italic:false, extra:[]}}
