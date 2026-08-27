@@ -1,5 +1,5 @@
 #> scdev : format/contract
-# satisfied
+# unsatisfied
 #--------------------
 # ./main
 #--------------------
@@ -10,20 +10,13 @@ data modify storage scdev:in pack.use_this_entity set value true
 function scdev:format/pack
 data modify storage scdev:_ v.contract.source_text set from storage scdev:out pack.result
 
-# set {..satisfier_text}:
-data modify storage scdev:in pack.pack set from storage scdev:_ v.contract.satisfier
-data modify storage scdev:in pack.use_this_entity set value true
-function scdev:format/pack
-data modify storage scdev:_ v.contract.satisfier_text set from storage scdev:out pack.result
-
 # build {..hover_extra}:
 data modify storage scdev:_ v.contract.hover_extra set value []
 data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v.contract.show_text
 data modify storage scdev:_ v.contract.hover_extra append value "\n"
 data modify storage scdev:_ v.contract.hover_extra append value {text:"Manifest contract", color:dark_gray, italic:true}
 data modify storage scdev:_ v.contract.hover_extra append value "\n"
-data modify storage scdev:_ v.contract.hover_extra append value {text:"Current satisfier: ", color:green}
-data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v.contract.satisfier_text
+data modify storage scdev:_ v.contract.hover_extra append value {text:"Currently unsatisfied", color:red}
 data modify storage scdev:_ v.contract.hover_extra append value "\n"
 data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v.contract.source_text
 
