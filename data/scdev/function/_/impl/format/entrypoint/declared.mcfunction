@@ -28,7 +28,7 @@ data modify storage scdev:_ eval[-1].v.before_text set from storage scdev:_ eval
 data modify storage scdev:_ eval[-1].v.hover_extra set value []
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.show_text
 data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
-data modify storage scdev:_ eval[-1].v.hover_extra append value {text:"Source: "}
+#data modify storage scdev:_ eval[-1].v.hover_extra append value {text:"Source: "}
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.source_text
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.before_text
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.after_text
