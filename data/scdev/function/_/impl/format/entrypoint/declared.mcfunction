@@ -26,6 +26,8 @@ data modify storage scdev:_ eval[-1].v.before_text set from storage scdev:_ eval
 
 # build {..hover_extra}:
 data modify storage scdev:_ eval[-1].v.hover_extra set value []
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.show_text
+data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.tag_text
 data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
 data modify storage scdev:_ eval[-1].v.hover_extra append value {text:"Source: "}
