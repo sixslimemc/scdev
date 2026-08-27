@@ -11,6 +11,9 @@ data modify storage scdev:in dependency.use_this_entity set value true
 function scdev:format/dependency
 data modify storage scdev:_ t.error.dependency_text set from storage scdev:out dependency.result
 
+# DEBUG:
+tellraw @a ["entry: ", {'storage':'scdev:_', 'nbt':'t.error.this_entry'}]
+
 # format from text:
 data modify storage scdev:_ x.mline set value {1:"data modify storage scdev:in pack.pack set from storage slimecore:data world.aux.installed_map.'", 2:true, 3:"'.pack"}
 data modify storage scdev:_ x.mline.2 set from storage scdev:_ t.error.this_entry.from
