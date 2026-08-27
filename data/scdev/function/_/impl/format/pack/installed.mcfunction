@@ -32,7 +32,7 @@ data modify storage scdev:_ v.pack.c.line2 set value {text:"SUMMARY", color:gray
 data modify storage scdev:_ v.pack.c.line2.text set from storage scdev:_ v.pack.data.display.summary
 
 # hover line 3:
-data modify storage scdev:_ v.pack.c.line3 set value {text:"AUTHOR NAME", color:dark_blue, italic:false}
+data modify storage scdev:_ v.pack.c.line3 set value {text:"AUTHOR NAME", color:blue, italic:false}
 data modify storage scdev:_ v.pack.c.line3.text set from storage scdev:_ v.pack.data.display.author_name
 
 # hover lib line:
