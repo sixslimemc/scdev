@@ -1,15 +1,16 @@
 #> scdev : format/entrypoint
+#+ [reentrant]
 
 data remove storage scdev:out entrypoint
 
-scoreboard players set *entrypoint.use_self _scdev 0
-execute if data storage scdev:in entrypoint{use_this_entity:true} if entity @s[type=text_display] run scoreboard players set *entrypoint.use_self _scdev 1
-
-execute if score *entrypoint.use_self _scdev matches 1 run function scdev:_/impl/format/entrypoint/main
-execute if score *entrypoint.use_self _scdev matches 0 summon text_display run function scdev:_/impl/format/entrypoint/main
-
-data remove storage scdev:_ v.entrypoint
+data modify storage scdev:_ eval append value {in:{}, out:{}, v:{}}
+data modify storage scdev:_ eval[-1].in set from storage scdev:in entrypoint
 data remove storage scdev:in entrypoint
-scoreboard players reset *entrypoint.use_self _scdev
+
+execute if data storage scdev:_ eval[-1].in{use_this_entity:true} run function scdev:_/impl/format/entrypoint/main
+execute unless data storage scdev:_ eval[-1].in{use_this_entity:true} summon text_display run function scdev:_/impl/format/entrypoint/main
+
+data modify storage scdev:out entrypoint set from storage scdev:_ eval[-1].out
+data remove storage scdev:_ eval[-1]
 
 return 1

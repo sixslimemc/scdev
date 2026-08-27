@@ -3,7 +3,7 @@
 data remove storage scdev:out pack
 
 scoreboard players set *pack.use_self _scdev 0
-execute if data storage scdev:in pack{use_this_entity:true} if entity @s[type=text_display] run scoreboard players set *pack.use_self _scdev 1
+execute if data storage scdev:in pack{use_this_entity:true} run scoreboard players set *pack.use_self _scdev 1
 
 execute if score *pack.use_self _scdev matches 1 run function scdev:_/impl/format/pack/main
 execute if score *pack.use_self _scdev matches 0 summon text_display run function scdev:_/impl/format/pack/main
