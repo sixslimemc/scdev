@@ -11,14 +11,14 @@ function scdev:format/pack
 data modify storage scdev:_ eval[-1].v.source_text set from storage scdev:out pack.result
 
 # set {..before_text}:
-data modify storage scdev:_ eval[-1].v.order_text set value []
+data modify storage scdev:_ eval[-1].v.order_text set value [""]
 data modify storage scdev:_ eval[-1].v.orders set from storage scdev:_ eval[-1].v.declaration.before
 execute if data storage scdev:_ eval[-1].v.orders[0] run data modify storage scdev:_ eval[-1].v.order_text append value {text:"\nBefore:", color:dark_gray}
 execute if data storage scdev:_ eval[-1].v.orders[0] run function scdev:_/impl/format/entrypoint/orders/each
 data modify storage scdev:_ eval[-1].v.before_text set from storage scdev:_ eval[-1].v.order_text
 
 # set {..after_text}:
-data modify storage scdev:_ eval[-1].v.order_text set value []
+data modify storage scdev:_ eval[-1].v.order_text set value [""]
 data modify storage scdev:_ eval[-1].v.orders set from storage scdev:_ eval[-1].v.declaration.after
 execute if data storage scdev:_ eval[-1].v.orders[0] run data modify storage scdev:_ eval[-1].v.order_text append value {text:"\nAfter:", color:dark_gray}
 execute if data storage scdev:_ eval[-1].v.orders[0] run function scdev:_/impl/format/entrypoint/orders/each
