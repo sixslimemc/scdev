@@ -8,7 +8,7 @@
 data modify storage scdev:_ v.contract.hover_extra set value []
 data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v.contract.show_text
 data modify storage scdev:_ v.contract.hover_extra append value "\n"
-data modify storage scdev:_ v.contract.hover_extra append value {text:"Manifest contract", color:dark_gray, italic:true}
+data modify storage scdev:_ v.contract.hover_extra append value {text:"Contract", color:dark_gray, italic:true}
 data modify storage scdev:_ v.contract.hover_extra append value "\n"
 data modify storage scdev:_ v.contract.hover_extra append value {text:"[`] Untracked/uninitialized", color:dark_red}
 
