@@ -27,10 +27,11 @@ data modify storage scdev:_ eval[-1].v.before_text set from storage scdev:_ eval
 # build {..hover_extra}:
 data modify storage scdev:_ eval[-1].v.hover_extra set value []
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.tag_text
+data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
+data modify storage scdev:_ eval[-1].v.hover_extra append value {text:"Source: "}
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.source_text
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.before_text
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.after_text
-data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
-data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.source_text
 
 # set hover event:
 data modify storage scdev:_ eval[-1].v.show_text.hover_event set value {action:"show_text", value:{text:"", color:gray, italic:false, extra:[]}}
