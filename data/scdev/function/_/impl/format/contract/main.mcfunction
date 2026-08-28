@@ -6,8 +6,6 @@ data modify storage scdev:_ v.contract.show_text set value {text:"",extra:[{text
 data modify storage scdev:_ v.contract.show_text.extra[0].text set from storage scdev:in contract.reference.pack_ref
 data modify storage scdev:_ v.contract.show_text.extra[2].text set from storage scdev:in contract.reference.id
 
-data modify storage scdev:_ v.contract.type_text set value {text:"Contract", color:light_purple, italic:false}
-
 # set {..asource} from util/artifact_source out:
 # - set *.asource
 data modify storage scdev:_/in artifact_source set value {id_path:"contract_declarations"}
@@ -33,8 +31,6 @@ data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v
 data modify storage scdev:_ v.contract.show_text.extra prepend from storage scdev:_ v.contract.asource.tag_prefix
 
 # hover header:
-data modify storage scdev:_ v.contract.hover_extra prepend from storage scdev:_ v.contract.type_text
-data modify storage scdev:_ v.contract.hover_extra prepend value "\n"
 data modify storage scdev:_ v.contract.hover_extra prepend from storage scdev:_ v.contract.show_text
 
 # set hover:

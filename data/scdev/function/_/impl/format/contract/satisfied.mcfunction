@@ -5,7 +5,7 @@
 #--------------------
 
 # set {..satisfier_text}:
-data modify storage scdev:in pack.pack set from storage slimecore:data build.aux.contract_map.'$(pack_ref)'.'$(id)'
+$data modify storage scdev:in pack.pack set from storage slimecore:data build.aux.contract_map.'$(pack_ref)'.'$(id)'
 data modify storage scdev:in pack.use_this_entity set value true
 function scdev:format/pack
 data modify storage scdev:_ v.contract.satisfier_text set from storage scdev:out pack.result
