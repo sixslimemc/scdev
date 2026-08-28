@@ -12,12 +12,35 @@ data modify storage scdev:_ eval[-1].v.tag_text set value {text:"", color:dark_g
 data modify storage scdev:_ eval[-1].v.tag_text.extra[1].text set from storage scdev:_ eval[-1].in.reference.pack_ref
 data modify storage scdev:_ eval[-1].v.tag_text.extra[3].text set from storage scdev:_ eval[-1].in.reference.id
 
-# get {..declaration}:
-data remove storage scdev:_ eval[-1].v.declaration
-function scdev:_/impl/format/entrypoint/get_declaration with storage scdev:_ eval[-1].in.reference
+# start {..hover_extra}:
+data modify storage scdev:_ eval[-1].v.hover_extra set value []
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.show_text
+data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.tag_text
 
-execute if data storage scdev:_ eval[-1].v.declaration run function scdev:_/impl/format/entrypoint/declared
-execute unless data storage scdev:_ eval[-1].v.declaration run function scdev:_/impl/format/entrypoint/undeclared
+# set {..asource} from util/artifact_source out:
+data modify storage scdev:_/in artifact_source set value {id_path:"entrypoints"}
+data modify storage scdev:_/in artifact_source.pack_ref set from storage scdev:_ eval[-1].in.reference.pack_ref
+data modify storage scdev:_/in artifact_source.id set from storage scdev:_ eval[-1].in.reference.id
+function scdev:_/util/artifact_source/main
+data modify storage scdev:_ eval[-1].v.asource set from storage scdev:_/out artifact_source
 
+# if declared:
+# - modify {..hover_extra}:
+execute if data storage scdev:_ eval[-1].v.asource.declaration run function scdev:_/impl/format/entrypoint/declared
+
+# if has source:
+# - modify {..hover_extra}:
+execute if data storage scdev:_ eval[-1].v.asource.source run function scdev:_/impl/format/entrypoint/has_source
+
+# affix {..asource} tags:
+data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.asource.tag_text
+data modify storage scdev:_ eval[-1].v.show_text.extra prepend from storage scdev:_ eval[-1].v.asource.tag_prefix
+
+# set hover:
+data modify storage scdev:_ eval[-1].v.show_text.hover_event set value {action:'show_text', value:{text:"", color:gray, italic:false, extra:[]}}
+data modify storage scdev:_ eval[-1].v.show_text.hover_event.value.extra set from storage scdev:_ eval[-1].v.hover_extra
+
+# set out:
 data modify entity @s text set from storage scdev:_ eval[-1].v.show_text
 data modify storage scdev:_ eval[-1].out.result set from entity @s text
