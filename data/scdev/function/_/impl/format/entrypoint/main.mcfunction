@@ -12,11 +12,8 @@ data modify storage scdev:_ eval[-1].v.tag_text set value {text:"", color:dark_g
 data modify storage scdev:_ eval[-1].v.tag_text.extra[1].text set from storage scdev:_ eval[-1].in.reference.pack_ref
 data modify storage scdev:_ eval[-1].v.tag_text.extra[3].text set from storage scdev:_ eval[-1].in.reference.id
 
-# start {..hover_extra}:
+# declare {..hover_extra}:
 data modify storage scdev:_ eval[-1].v.hover_extra set value []
-data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.show_text
-data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
-data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.tag_text
 
 # set {..asource} from util/artifact_source out:
 data modify storage scdev:_/in artifact_source set value {id_path:"entrypoints"}
@@ -36,6 +33,11 @@ execute if data storage scdev:_ eval[-1].v.asource.source run function scdev:_/i
 # affix {..asource} tags:
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.asource.tag_text
 data modify storage scdev:_ eval[-1].v.show_text.extra prepend from storage scdev:_ eval[-1].v.asource.tag_prefix
+
+# hover header:
+data modify storage scdev:_ eval[-1].v.hover_extra prepend from storage scdev:_ eval[-1].v.tag_text
+data modify storage scdev:_ eval[-1].v.hover_extra prepend value "\n"
+data modify storage scdev:_ eval[-1].v.hover_extra prepend from storage scdev:_ eval[-1].v.show_text
 
 # set hover:
 data modify storage scdev:_ eval[-1].v.show_text.hover_event set value {action:'show_text', value:{text:"", color:gray, italic:false, extra:[]}}
