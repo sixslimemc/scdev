@@ -5,7 +5,7 @@
 #--------------------
 
 # set {..source_text}:
-data modify storage scdev:in pack.reference.pack_ref set from storage scdev:_ eval[-1].v.asource.source.pack_id
+data modify storage scdev:in pack.pack set from storage scdev:_ eval[-1].v.asource.source
 data modify storage scdev:in pack.use_this_entity set value true
 function scdev:format/pack
 data modify storage scdev:_ eval[-1].v.source_text set from storage scdev:out pack.result
