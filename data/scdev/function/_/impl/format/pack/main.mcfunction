@@ -61,6 +61,7 @@ data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pac
 data modify storage scdev:_ v.pack.hover_extra append value "\n"
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.summary_text
 data modify storage scdev:_ v.pack.hover_extra append value "\n"
+execute if score *pack.is_library _scdev matches 1 run data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.library_text
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.author_text
 
 # immediately finalize if direct:
