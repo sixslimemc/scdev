@@ -12,15 +12,15 @@ data modify storage scdev:_ eval[-1].v.tag_text set value {text:"", color:dark_g
 data modify storage scdev:_ eval[-1].v.tag_text.extra[1].text set from storage scdev:_ eval[-1].in.reference.pack_ref
 data modify storage scdev:_ eval[-1].v.tag_text.extra[3].text set from storage scdev:_ eval[-1].in.reference.id
 
-# declare {..hover_extra}:
-data modify storage scdev:_ eval[-1].v.hover_extra set value []
-
 # set {..asource} from util/artifact_source out:
 data modify storage scdev:_/in artifact_source set value {id_path:"entrypoints"}
 data modify storage scdev:_/in artifact_source.pack_ref set from storage scdev:_ eval[-1].in.reference.pack_ref
 data modify storage scdev:_/in artifact_source.id set from storage scdev:_ eval[-1].in.reference.id
 function scdev:_/util/artifact_source/main
 data modify storage scdev:_ eval[-1].v.asource set from storage scdev:_/out artifact_source
+
+# init {..hover_extra}:
+data modify storage scdev:_ eval[-1].v.hover_extra set value []
 
 # if declared:
 # - modify {..hover_extra}:
