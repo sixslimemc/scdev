@@ -8,7 +8,7 @@ $data modify storage scdev:_/out artifact_source.source set from storage slimeco
 execute if data storage scdev:_/out artifact_source.source run return 1
 
 $data modify storage scdev:_/out artifact_source.source set from storage slimecore:data world.raw_manifests[{pack_id:"$(pack_ref)"}]
-execute if data storage scdev:_/out artifact_source.source run data modify storage scdev:_/out artifact_source.tag_text set value {text:"\n[!] Not enabled", color:red, italic:false, bold:false}
+execute if data storage scdev:_/out artifact_source.source run data modify storage scdev:_/out artifact_source.tag_text set value {text:"\n[!] Not part of current build", color:red, italic:false, bold:false}
 execute if data storage scdev:_/out artifact_source.source run data modify storage scdev:_/out artifact_source.tag_prefix set value {text:"!", color:red, italic:false, bold:false}
 execute if data storage scdev:_/out artifact_source.source run return 2
 
