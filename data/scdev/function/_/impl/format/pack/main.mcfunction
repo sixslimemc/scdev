@@ -13,7 +13,7 @@ data remove storage scdev:_ v.pack.pack
 data modify storage scdev:_ v.pack.pack set from storage scdev:in pack.pack
 
 # set {..asource} and {..pack} if not direct:
-execute if score *pack.is_direct _scdev matches 0 run data modify storage scdev:_/in artifact_source.pack_ref set from storage scdev:_ v.pack.reference.pack_ref
+execute if score *pack.is_direct _scdev matches 0 run data modify storage scdev:_/in artifact_source.pack_ref set from storage scdev:in pack.reference.pack_ref
 execute if score *pack.is_direct _scdev matches 0 run function scdev:_/util/artifact_source/main
 execute if score *pack.is_direct _scdev matches 0 run data modify storage scdev:_ v.pack.asource set from storage scdev:_/out artifact_source
 execute if score *pack.is_direct _scdev matches 0 run data modify storage scdev:_ v.pack.pack set from storage scdev:_/out artifact_source.source
