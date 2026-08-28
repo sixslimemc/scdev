@@ -13,3 +13,8 @@ data modify storage scdev:_ eval[-1].v.source_text set from storage scdev:out pa
 # modify {..hover_extra}:
 data modify storage scdev:_ eval[-1].v.hover_extra append value "\n"
 data modify storage scdev:_ eval[-1].v.hover_extra append from storage scdev:_ eval[-1].v.source_text
+
+# click event:
+data modify storage scdev:_/in click_pack.pack_id set from storage scdev:_ eval[-1].in.reference.pack_ref
+function scdev:_/util/text/click_pack/main
+data modify storage scdev:_ eval[-1].v.show_text.click_event set from storage scdev:_/out click_pack.result
