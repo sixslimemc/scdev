@@ -33,7 +33,7 @@ data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v
 data modify storage scdev:_ v.contract.show_text.extra prepend from storage scdev:_ v.contract.asource.tag_prefix
 
 # hover header:
-data modify storage scdev:_ v.contract.hover_extra prepend from storage scdev:_ v.contract.tag_text
+data modify storage scdev:_ v.contract.hover_extra prepend from storage scdev:_ v.contract.type_text
 data modify storage scdev:_ v.contract.hover_extra prepend value "\n"
 data modify storage scdev:_ v.contract.hover_extra prepend from storage scdev:_ v.contract.show_text
 
