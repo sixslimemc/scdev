@@ -57,7 +57,7 @@ execute if score *dependency.state _scdev matches 4 run data modify storage scde
 execute if score *dependency.state _scdev matches 4 run data modify storage scdev:_ v.dependency.status_text.extra[1] set from storage scdev:_ v.dependency.installed_ver_text
 
 # set {..download_text}:
-data modify storage scdev:_ v.dependency.download_text set value {text:"", color:yellow, extra:[{text:"\nClick to download version "}, {}]}
+data modify storage scdev:_ v.dependency.download_text set value {text:"", color:yellow, extra:[{text:"\n(Click to download version "}, {}, {text:")"}]}
 data modify storage scdev:in version.value set from storage scdev:_ v.dependency.data.download.version
 data modify storage scdev:in version.use_this_entity set value true
 function scdev:format/version
@@ -72,7 +72,7 @@ data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_
 data modify storage scdev:_ v.dependency.hover_extra append value "\n"
 data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.status_text
 execute if score *dependency.click_download _scdev matches 1 run data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.download_text
-execute if score *dependency.state _scdev matches 4 run data modify storage scdev:_ v.dependency.hover_extra append value {text:"\n(Current version must be uninstalled)", color:dark_gray}
+execute if score *dependency.state _scdev matches 4 run data modify storage scdev:_ v.dependency.hover_extra append value {text:"\nCurrent version must be uninstalled.", color:dark_gray}
 execute if score *dependency.optional _scdev matches 1 run data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.optional_text
 
 # set hover:
