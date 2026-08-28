@@ -58,9 +58,9 @@ data modify storage scdev:_ v.pack.hover_extra set value []
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.name_text
 data modify storage scdev:_ v.pack.hover_extra append value " "
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.version_text
-execute if score *pack.is_library _scdev matches 1 run data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.library_text
 data modify storage scdev:_ v.pack.hover_extra append value "\n"
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.summary_text
+execute if score *pack.is_library _scdev matches 1 run data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.library_text
 data modify storage scdev:_ v.pack.hover_extra append value "\n"
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.author_text
 
