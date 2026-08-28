@@ -18,7 +18,7 @@ execute unless data storage scdev:_/out artifact_source.source run return 3
 
 # pack disabled:
 $execute store success score *x _scdev if data storage slimecore:data world.aux.installed_map.'$(pack_ref)'{disabled:false}
-execute if score *x _scdev matches 0 run data modify storage scdev:_/out artifact_source.tag_text set value {text:"\n[!] Not part of current build", color:red, italic:false, bold:false}
+execute if score *x _scdev matches 0 run data modify storage scdev:_/out artifact_source.tag_text set value {text:"\n[!] Not in current build", color:red, italic:false, bold:false}
 execute if score *x _scdev matches 0 run data modify storage scdev:_/out artifact_source.tag_prefix set value {text:"!", color:red, italic:false, bold:false}
 execute if score *x _scdev matches 0 run return 2
 
