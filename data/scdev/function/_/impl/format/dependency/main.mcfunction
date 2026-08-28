@@ -57,7 +57,7 @@ execute if score *dependency.state _scdev matches 4 run data modify storage scde
 execute if score *dependency.state _scdev matches 4 run data modify storage scdev:_ v.dependency.status_text.extra[1] set from storage scdev:_ v.dependency.installed_ver_text
 
 # set {..download_text}:
-data modify storage scdev:_ v.dependency.download_text set value {text:"", color:blue, extra:[{text:"\nClick to download version "}, {}]}
+data modify storage scdev:_ v.dependency.download_text set value {text:"", color:yellow, extra:[{text:"\nClick to download version "}, {}]}
 data modify storage scdev:in version.value set from storage scdev:_ v.dependency.data.download.version
 data modify storage scdev:in version.use_this_entity set value true
 function scdev:format/version
