@@ -51,7 +51,7 @@ data modify storage scdev:_ v.pack.author_text set value {text:"AUTHOR NAME", co
 data modify storage scdev:_ v.pack.author_text.text set from storage scdev:_ v.pack.pack.display.author_name
 
 # set {..library_text}:
-data modify storage scdev:_ v.pack.library_text set value {text:"\n(Library)", color:dark_gray}
+data modify storage scdev:_ v.pack.library_text set value {text:"\nLibrary", color:dark_gray}
 
 # build {..hover_extra}:
 data modify storage scdev:_ v.pack.hover_extra set value []
