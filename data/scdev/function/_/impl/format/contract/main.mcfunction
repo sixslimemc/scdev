@@ -6,7 +6,7 @@ data modify storage scdev:_ v.contract.show_text set value {text:"",extra:[{text
 data modify storage scdev:_ v.contract.show_text.extra[0].text set from storage scdev:in contract.reference.pack_ref
 data modify storage scdev:_ v.contract.show_text.extra[2].text set from storage scdev:in contract.reference.id
 
-data modify storage scdev:_ v.contract.type_text set value {text:"Contract", color:gray, italic:false}
+data modify storage scdev:_ v.contract.type_text set value {text:"Contract", color:dark_gray, italic:false}
 
 # set {..asource} from util/artifact_source out:
 # - set *.asource
