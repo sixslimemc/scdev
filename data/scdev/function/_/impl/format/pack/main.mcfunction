@@ -29,7 +29,7 @@ execute store success score *pack.is_library _scdev if data storage scdev:_ v.pa
 # init {..show_text}:
 data modify storage scdev:_ v.pack.show_text set value {text:"", color:aqua, italic:false, extra:[{text:"AUTHOR_ID"}, {text:"."}, {text:"PACK_ID"}]}
 data modify storage scdev:_ v.pack.show_text.extra[0].text set from storage scdev:_ v.pack.pack.author_id
-data modify storage scdev:_ v.pack.show_text.extra[2].text set from storage scdev:_ v.pack.data.pack_id
+data modify storage scdev:_ v.pack.show_text.extra[2].text set from storage scdev:_ v.pack.pack.pack_id
 execute if score *pack.is_library _scdev matches 1 run data modify storage scdev:_ v.pack.show_text.color set value dark_aqua
 
 # set {..name_text}:
