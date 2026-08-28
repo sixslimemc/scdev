@@ -12,7 +12,6 @@ data remove storage scdev:_ v.pack
 data remove storage scdev:in pack
 scoreboard players reset *pack.use_self _scdev
 scoreboard players reset *pack.is_direct _scdev
-scoreboard players reset *pack.disabled _scdev
-scoreboard players reset *pack.library _scdev
+scoreboard players reset *pack.is_library _scdev
 
 return 1
