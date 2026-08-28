@@ -66,9 +66,14 @@ data modify storage scdev:_ v.dependency.download_text.extra[1] set from storage
 # set {..optional_text}:
 data modify storage scdev:_ v.dependency.optional_text append value {text:"\n[?] Optional dependency", color:dark_blue}
 
+# set {..type_text}:
+data modify storage scdev:_ v.dependency.type_text set value {text:"Dependency", color:dark_gray}
+
 # build {..hover_extra}:
 data modify storage scdev:_ v.dependency.hover_extra set value []
 data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.show_text
+data modify storage scdev:_ v.dependency.hover_extra append value "\n"
+data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.type_text
 data modify storage scdev:_ v.dependency.hover_extra append value "\n"
 data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.status_text
 execute if score *dependency.click_download _scdev matches 1 run data modify storage scdev:_ v.dependency.hover_extra append from storage scdev:_ v.dependency.download_text
