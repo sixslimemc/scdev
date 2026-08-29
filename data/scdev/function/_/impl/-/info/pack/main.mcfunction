@@ -73,7 +73,7 @@ execute if score *packinfo.status _scdev matches 3 run data modify storage scdev
 data modify storage scdev:_ v.packinfo.dependencies set from storage scdev:_ v.packinfo.pack.dependencies
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependencies:", color:white}]
 execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
-execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"#", color:dark_gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.dependencies[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.dependencies[0] run function scdev:_/impl/-/info/pack/each_dependency
 
 # dependents:
@@ -84,35 +84,35 @@ data modify storage scdev:_ x.mline.4 set from storage scdev:_ v.packinfo.pack.a
 function scdev:_/util/mline/5 with storage scdev:_ x.mline
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Dependents:", color:white}]
 execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
-execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"#", color:dark_gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.dependents[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.dependents[0] run function scdev:_/impl/-/info/pack/each_dependent
 
 # preload entrypoints:
 data modify storage scdev:_ v.packinfo.preloads set from storage scdev:_ v.packinfo.pack.preload_entrypoints
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Preload Entrypoints:", color:white}]
 execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
-execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"#", color:dark_gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.preloads[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.preloads[0] run function scdev:_/impl/-/info/pack/each_preload
 
 # entrypoints:
 data modify storage scdev:_ v.packinfo.entrypoints set from storage scdev:_ v.packinfo.pack.entrypoints
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Entrypoints:", color:white}]
 execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
-execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"#", color:dark_gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.entrypoints[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.entrypoints[0] run function scdev:_/impl/-/info/pack/each_entrypoint
 
 # contract declarations:
 data modify storage scdev:_ v.packinfo.contracts set from storage scdev:_ v.packinfo.pack.contract_declarations
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Contract Declarations:", color:white}]
 execute unless data storage scdev:_ v.packinfo.contracts[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
-execute unless data storage scdev:_ v.packinfo.contracts[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"#", color:dark_gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.contracts[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.contracts[0] run function scdev:_/impl/-/info/pack/each_contract
 
 # contracts satisfied:
 data modify storage scdev:_ v.packinfo.satisfies set from storage scdev:_ v.packinfo.pack.contracts_satisfied
 data modify storage scdev:_ v.packinfo.lines append value [{text:"Contracts Satisfied:", color:white}]
 execute unless data storage scdev:_ v.packinfo.satisfies[0] run data modify storage scdev:_ v.packinfo.lines[-1][0] merge value {strikethrough:false, color:gray, italic:false}
-execute unless data storage scdev:_ v.packinfo.satisfies[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"#", color:dark_gray, italic:false}
+execute unless data storage scdev:_ v.packinfo.satisfies[0] run data modify storage scdev:_ v.packinfo.lines[-1] append value {text:"~", color:dark_gray, italic:false}
 execute if data storage scdev:_ v.packinfo.satisfies[0] run function scdev:_/impl/-/info/pack/each_satisfies
 
 # is library:
