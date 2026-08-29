@@ -12,5 +12,6 @@ data modify storage scdev:_ v.contract.satisfier_text set from storage scdev:out
 
 # modify {..hover_extra}:
 data modify storage scdev:_ v.contract.hover_extra append value "\n"
-data modify storage scdev:_ v.contract.hover_extra append value {text:"Satisfier: ", color:gray, italic:false}
+data modify storage scdev:_ v.contract.hover_extra append value {text:"Satisfied by ", color:gray, italic:false}
 data modify storage scdev:_ v.contract.hover_extra append from storage scdev:_ v.contract.satisfier_text
+data modify storage scdev:_ v.contract.hover_extra append value {text:".", color:gray, italic:false}

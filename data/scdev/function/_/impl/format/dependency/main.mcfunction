@@ -46,7 +46,7 @@ execute if score *dependency.optional _scdev matches 1 run data modify storage s
 
 # set {..status_text}:
 execute if score *dependency.state _scdev matches 0 run data modify storage scdev:_ v.dependency.status_text set value {text:"Not installed.", color:dark_red}
-execute if score *dependency.state _scdev matches 1 run data modify storage scdev:_ v.dependency.status_text set value {text:"", color:gray, extra:[{text:"Fulfilling version: "}, {}]}
+execute if score *dependency.state _scdev matches 1 run data modify storage scdev:_ v.dependency.status_text set value {text:"", color:gray, extra:[{text:"Fulfilled by version "}, {}, {text:"."}]}
 execute if score *dependency.state _scdev matches 1 run data modify storage scdev:_ v.dependency.status_text.extra[1] set from storage scdev:_ v.dependency.installed_ver_text
 execute if score *dependency.state _scdev matches 2 run data modify storage scdev:_ v.dependency.status_text set value {text:"", color:red, extra:[{text:"Version "}, {}, {text:" is installed, but disabled."}]}
 execute if score *dependency.state _scdev matches 2 run data modify storage scdev:_ v.dependency.status_text.extra[1] set from storage scdev:_ v.dependency.installed_ver_text
