@@ -64,7 +64,7 @@ function scdev:format/version
 data modify storage scdev:_ v.dependency.download_text.extra[1] set from storage scdev:out version.result
 
 # set {..optional_text}:
-data modify storage scdev:_ v.dependency.optional_text append value {text:"\n[?] Optional dependency", color:dark_blue}
+data modify storage scdev:_ v.dependency.optional_text append value {text:"\n[?] Optional", color:dark_blue}
 
 # build {..hover_extra}:
 data modify storage scdev:_ v.dependency.hover_extra set value []
