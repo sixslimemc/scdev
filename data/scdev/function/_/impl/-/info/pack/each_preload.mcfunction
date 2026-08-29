@@ -4,7 +4,7 @@
 # ./main
 #--------------------
 
-data modify storage scdev:in preload_entrypoint.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
+data modify storage scdev:in preload_entrypoint.reference.pack_ref set from storage scdev:_ v.packinfo.pack.pack_id
 data modify storage scdev:in preload_entrypoint.reference.id set from storage scdev:_ v.packinfo.preloads[0].id
 data modify storage scdev:in preload_entrypoint.use_this_entity set value true
 function scdev:format/preload_entrypoint

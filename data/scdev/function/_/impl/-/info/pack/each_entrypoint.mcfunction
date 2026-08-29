@@ -4,7 +4,7 @@
 # ./main
 #--------------------
 
-data modify storage scdev:in entrypoint.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
+data modify storage scdev:in entrypoint.reference.pack_ref set from storage scdev:_ v.packinfo.pack.pack_id
 data modify storage scdev:in entrypoint.reference.id set from storage scdev:_ v.packinfo.entrypoints[0].id
 data modify storage scdev:in entrypoint.use_this_entity set value true
 function scdev:format/entrypoint

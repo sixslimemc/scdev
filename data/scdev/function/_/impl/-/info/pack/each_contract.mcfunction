@@ -4,7 +4,7 @@
 # ./main
 #--------------------
 
-data modify storage scdev:in contract.reference.pack_ref set from storage scdev:_ v.packinfo.entry.pack.pack_id
+data modify storage scdev:in contract.reference.pack_ref set from storage scdev:_ v.packinfo.pack.pack_id
 data modify storage scdev:in contract.reference.id set from storage scdev:_ v.packinfo.contracts[0].id
 data modify storage scdev:in contract.use_this_entity set value true
 function scdev:format/contract
