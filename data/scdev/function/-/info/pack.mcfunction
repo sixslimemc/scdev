@@ -1,6 +1,6 @@
 #> scdev :-/ info/pack
 
-$data modify storage scdev:_ v.packinfo.args set value $(args)
+$data modify storage scdev:_ v.packinfo.args set value {pack_id:'$(pack_id)'}
 
 tag @s add _scdev.info_runner
 execute summon text_display run function scdev:_/impl/-/info/pack/main with storage scdev:_ v.packinfo.args
