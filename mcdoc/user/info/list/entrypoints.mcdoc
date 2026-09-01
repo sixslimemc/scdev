@@ -1,8 +1,1 @@
-
-use super::super::super::super::def::ListArgs
-
-struct In {
-    args: struct Args {
-        ...ListArgs,
-    }
-}
+struct In {}
