@@ -32,7 +32,7 @@ execute store result score *contracts.showing _scdev if data storage scdev:_ v.c
 data modify storage scdev:_ v.contracts.lines set value []
 
 # title:
-data modify storage scdev:_ v.contracts.c.title set value {text:"List: Abstracts", color:green, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"Get: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.contracts.args.page", color:gray}, {text:"\nCount: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
+data modify storage scdev:_ v.contracts.c.title set value {text:"List: Contracts", color:green, hover_event:{action:"show_text", value:{text:"", color:white, extra:[{text:"Get: "}, {text:"Enabled", color:green}, {text:"\nPage: "}, {plain:true, storage:"scdev:_", nbt:"v.contracts.args.page", color:gray}, {text:"\nCount: "}, {text:"(all)", color:dark_gray}, {text:"\nPack Filter: "}, {text:"(none)", color:dark_gray}]}}}
 execute if score *contracts.disabled _scdev matches 1 run data modify storage scdev:_ v.contracts.c.title.color set value red
 execute if data storage scdev:_ v.contracts.args.count run data modify storage scdev:_ v.contracts.c.title.hover_event.value.extra[5] set value {plain:true, storage:"scdev:_", nbt:"v.contracts.args.count", color:gray}
 execute if score *contracts.disabled _scdev matches 1 run data modify storage scdev:_ v.contracts.c.title.hover_event.value.extra[1] set value {text:"Disabled", color:red}
