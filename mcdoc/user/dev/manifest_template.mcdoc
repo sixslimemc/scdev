@@ -1,8 +1,2 @@
 
-struct In {
-    args: struct Args {
-        format?: FormatType,
-    }
-}
-
-type FormatType = ("github")
+struct In {}
