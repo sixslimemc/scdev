@@ -2,7 +2,7 @@
 # main
 
 # set *.compact:
-scoreboard players set *fetch.compact _scdev 0
+scoreboard players set *fetch.compact _scdev 1
 execute if data storage scdev:_ v.fetch.args.compact store result score *fetch.compact _scdev run data get storage scdev:_ v.fetch.args.compact
 
 data modify storage scdev:_ v.fetch.copy_segments set value []
