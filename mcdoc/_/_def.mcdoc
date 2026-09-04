@@ -1,4 +1,5 @@
 use super::super::def::BuildInfo
+type SlimecoreData = ::slimecore::mcdoc::data::Data
 
 struct VariableRegister {
     [string]: any
@@ -16,7 +17,7 @@ dispatch minecraft:storage[scdev:_] to struct {
         chat_marker: ::java::util::text::Text
     },
     data: struct {
-
+        pre_rebuild: SlimecoreData,
     },
     // for reentrant functions
     eval: [struct {
