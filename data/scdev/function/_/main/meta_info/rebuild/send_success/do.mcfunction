@@ -7,9 +7,8 @@
 # - populate {..disables} : [PackManifest]
 # - populate {..enables} : [PackManifest]
 data modify storage scdev:_ t.success.enables set value []
-data modify storage scdev:_ t.success.disables set from storage scdev:_ data.pre_rebuild.world.installed[{disabled:false}].pack
-# DEBUG:
-tellraw @a ["disables: ", {'storage':'scdev:_', 'nbt':'t.success.disables'}]
+data modify storage scdev:_ t.success.disables set value []
+data modify storage scdev:_ t.success.disables append from storage scdev:_ data.pre_rebuild.world.installed[{disabled:false}].pack
 
 data modify storage scdev:_ t.success.build_packs set from storage slimecore:data build.packs
 execute if data storage scdev:_ t.success.build_packs[0] run function scdev:_/main/meta_info/rebuild/send_success/build_packs/each
