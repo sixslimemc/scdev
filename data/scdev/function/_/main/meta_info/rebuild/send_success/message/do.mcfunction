@@ -8,7 +8,7 @@ data modify storage scdev:_ t.success.lines set value []
 scoreboard players set *success.any_changes _scdev 0
 
 # header:
-data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]---------", bold:true, color:dark_blue}
+data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]---------", bold:true, color:green}
 
 # enables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
@@ -48,7 +48,7 @@ execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/met
 # if no changes:
 execute if score *success.any_changes _scdev matches 0 run data modify storage scdev:_ t.success.lines append value {text:"(No changes)", color:dark_gray}
 
-data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:dark_blue}
+data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:green}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ t.success.lines
