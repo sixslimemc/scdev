@@ -46,7 +46,7 @@ execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *s
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
 # if no changes:
-execute if score *success.any_changes _scdev matches 0 run data modify storage scdev:_ t.success.lines append value {text:"(No changes)", color:dark_gray}
+execute if score *success.any_changes _scdev matches 0 run data modify storage scdev:_ t.success.lines append value {text:" (no changes)", color:dark_gray}
 
 data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:green}
 
