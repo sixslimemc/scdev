@@ -8,7 +8,7 @@ data modify storage scdev:_ t.success.lines set value []
 scoreboard players set *success.any_changes _scdev 0
 
 # header:
-data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]--------", bold:true, color:green}
+data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]-------", bold:true, color:green}
 
 # enables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
