@@ -8,3 +8,6 @@ $execute if data storage scdev:_ data.pre_rebuild.world.aux.installed_map.'$(pac
 
 # remove from {..disables}:
 $data remove storage scdev:_ t.success.disables[{pack_id:'$(pack_id)', author_id:'$(author_id)'}]
+
+# DEBUG
+$say $(pack_id)
