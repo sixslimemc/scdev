@@ -40,8 +40,8 @@ execute if data storage scdev:_ t.success.entries[0] run function scdev:_/main/m
 
 # manifest changes:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.manifest_changes
-data modify storage scdev:_ t.success.list_symbol set value {text:"~", color:dark_aqua}
-execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Manifest Changed:", color:white, bold:true}
+data modify storage scdev:_ t.success.list_symbol set value {text:"$", color:yellow}
+execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Manifest Changes:", color:white, bold:true}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
