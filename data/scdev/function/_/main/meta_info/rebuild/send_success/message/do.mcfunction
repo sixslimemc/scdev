@@ -1,0 +1,53 @@
+#> scdev:_/main/meta_info/rebuild/send_success/send_message/do
+#--------------------
+# ../do
+#--------------------
+
+data modify storage scdev:_ t.success.lines set value []
+
+scoreboard players set *success.any_changes _scdev 0
+
+# header:
+data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuild Success ]--", bold:true, color:green}
+
+# enables:
+data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
+data modify storage scdev:_ t.success.list_symbol set value {text:"*", color:dark_green}
+execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Enabled:", color:white, bold:true}
+execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
+execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
+
+# disables:
+data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.disables
+data modify storage scdev:_ t.success.list_symbol set value {text:"-", color:red}
+execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Disabled:", color:white, bold:true}
+execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
+execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
+
+# installs:
+data modify storage scdev:_ t.success.entries set from storage scdev:_ t.success.installs
+data modify storage scdev:_ t.success.list_symbol set value {text:"+", color:green}
+execute if data storage scdev:_ t.success.entries[0] run data modify storage scdev:_ t.success.lines append value {text:"Installed:", color:white, bold:true}
+execute if data storage scdev:_ t.success.entries[0] run scoreboard players set *success.any_changes _scdev 1
+execute if data storage scdev:_ t.success.entries[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_entries/each
+
+# uninstalls:
+data modify storage scdev:_ t.success.entries set from storage scdev:_ t.success.uninstalls
+data modify storage scdev:_ t.success.list_symbol set value {text:"-", color:dark_red}
+execute if data storage scdev:_ t.success.entries[0] run data modify storage scdev:_ t.success.lines append value {text:"Uninstalled:", color:white, bold:true}
+execute if data storage scdev:_ t.success.entries[0] run scoreboard players set *success.any_changes _scdev 1
+execute if data storage scdev:_ t.success.entries[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_entries/each
+
+# manifest changes:
+data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.manifest_changes
+data modify storage scdev:_ t.success.list_symbol set value {text:"~", color:dark_aqua}
+execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Manifest Changed:", color:white, bold:true}
+execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
+execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
+
+# if no changes:
+execute if score *success.any_changes _scdev matches 0 run data modify storage scdev:_ t.success.lines append value {text:"(No changes)", color:dark_gray}
+
+data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:green}
+
+kill @s
