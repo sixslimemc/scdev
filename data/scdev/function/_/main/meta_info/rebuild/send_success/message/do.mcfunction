@@ -50,4 +50,9 @@ execute if score *success.any_changes _scdev matches 0 run data modify storage s
 
 data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:green}
 
+# send:
+data modify storage scdev:_/in send.lines set from storage scdev:_ t.success.lines
+data modify storage scdev:_/in send.to_listeners set value true
+function scdev:_/util/text/send/main
+
 kill @s
