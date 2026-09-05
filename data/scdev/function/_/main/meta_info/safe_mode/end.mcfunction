@@ -3,4 +3,6 @@
 # HOOK: slimecore::meta_info/safe_mode/end
 #--------------------
 
-tellraw @a[tag=scdev.listener] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Safe-mode load finished.", color:light_purple}]
+data modify storage scdev:_/in send.lines set value [{text:"Safe-load finished.", color:light_purple}]
+data modify storage scdev:_/in send.to_listeners set value true
+function scdev:_/util/text/send/main
