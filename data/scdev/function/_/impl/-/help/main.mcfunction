@@ -27,7 +27,7 @@ data modify storage scdev:_ v.help.lines[-1].click_event.command set from storag
 data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Many text elements sent by SCDev are hoverable and/or clickable (such as the text above)."}]}
 
 # info link:
-data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" For full information, "}, {text:"[Click Here]", color:blue, underlined:true, hover_event:{action:'show_text', value:{text:"Click to open URL", color:gray}}, click_event:{action:'open_url', url:'URL'}}, {text:"."}]}
+data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" For full information, "}, {text:"click here", color:blue, underlined:true, hover_event:{action:'show_text', value:{text:"Click to open URL", color:gray}}, click_event:{action:'open_url', url:'URL'}}, {text:"."}]}
 data modify storage scdev:_ v.help.lines[-1].extra[2].click_event.url set from storage slimecore:data build.aux.pack_map.scdev.display.links.info
 
 data modify storage scdev:_ v.help.lines append value {text:"--------------------", bold:false, color:aqua}
