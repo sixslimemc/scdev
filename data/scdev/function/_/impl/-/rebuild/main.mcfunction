@@ -20,10 +20,18 @@ execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebu
 data remove storage scdev:_ v.rebuild.args.uninstall[-1]
 
 # set {..refs.disable}:
+# - has tag 'from_input:true'
 data modify storage scdev:in pack_refs.pack_ids set value []
 data modify storage scdev:in pack_refs.pack_ids set from storage scdev:_ v.rebuild.args.disable
 function scdev:util/pack_refs
 data modify storage scdev:_ v.rebuild.refs.disable set from storage scdev:out pack_refs.result
+execute if data storage scdev:_ v.rebuild.refs.disable[0] run data modify storage scdev:_ v.rebuild.refs.disable[].from_input set value true
+
+# add already disabled packs to {..refs.disable}:
+data modify storage scdev:in pack_refs.pack_ids set value []
+data modify storage scdev:in pack_refs.pack_ids append from storage slimecore:data world.installed[{disabled:true}].pack.pack_id
+function scdev:util/pack_refs
+data modify storage scdev:_ v.rebuild.refs.disable append from storage scdev:out pack_refs.result[]
 
 # set {..refs.enable}:
 data modify storage scdev:in pack_refs.pack_ids set value []
@@ -61,11 +69,6 @@ tag @s add _scdev.executor
 execute if data storage scdev:_ v.rebuild.warning summon minecraft:text_display run function scdev:_/impl/-/rebuild/warning/do
 execute if data storage scdev:_ v.rebuild.warning unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run return fail
 
-# add already disabled packs to {..call.disable}:
-data modify storage scdev:in pack_refs.pack_ids set value []
-data modify storage scdev:in pack_refs.pack_ids append from storage slimecore:data world.installed[{disabled:true}].pack.pack_id
-function scdev:util/pack_refs
-data modify storage scdev:_ v.rebuild.call.disable append from storage scdev:out pack_refs.result[]
 
 # rebuild:
 data modify storage slimecore:in rebuild set from storage scdev:_ v.rebuild.call
