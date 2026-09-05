@@ -3,7 +3,7 @@
 
 data modify storage scdev:_ v.help.lines set value []
 
-data modify storage scdev:_ v.help.lines append value {text:"--[ Help ]----------", color:aqua, bold:false}
+data modify storage scdev:_ v.help.lines append value {text:"--[ Quick Help ]----", color:aqua, bold:false}
 
 # tag tip:
 data modify storage scdev:_ v.help.command set value "/tag @s add scdev.listen"
