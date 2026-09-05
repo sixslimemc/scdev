@@ -2,7 +2,7 @@
 # % AS self
 #--------------------
 # -> lines: [Text]
-# => to_listeners: boolean = false
+# => to: $selector = "@s"
 # => source: string = "scdev"
 #--------------------
 # .
@@ -11,6 +11,8 @@
 #--------------------
 # 1.
 #--------------------
+
+execute unless data storage scdev:_/in send.to run data modify storage scdev:_/in send.to set value '@s'
 
 execute unless data storage scdev:_/in send.source run data modify storage scdev:_/in send.source set value "scdev"
 execute store result score *send.count _scdev if data storage scdev:_/in send.lines[]
@@ -24,8 +26,7 @@ execute if score *send.count _scdev matches 2.. run data modify storage scdev:_ 
 execute if score *send.count _scdev matches ..1 run data modify storage scdev:_ u.send.sends append from storage scdev:_/in send.lines[0]
 execute if score *send.count _scdev matches 2.. run function scdev:_/util/text/send/each
 
-execute if data storage scdev:_/in send{to_listeners:true} run tellraw @a[tag=scdev.listener] {interpret:true, storage:"scdev:_", nbt:"u.send.sends"}
-execute unless data storage scdev:_/in send{to_listeners:true} run tellraw @s {interpret:true, storage:"scdev:_", nbt:"u.send.sends"}
+function scdev:_/util/text/send/tell with storage scdev:_/in send
 
 data remove storage scdev:_ u.send
 data remove storage scdev:_/in send
