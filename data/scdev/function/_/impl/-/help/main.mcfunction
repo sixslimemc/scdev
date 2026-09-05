@@ -19,7 +19,7 @@ data modify storage scdev:_ v.help.lines[-1].click_event.command set from storag
 
 # info tip:
 data modify storage scdev:_ v.help.command set value "/function scdev:-/info/"
-data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Functions under "}, {text:"scdev:-/info/...", color:gold}, {text:" can provide useful information about installed datapacks."}], hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"COMMAND", color:aqua}, {text:"\n(Clickable)", color:dark_gray}]}}, click_event:{action:'suggest_command', command:"COMMAND"}}
+data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" "}, {text:"scdev:-/info/...", color:gold}, {text:" functions can provide useful information about installed datapacks."}], hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"COMMAND", color:aqua}, {text:"\n(Clickable)", color:dark_gray}]}}, click_event:{action:'suggest_command', command:"COMMAND"}}
 data modify storage scdev:_ v.help.lines[-1].hover_event.value.extra[0].text set from storage scdev:_ v.help.command
 data modify storage scdev:_ v.help.lines[-1].click_event.command set from storage scdev:_ v.help.command
 
