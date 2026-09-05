@@ -14,17 +14,17 @@ data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]---
 scoreboard players set *x _scdev 0
 execute if data storage scdev:_ t.success.enables[0] run scoreboard players set *x _scdev 1
 execute if data storage scdev:_ t.success.disables[0] run scoreboard players set *x _scdev 1
-execute if score *x _scdev matches 1 run data modify storage scdev:_ t.success.lines append value {text:"Build:", color:white, bold:true}
+execute if score *x _scdev matches 1 run data modify storage scdev:_ t.success.lines append value {text:"Build Diff:", color:white, bold:true}
 
 # enables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
-data modify storage scdev:_ t.success.list_symbol set value {text:"+", color:green, hover_event:{action:'show_text', value:{text:"Enabled", color:green}}}
+data modify storage scdev:_ t.success.list_symbol set value {text:"+", color:green, hover_event:{action:'show_text', value:{text:"Enable", color:green}}}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
 # disables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.disables
-data modify storage scdev:_ t.success.list_symbol set value {text:"-", color:red, hover_event:{action:'show_text', value:{text:"Disabled", color:red}}}
+data modify storage scdev:_ t.success.list_symbol set value {text:"-", color:red, hover_event:{action:'show_text', value:{text:"Disable", color:red}}}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
@@ -32,24 +32,24 @@ execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/met
 scoreboard players set *x _scdev 0
 execute if data storage scdev:_ t.success.installs[0] run scoreboard players set *x _scdev 1
 execute if data storage scdev:_ t.success.uninstalls[0] run scoreboard players set *x _scdev 1
-execute if score *x _scdev matches 1 run data modify storage scdev:_ t.success.lines append value {text:"World:", color:white, bold:true}
+execute if data storage scdev:_ t.success.manifest_changes[0] run scoreboard players set *x _scdev 1
+execute if score *x _scdev matches 1 run data modify storage scdev:_ t.success.lines append value {text:"World Diff:", color:white, bold:true}
 
 # installs:
 data modify storage scdev:_ t.success.entries set from storage scdev:_ t.success.installs
-data modify storage scdev:_ t.success.list_symbol set value {text:"*", color:dark_green, hover_event:{action:'show_text', value:{text:"Installed", color:dark_green}}}
+data modify storage scdev:_ t.success.list_symbol set value {text:"*", color:dark_green, hover_event:{action:'show_text', value:{text:"Install", color:dark_green}}}
 execute if data storage scdev:_ t.success.entries[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.entries[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_entries/each
 
 # uninstalls:
 data modify storage scdev:_ t.success.entries set from storage scdev:_ t.success.uninstalls
-data modify storage scdev:_ t.success.list_symbol set value {text:"~", color:dark_red, hover_event:{action:'show_text', value:{text:"Uninstalled", color:dark_red}}}
+data modify storage scdev:_ t.success.list_symbol set value {text:"~", color:dark_red, hover_event:{action:'show_text', value:{text:"Uninstall", color:dark_red}}}
 execute if data storage scdev:_ t.success.entries[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.entries[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_entries/each
 
 # manifest changes:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.manifest_changes
-data modify storage scdev:_ t.success.list_symbol set value {text:"&", color:light_purple, hover_event:{action:'show_text', value:{text:"Manifest changed", color:light_purple}}}
-execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Manifest Changes:", color:white, bold:true}
+data modify storage scdev:_ t.success.list_symbol set value {text:"&", color:light_purple, hover_event:{action:'show_text', value:{text:"Manifest change", color:light_purple}}}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
