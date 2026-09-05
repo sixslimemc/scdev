@@ -13,7 +13,7 @@ data modify storage scdev:_ v.help.lines[-1].click_event.command set from storag
 
 # reload tip:
 data modify storage scdev:_ v.help.command set value "/reload"
-data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Doing "}, {text:"/reload", color:dark_aqua}, {text:" will send a rebuild and/or load summary."}], hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"COMMAND", color:dark_aqua}, {text:"\n(Clickable)", color:dark_gray}]}}, click_event:{action:'suggest_command', command:"COMMAND"}}
+data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Doing "}, {text:"/reload", color:aqua}, {text:" will send a rebuild and/or load summary."}], hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"COMMAND", color:dark_aqua}, {text:"\n(Clickable)", color:dark_gray}]}}, click_event:{action:'suggest_command', command:"COMMAND"}}
 data modify storage scdev:_ v.help.lines[-1].hover_event.value.extra[0].text set from storage scdev:_ v.help.command
 data modify storage scdev:_ v.help.lines[-1].click_event.command set from storage scdev:_ v.help.command
 
