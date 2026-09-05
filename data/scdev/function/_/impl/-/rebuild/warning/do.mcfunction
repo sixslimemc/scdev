@@ -17,7 +17,7 @@ execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/re
 # disabled:
 data remove storage scdev:_ v.rebuild.list
 data modify storage scdev:_ v.rebuild.list set from storage scdev:_ v.rebuild.warning.already_disabled
-execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> Would be enabling packs that are already disabled:", color:gold}
+execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> Would be disabling packs that are already disabled:", color:gold}
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # disabled:
