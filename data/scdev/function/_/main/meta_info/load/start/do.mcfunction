@@ -27,7 +27,7 @@ execute if data storage scdev:_ t.load.entrypoints[0] run function scdev:_/main/
 
 data modify storage scdev:_ t.load.lines append value {text:"--------------------", bold:true, color:blue}
 
-data modify storage scdev:_ t.load.lines append value {text:"\"", color:white, extra:[{text:"Loading finished.\" should be sent below."}], hover_event:{action:"show_text", value:[{text:"If no message is sent:\n - 'max_command_sequence_length' gamerule may need to be increased.\n - One or more packs may have an infinite loop in their entrypoint/load function(s).", color:blue}]}}
+data modify storage scdev:_ t.load.lines append value {text:"\"", color:white, extra:[{text:"Loading finished.\" should be sent below."}], hover_event:{action:"show_text", value:[{text:"If no message is sent:\n - 'max_command_sequence_length' gamerule may need to be increased.\n - One or more packs may have an infinite loop in their entrypoint/load function(s).", color:gray}]}}
 
 data modify storage scdev:_/in send.lines set from storage scdev:_ t.load.lines
 data modify storage scdev:_/in send.to_listeners set value true
