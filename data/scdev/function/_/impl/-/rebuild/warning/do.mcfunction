@@ -27,8 +27,8 @@ execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # ignore info line:
-execute unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuild aborted due to warnings. (Set "}, {text:"{args:{ignore_warnings:true}}", color:white}, {text:" to rebuild anyway.)"}]}
-execute if data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuilding anyway. ("}, {text:"{args:{ignore_warnings:true}}", color:yellow}, {text:" is set.)"}]}
+execute unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:true, extra:[{text:"Rebuild aborted due to warnings."}], hover_event:{action:'show_text', value:{text:"", color:gray, extra:[{text:"Set "}, {text:"{args:{ignore_warnings:true}}", color:dark_aqua}, {text:" to rebuild regardless of warnings."}]}}}
+execute if data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:true, extra:[{text:"Rebuilding anyway."}], hover_event:{action:'show_text', value:{text:"", color:gray, extra:[{text:"{args:{ignore_warnings:true}}", color:dark_aqua}, {text:" was set."}]}}}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.rebuild.lines
