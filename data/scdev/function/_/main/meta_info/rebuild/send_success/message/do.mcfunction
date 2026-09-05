@@ -56,7 +56,7 @@ execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/met
 # if no changes:
 execute if score *success.any_changes _scdev matches 0 run data modify storage scdev:_ t.success.lines append value {text:" (no changes)", color:dark_gray}
 
-data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:green}
+data modify storage scdev:_ t.success.lines append value {text:"--------------------", bold:true, color:yellow}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ t.success.lines
