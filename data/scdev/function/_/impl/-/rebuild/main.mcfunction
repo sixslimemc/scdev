@@ -68,7 +68,7 @@ execute if data storage scdev:_ v.rebuild.refs.disable[0] run function scdev:_/i
 tag @s add _scdev.executor
 execute if data storage scdev:_ v.rebuild.warning summon minecraft:text_display run function scdev:_/impl/-/rebuild/warning/do
 execute if data storage scdev:_ v.rebuild.warning unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run return fail
-
+tag @s remove _scdev.executor
 
 # rebuild:
 data modify storage slimecore:in rebuild set from storage scdev:_ v.rebuild.call
