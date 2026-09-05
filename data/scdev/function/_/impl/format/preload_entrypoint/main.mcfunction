@@ -3,7 +3,7 @@
 execute unless data storage scdev:_ eval[-1].in{use_this_entity:true} run kill @s
 
 # set {..show_text}:
-data modify storage scdev:_ eval[-1].v.show_text set value {text:"",extra:[{text:"PACK", color:yellow}, {text:">",color:gray}, {text:"ID",color:gold}]}
+data modify storage scdev:_ eval[-1].v.show_text set value {text:"",extra:[{text:"PACK", color:yellow}, {text:"^",color:gray}, {text:"ID",color:dark_purple}]}
 data modify storage scdev:_ eval[-1].v.show_text.extra[0].text set from storage scdev:_ eval[-1].in.reference.pack_ref
 data modify storage scdev:_ eval[-1].v.show_text.extra[2].text set from storage scdev:_ eval[-1].in.reference.id
 
