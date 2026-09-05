@@ -64,13 +64,13 @@ execute if score *pack.is_library _scdev matches 1 run data modify storage scdev
 data modify storage scdev:_ v.pack.hover_extra append value "\n"
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.author_text
 
-# immediately finalize if direct:
-execute if score *pack.is_direct _scdev matches 1 run return run function scdev:_/impl/format/pack/finalize
-
 # construct click:
 data modify storage scdev:_/in click_pack.pack_id set from storage scdev:_ v.pack.pack.pack_id
 function scdev:_/util/text/click_pack/main
 data modify storage scdev:_ v.pack.show_text.click_event set from storage scdev:_/out click_pack.result
+
+# immediately finalize if direct:
+execute if score *pack.is_direct _scdev matches 1 run return run function scdev:_/impl/format/pack/finalize
 
 # affix {..asource} tags:
 data modify storage scdev:_ v.pack.hover_extra append from storage scdev:_ v.pack.asource.tag_text
