@@ -7,17 +7,17 @@ kill @s
 data modify storage scdev:_ t.load.lines set value []
 data modify storage scdev:_ t.load.lines append value {text:"--[ Loading ]-------", bold:true, color:white}
 
-data modify storage scdev:_ t.load.lines append value {text:" Preload Entrypoints:", color:white, bold:true}
+data modify storage scdev:_ t.load.lines append value {text:" Preload Entrypoints:", color:gray, bold:true}
 data modify storage scdev:_ t.load.preloads set from storage slimecore:data build.order.preload_entrypoints
 execute unless data storage scdev:_ t.load.preloads[0] run data modify storage scdev:_ t.load.lines append value {text:"  (none)", color:dark_gray}
 execute if data storage scdev:_ t.load.preloads[0] run function scdev:_/main/meta_info/load/start/preloads/each
 
-data modify storage scdev:_ t.load.lines append value {text:" Packs:", color:white, bold:true, bold:true}
+data modify storage scdev:_ t.load.lines append value {text:" Packs:", color:gray, bold:true, bold:true}
 data modify storage scdev:_ t.load.loads set from storage slimecore:data build.order.load
 execute unless data storage scdev:_ t.load.loads[0] run data modify storage scdev:_ t.load.lines append value {text:"  (none)", italic:true, color:dark_gray}
 execute if data storage scdev:_ t.load.loads[0] run function scdev:_/main/meta_info/load/start/loads/each
 
-data modify storage scdev:_ t.load.lines append value {text:" Entrypoints:", color:white, bold:true}
+data modify storage scdev:_ t.load.lines append value {text:" Entrypoints:", color:gray, bold:true}
 data modify storage scdev:_ t.load.entrypoints set from storage slimecore:data build.order.entrypoints
 execute unless data storage scdev:_ t.load.entrypoints[0] run data modify storage scdev:_ t.load.lines append value {text:"  (none)", color:dark_gray}
 execute if data storage scdev:_ t.load.entrypoints[0] run function scdev:_/main/meta_info/load/start/entrypoints/each
