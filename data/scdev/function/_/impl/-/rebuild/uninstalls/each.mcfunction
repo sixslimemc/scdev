@@ -12,7 +12,7 @@ function scdev:_/impl/-/rebuild/check_not_installed with storage scdev:_ v.rebui
 # remove from refs:
 function scdev:_/impl/-/rebuild/uninstalls/remove with storage scdev:_ v.rebuild.this_ref
 
-# add to in:
-data modify storage slimecore:in rebuild.uninstall append from storage scdev:_ v.rebuild.this_ref
+# add to {..call.uninstall}:
+data modify storage scdev:_ v.rebuild.call.uninstall append from storage scdev:_ v.rebuild.this_ref
 
 execute if data storage scdev:_ v.rebuild.refs.uninstall[0] run function scdev:_/impl/-/rebuild/uninstalls/each
