@@ -27,7 +27,7 @@ execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # ignore info line:
-execute unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuild aborted due to warnings. set "}, {text:"args.ignore_warnings", color:yellow}, {text:" to "}, {text:"true", color:dark_aqua}, {text:" to rebuild anyway."}]}
+execute unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuild aborted due to warnings. Set "}, {text:"args.ignore_warnings", color:yellow}, {text:" to "}, {text:"true", color:dark_aqua}, {text:" to rebuild anyway."}]}
 execute if data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuilding anyway ("}, {text:"args.ignore_warnings", color:yellow}, {text:" is "}, {text:"true", color:dark_aqua}, {text:")."}]}
 
 # send:
