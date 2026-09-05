@@ -6,24 +6,24 @@
 
 data modify storage scdev:_ v.rebuild.lines set value []
 
-data modify storage scdev:_ v.rebuild.lines append value {text:"Your input has issues:", color:gold, bold:true}
+data modify storage scdev:_ v.rebuild.lines append value {text:"Warnings about your input:", color:gold, bold:true}
 
 # enabled:
 data remove storage scdev:_ v.rebuild.list
 data modify storage scdev:_ v.rebuild.list set from storage scdev:_ v.rebuild.warning.already_enabled
-execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> Trying to enable packs that are already enabled:", color:gold}
+execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> Would be enabling packs that are already enabled:", color:gold}
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # disabled:
 data remove storage scdev:_ v.rebuild.list
 data modify storage scdev:_ v.rebuild.list set from storage scdev:_ v.rebuild.warning.already_disabled
-execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:" > Trying to disable packs that are already disabled:", color:gold}
+execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> Would be enabling packs that are already disabled:", color:gold}
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # disabled:
 data remove storage scdev:_ v.rebuild.list
 data modify storage scdev:_ v.rebuild.list set from storage scdev:_ v.rebuild.warning.not_installed
-execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:" > No packs with the following pack IDs are installed:", color:gold}
+execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> No packs with the following pack IDs are installed:", color:gold}
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # ignore info line:
