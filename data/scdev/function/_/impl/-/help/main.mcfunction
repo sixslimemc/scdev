@@ -17,6 +17,12 @@ data modify storage scdev:_ v.help.lines append value {text:"", color:gray, ital
 data modify storage scdev:_ v.help.lines[-1].hover_event.value.extra[0].text set from storage scdev:_ v.help.command
 data modify storage scdev:_ v.help.lines[-1].click_event.command set from storage scdev:_ v.help.command
 
+# rebuild tip:
+data modify storage scdev:_ v.help.command set value "/function scdev:-/rebuild/args {args:{disable:[], uninstall:[], enable:[]}}"
+data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Use "}, {text:"/function scdev:-/rebuild/args", color:aqua}, {text:" to explicitly rebuild (manage datapacks)."}], hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"COMMAND", color:aqua}, {text:"\n(Click to suggest)", color:dark_gray}]}}, click_event:{action:'suggest_command', command:"COMMAND"}}
+data modify storage scdev:_ v.help.lines[-1].hover_event.value.extra[0].text set from storage scdev:_ v.help.command
+data modify storage scdev:_ v.help.lines[-1].click_event.command set from storage scdev:_ v.help.command
+
 # info tip:
 data modify storage scdev:_ v.help.command set value "/function scdev:-/info/"
 data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Functions starting with "}, {text:"scdev:-/info/", color:gold}, {text:" can provide useful information about installed datapacks."}], hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"COMMAND", color:aqua}, {text:"\n(Click to suggest)", color:dark_gray}]}}, click_event:{action:'suggest_command', command:"COMMAND"}}
