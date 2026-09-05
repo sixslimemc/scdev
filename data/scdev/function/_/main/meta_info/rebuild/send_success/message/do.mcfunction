@@ -14,7 +14,7 @@ data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]---
 scoreboard players set *x _scdev 0
 execute if data storage scdev:_ t.success.enables[0] run scoreboard players set *x _scdev 1
 execute if data storage scdev:_ t.success.disables[0] run scoreboard players set *x _scdev 1
-execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Build Changes:", color:white, bold:true}
+execute if score *x _scdev matches 1 run data modify storage scdev:_ t.success.lines append value {text:"Build Changes:", color:white, bold:true}
 
 # enables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
