@@ -6,17 +6,17 @@ data modify storage scdev:_ v.rebuild.refs set value {disable:[], enable:[], uni
 # validate that inputs are lists:
 scoreboard players set *x _scdev 2
 execute if data storage scdev:_ v.rebuild.args.enable store success score *x _scdev run data modify storage scdev:_ v.rebuild.args.enable append value ""
-execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebuild/quick_error {line:{text:"", color:red, extra:[{text:"Argument "}, {text:"args.enable", color:yellow}, {text:" must be a list ("}, {text:"[a, b, ...]", color:white}, {text:") of pack IDs."}]}}
+execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebuild/quick_error {line:{text:"", color:red, extra:[{text:"Argument "}, {text:"args.enable", color:yellow}, {text:" must be a list of pack IDs ("}, {text:"[a, b, ...]", color:yellow}, {text:")."}]}}
 data remove storage scdev:_ v.rebuild.args.enable[-1]
 
 scoreboard players set *x _scdev 2
 execute if data storage scdev:_ v.rebuild.args.disable store success score *x _scdev run data modify storage scdev:_ v.rebuild.args.disable append value ""
-execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebuild/quick_error {line:{text:"", color:red, extra:[{text:"Argument "}, {text:"args.disable", color:yellow}, {text:" must be a list ("}, {text:"[a, b, ...]", color:yellow}, {text:") of pack IDs."}]}}
+execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebuild/quick_error {line:{text:"", color:red, extra:[{text:"Argument "}, {text:"args.disable", color:yellow}, {text:" must be a list of pack IDs ("}, {text:"[a, b, ...]", color:yellow}, {text:")."}]}}
 data remove storage scdev:_ v.rebuild.args.disable[-1]
 
 scoreboard players set *x _scdev 2
 execute if data storage scdev:_ v.rebuild.args.uninstall store success score *x _scdev run data modify storage scdev:_ v.rebuild.args.uninstall append value ""
-execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebuild/quick_error {line:{text:"", color:red, extra:[{text:"Argument "}, {text:"args.uninstall", color:white}, {text:" must be a list ("}, {text:"[a, b, ...]", color:white}, {text:") of pack IDs."}]}}
+execute if score *x _scdev matches 0 run return run function scdev:_/impl/-/rebuild/quick_error {line:{text:"", color:red, extra:[{text:"Argument "}, {text:"args.uninstall", color:yellow}, {text:" must be a list of pack IDs ("}, {text:"[a, b, ...]", color:yellow}, {text:")."}]}}
 data remove storage scdev:_ v.rebuild.args.uninstall[-1]
 
 # set {..refs.disable}:
