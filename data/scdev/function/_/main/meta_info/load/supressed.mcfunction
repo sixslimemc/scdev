@@ -5,5 +5,5 @@
 scoreboard players reset *supress_load _scdev
 
 data modify storage scdev:_/in send.lines set value [{text:"Loading summary supressed.", color:dark_gray}]
-data modify storage scdev:_/in send.to_listeners set value true
+data modify storage scdev:_/in send.to set value '@a[tag=scdev.listen]'
 function scdev:_/util/text/send/main

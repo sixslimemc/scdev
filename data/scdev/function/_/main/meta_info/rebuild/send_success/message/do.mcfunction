@@ -60,7 +60,7 @@ data modify storage scdev:_ t.success.lines append value {text:"----------------
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ t.success.lines
-data modify storage scdev:_/in send.to_listeners set value true
+data modify storage scdev:_/in send.to set value '@a[tag=scdev.listen]'
 function scdev:_/util/text/send/main
 
 kill @s

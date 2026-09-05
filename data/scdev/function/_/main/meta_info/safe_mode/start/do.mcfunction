@@ -20,5 +20,5 @@ data modify storage scdev:_ t.safe_mode.lines append value {text:"\"", color:lig
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ t.safe_mode.lines
-data modify storage scdev:_/in send.to_listeners set value true
+data modify storage scdev:_/in send.to set value '@a[tag=scdev.listen]'
 function scdev:_/util/text/send/main
