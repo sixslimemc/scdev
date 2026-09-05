@@ -5,5 +5,9 @@
 
 scoreboard objectives add _scdev dummy
 
+# DECLARE tags:
+# .listen
+# .listen-calls
+
 # init:
 execute unless score *init _scdev matches 1 run function scdev:_/sc/init
