@@ -6,12 +6,12 @@
 
 data modify storage scdev:_ v.rebuild.lines set value []
 
-data modify storage scdev:_ v.rebuild.lines append value {text:"> Warning:", color:gold, bold:true}
+data modify storage scdev:_ v.rebuild.lines append value {text:"Warnings:", color:gold, bold:true}
 
 # enabled:
 data remove storage scdev:_ v.rebuild.list
 data modify storage scdev:_ v.rebuild.list set from storage scdev:_ v.rebuild.warning.already_enabled
-execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:" > Trying to enable packs that are already enabled:", color:gold}
+execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> Trying to enable packs that are already enabled:", color:gold}
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # disabled:
@@ -27,8 +27,8 @@ execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # ignore info line:
-execute unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:yellow, italic:false, extra:[{text:"Rebuild aborted due to warnings. set "}, {text:"args.ignore_warnings", color:white}, {text:" to "}, {text:"true", color:dark_aqua}, {text:" to rebuild anyway."}]}
-execute if data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:yellow, italic:false, extra:[{text:"Rebuilding anyway ("}, {text:"args.ignore_warnings", color:white}, {text:" is "}, {text:"true", color:dark_aqua}, {text:")."}]}
+execute unless data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuild aborted due to warnings. set "}, {text:"args.ignore_warnings", color:yellow}, {text:" to "}, {text:"true", color:dark_aqua}, {text:" to rebuild anyway."}]}
+execute if data storage scdev:_ v.rebuild.args{ignore_warnings:true} run data modify storage scdev:_ v.rebuild.lines append value {text:"", color:gray, italic:false, extra:[{text:"Rebuilding anyway ("}, {text:"args.ignore_warnings", color:yellow}, {text:" is "}, {text:"true", color:dark_aqua}, {text:")."}]}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ v.rebuild.lines
