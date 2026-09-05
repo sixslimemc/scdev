@@ -24,7 +24,7 @@ data modify storage scdev:_ v.help.lines[-1].hover_event.value.extra[0].text set
 data modify storage scdev:_ v.help.lines[-1].click_event.command set from storage scdev:_ v.help.command
 
 # click tip:
-data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Many text elements sent by SCDev are hoverable and/or clickable (such as the text above)."}]}
+data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" Many text elements sent by SCDev are hoverable and/or clickable."}]}
 
 # info link:
 data modify storage scdev:_ v.help.lines append value {text:"", color:gray, italic:false, extra:[{text:">", color:white, bold:true}, {text:" For full information, "}, {text:"click here", color:blue, underlined:true, hover_event:{action:'show_text', value:{text:"Click to open URL", color:gray}}, click_event:{action:'open_url', url:'URL'}}, {text:"."}]}
