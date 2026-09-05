@@ -6,7 +6,7 @@
 
 data modify storage scdev:_ v.rebuild.lines set value []
 
-data modify storage scdev:_ v.rebuild.lines append value {text:"Potentially unintended input:", color:gold, bold:true}
+data modify storage scdev:_ v.rebuild.lines append value {text:"Warnings about your input:", color:gold, bold:true}
 
 # enabled:
 data remove storage scdev:_ v.rebuild.list
