@@ -22,6 +22,9 @@ data modify storage scdev:_ t.success.uninstalls set from storage scdev:_ data.p
 data modify storage scdev:_ t.success.installed set from storage slimecore:data world.installed
 execute if data storage scdev:_ t.success.installed[0] run function scdev:_/main/meta_info/rebuild/send_success/installed/each
 
+# add {..installs} to {..enables}:
+data modify storage scdev:_ t.success.enables append from storage scdev:_ t.success.installs[].pack
+
 # send message:
 execute summon minecraft:text_display run function scdev:_/main/meta_info/rebuild/send_success/message/do
 

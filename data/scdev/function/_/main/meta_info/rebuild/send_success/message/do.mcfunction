@@ -12,7 +12,7 @@ data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]---
 
 # enables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
-data modify storage scdev:_ t.success.list_symbol set value {text:"*", color:dark_green}
+data modify storage scdev:_ t.success.list_symbol set value {text:"+", color:green}
 execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Enabled:", color:white, bold:true}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
@@ -26,7 +26,7 @@ execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/met
 
 # installs:
 data modify storage scdev:_ t.success.entries set from storage scdev:_ t.success.installs
-data modify storage scdev:_ t.success.list_symbol set value {text:"+", color:green}
+data modify storage scdev:_ t.success.list_symbol set value {text:"*", color:dark_green}
 execute if data storage scdev:_ t.success.entries[0] run data modify storage scdev:_ t.success.lines append value {text:"Installed:", color:white, bold:true}
 execute if data storage scdev:_ t.success.entries[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.entries[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_entries/each
