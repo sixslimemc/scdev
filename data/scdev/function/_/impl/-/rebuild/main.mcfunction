@@ -65,7 +65,7 @@ execute if data storage scdev:_ v.rebuild.warning unless data storage scdev:_ v.
 data modify storage scdev:in pack_refs.pack_ids set value []
 data modify storage scdev:in pack_refs.pack_ids append from storage slimecore:data world.installed[{disabled:true}].pack.pack_id
 function scdev:util/pack_refs
-data modify storage scdev:_ v.rebuild.call.disable append from storage scdev:out pack_refs.result
+data modify storage scdev:_ v.rebuild.call.disable append from storage scdev:out pack_refs.result[]
 
 # rebuild:
 data modify storage slimecore:in rebuild set from storage scdev:_ v.rebuild.call
