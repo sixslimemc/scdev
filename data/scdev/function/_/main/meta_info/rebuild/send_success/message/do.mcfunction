@@ -10,17 +10,23 @@ scoreboard players set *success.any_changes _scdev 0
 # header:
 data modify storage scdev:_ t.success.lines append value {text:"--[ Rebuilt ]-------", bold:true, color:green}
 
+# build diff header:
+# scoreboard players set *x _scdev 0
+# execute if data storage scdev:_ t.success.enables[0] run scoreboard players set *x _scdev 1
+# execute if data storage scdev:_ t.success.disables[0] run scoreboard players set *x _scdev 1
+# execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Build Changes:", color:white, bold:true}
+
 # enables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.enables
 data modify storage scdev:_ t.success.list_symbol set value {text:"+", color:green}
-execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Enabled:", color:white, bold:true}
+execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Added to Build:", color:white, bold:true}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
 # disables:
 data modify storage scdev:_ t.success.packs set from storage scdev:_ t.success.disables
 data modify storage scdev:_ t.success.list_symbol set value {text:"-", color:red}
-execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Disabled:", color:white, bold:true}
+execute if data storage scdev:_ t.success.packs[0] run data modify storage scdev:_ t.success.lines append value {text:"Removed from Build:", color:white, bold:true}
 execute if data storage scdev:_ t.success.packs[0] run scoreboard players set *success.any_changes _scdev 1
 execute if data storage scdev:_ t.success.packs[0] run function scdev:_/main/meta_info/rebuild/send_success/message/list_packs/each
 
