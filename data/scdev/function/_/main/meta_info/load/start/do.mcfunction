@@ -1,4 +1,7 @@
-#> scdev:_/main/meta_info/load/start.1
+#> scdev:_/main/meta_info/load/start/do
+#--------------------
+# ../start
+#--------------------
 kill @s
 
 data modify storage scdev:_ t.load.lines set value []

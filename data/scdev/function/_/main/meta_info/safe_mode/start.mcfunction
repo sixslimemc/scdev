@@ -4,4 +4,6 @@
 #--------------------
 scoreboard players reset *supress_load _scdev
 
-tellraw @a[tag=scdev.listener] [{storage:"scdev:_", nbt:"const.chat_marker",interpret:true}, {text:" Safe mode is active; loading is disabled.", color:light_purple}]
+execute summon minecraft:text_display run function scdev:_/main/meta_info/safe_mode/start/do
+
+data remove storage scdev:_ t.safe_mode

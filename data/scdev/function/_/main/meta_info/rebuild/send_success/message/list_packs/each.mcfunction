@@ -10,7 +10,7 @@ function scdev:format/pack
 data modify storage scdev:_ t.success.pack_text set from storage scdev:out pack.result
 
 # line:
-data modify storage scdev:_ t.success.lines append value {text:"", color:gray, extra:[" ", "SYMBOL", " ", "PACK"]}
+data modify storage scdev:_ t.success.lines append value {text:"", color:gray, extra:["  ", "SYMBOL", " ", "PACK"]}
 data modify storage scdev:_ t.success.lines[-1].extra[1] set from storage scdev:_ t.success.list_symbol
 data modify storage scdev:_ t.success.lines[-1].extra[3] set from storage scdev:_ t.success.pack_text
 
