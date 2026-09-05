@@ -16,7 +16,7 @@ execute if data storage scdev:_ t.safe_mode.calls[0] run function scdev:_/main/m
 
 data modify storage scdev:_ t.safe_mode.lines append value {text:"--------------------", bold:true, color:light_purple}
 
-data modify storage scdev:_ t.safe_mode.lines append value {text:"\"", color:light_purple, extra:[{text:"Safe-loading finished.\" should be sent below."}], hover_event:{action:"show_text", value:[{text:"If no message is sent:\n - 'max_command_sequence_length' gamerule may need to be increased.\n - One or more packs may have an infinite loop in their safe mode function(s).", color:gray}]}}
+data modify storage scdev:_ t.safe_mode.lines append value {text:"\"", color:light_purple, extra:[{text:"Safe loading finished.\" should be sent below."}], hover_event:{action:"show_text", value:[{text:"If no message is sent:\n - 'max_command_sequence_length' gamerule may need to be increased.\n - One or more packs may have an infinite loop in their safe mode function(s).", color:gray}]}}
 
 # send:
 data modify storage scdev:_/in send.lines set from storage scdev:_ t.safe_mode.lines
