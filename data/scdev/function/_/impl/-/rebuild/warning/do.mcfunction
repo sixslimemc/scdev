@@ -6,7 +6,13 @@
 
 data modify storage scdev:_ v.rebuild.lines set value []
 
-data modify storage scdev:_ v.rebuild.lines append value {text:"Warnings about your input:", color:gold, bold:true}
+data modify storage scdev:_ v.rebuild.lines append value {text:"Warning(s):", color:gold, bold:true, hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"Your input:\n"}, {}]}}}
+
+# hover warning text:
+data modify storage scdev:_ v.rebuild.input set value {}
+data modify storage scdev:_ v.rebuild.input.args set from storage scdev:_ v.rebuild.args
+data modify entity @s text set value {storage:'scdev:_', nbt:'v.rebuild.input', color:white}
+data modify storage scdev:_ v.rebuild.lines[-1].hover_event.value.extra[1] set from entity @s text
 
 # enabled:
 data remove storage scdev:_ v.rebuild.list
@@ -23,7 +29,7 @@ execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/re
 # disabled:
 data remove storage scdev:_ v.rebuild.list
 data modify storage scdev:_ v.rebuild.list set from storage scdev:_ v.rebuild.warning.not_installed
-execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> No packs with the following pack IDs are installed:", color:gold}
+execute if data storage scdev:_ v.rebuild.list[0] run data modify storage scdev:_ v.rebuild.lines append value {text:"> No installed packs have the following pack IDs:", color:gold}
 execute if data storage scdev:_ v.rebuild.list[0] run function scdev:_/impl/-/rebuild/warning/list_refs/each
 
 # ignore info line:
