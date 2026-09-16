@@ -6,7 +6,7 @@
 
 data modify storage scdev:_ v.rebuild.lines set value []
 
-data modify storage scdev:_ v.rebuild.lines append value {text:"Warning(s):", color:gold, bold:true, hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"Input provided:\n"}, {}]}}}
+data modify storage scdev:_ v.rebuild.lines append value {text:"Warnings:", color:gold, bold:true, hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"Your input:\n"}, {}]}}}
 
 # hover warning text:
 data modify storage scdev:_ v.rebuild.input set value {}
