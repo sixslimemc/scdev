@@ -11,7 +11,7 @@ data modify storage scdev:_ v.rebuild.lines append value {text:"Warning(s):", co
 # hover warning text:
 data modify storage scdev:_ v.rebuild.input set value {}
 data modify storage scdev:_ v.rebuild.input.args set from storage scdev:_ v.rebuild.args
-data modify entity @s text set value {storage:'scdev:_', nbt:'v.rebuild.input', color:dark_aqua}
+data modify entity @s text set value {storage:'scdev:_', nbt:'v.rebuild.input', color:dark_aqua, plain:true}
 data modify storage scdev:_ v.rebuild.lines[-1].hover_event.value.extra[1] set from entity @s text
 
 # enabled:
