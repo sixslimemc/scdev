@@ -6,12 +6,12 @@
 
 data modify storage scdev:_ v.rebuild.lines set value []
 
-data modify storage scdev:_ v.rebuild.lines append value {text:"Warning(s):", color:gold, bold:true, hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"Your input:\n"}, {}]}}}
+data modify storage scdev:_ v.rebuild.lines append value {text:"Warning(s):", color:gold, bold:true, hover_event:{action:'show_text', value:{text:"", color:gray, italic:false, extra:[{text:"Input provided:\n"}, {}]}}}
 
 # hover warning text:
 data modify storage scdev:_ v.rebuild.input set value {}
 data modify storage scdev:_ v.rebuild.input.args set from storage scdev:_ v.rebuild.args
-data modify entity @s text set value {storage:'scdev:_', nbt:'v.rebuild.input', color:white}
+data modify entity @s text set value {storage:'scdev:_', nbt:'v.rebuild.input', color:dark_aqua}
 data modify storage scdev:_ v.rebuild.lines[-1].hover_event.value.extra[1] set from entity @s text
 
 # enabled:
