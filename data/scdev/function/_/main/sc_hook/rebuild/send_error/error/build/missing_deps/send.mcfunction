@@ -1,0 +1,12 @@
+#> scdev:_/main/sc_hook/rebuild/send_error/error/missing_deps/send
+#--------------------
+# ../../do
+#--------------------
+
+data modify storage scdev:_ t.error.lines append value {text: "> Dependencies would be unfulfilled:", color:dark_red}
+
+data modify storage scdev:_ t.error.entries set from storage slimecore:hook end.result.error.build_error.unfulfilled_dependencies
+execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/sc_hook/rebuild/send_error/error/build/missing_deps/each
+
+
+

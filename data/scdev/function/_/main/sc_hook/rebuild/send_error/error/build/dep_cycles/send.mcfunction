@@ -1,0 +1,9 @@
+#> scdev:_/main/sc_hook/rebuild/send_error/error/build/dep_cycles/send
+#--------------------
+# ../../../do
+#--------------------
+
+data modify storage scdev:_ t.error.lines append value {text: "> There would exist dependency cycle(s):", color:dark_red}
+
+data modify storage scdev:_ t.error.entries set from storage slimecore:hook end.result.error.build_error.dependency_cycles
+execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/sc_hook/rebuild/send_error/error/build/dep_cycles/each

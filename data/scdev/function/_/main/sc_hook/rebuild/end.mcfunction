@@ -1,0 +1,11 @@
+#> scdev:_/main/sc_hook/rebuild/end
+#--------------------
+# HOOK: slimecore::sc_hookrebuild/end
+#--------------------
+
+# success:
+execute if data storage slimecore:hook end.result.success run return run function scdev:_/main/sc_hook/rebuild/send_success/do
+
+# fail:
+execute if data storage slimecore:hook end.result.error run scoreboard players set *supress_load _scdev 1
+execute if data storage slimecore:hook end.result.error summon text_display run function scdev:_/main/sc_hook/rebuild/send_error/do

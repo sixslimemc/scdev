@@ -1,0 +1,9 @@
+#> scdev:_/main/sc_hook/rebuild/send_error/error/build/invalid_packs/send
+#--------------------
+# ../../../do
+#--------------------
+
+data modify storage scdev:_ t.error.lines append value {text:"> Invalid pack manifests:", color: dark_red}
+
+data modify storage scdev:_ t.error.entries set from storage slimecore:hook end.result.error.build_error.invalid_packs
+execute if data storage scdev:_ t.error.entries[0] run function scdev:_/main/sc_hook/rebuild/send_error/error/build/invalid_packs/each

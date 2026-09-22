@@ -1,6 +1,6 @@
 #> scdev:_/sc/rebuild_load
 #--------------------
-# _/main/meta_info/rebuild/start
+# _/main/sc_hook/rebuild/start
 #--------------------
 
 scoreboard objectives add _scdev dummy

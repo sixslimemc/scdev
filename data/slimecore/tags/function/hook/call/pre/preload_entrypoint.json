@@ -1,5 +1,5 @@
 {
     "values": [
-        "scdev:_/main/call/pre/preload_entrypoint"
+        "scdev:_/main/sc_hook/call/pre/preload_entrypoint"
     ]
 }

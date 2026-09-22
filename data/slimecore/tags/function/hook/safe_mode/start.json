@@ -1,5 +1,5 @@
 {
     "values": [
-        "scdev:_/main/safe_mode/start"
+        "scdev:_/main/sc_hook/safe_mode/start"
     ]
 }
